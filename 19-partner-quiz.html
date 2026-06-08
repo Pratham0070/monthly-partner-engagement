@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>20 · Partner Quiz — Centricity</title>
+<meta name="viewport" content="width=1280"/>
+<link rel="stylesheet" href="dashboard-style.css"/>
+<link rel="stylesheet" href="pastel-theme.css"/>
+</head>
+<body class="view-mode pastel" data-page="19-partner-quiz">
+
+<div class="topbar">
+  <div class="brand">
+    <img class="logo" src="centricity-logo.png" alt="Centricity — Together Forward"/>
+    <span class="divider"></span>
+    <span class="title">20 · PARTNER QUIZ</span>
+  </div>
+  <div class="actions">
+    <a class="back-btn" href="Monthly_Partner_Engagement_Dashboard.html">← Home</a>
+    <button id="editBtn" onclick="toggleEdit()">✎ Edit Mode</button>
+    <button onclick="window.print()">🖨 Print</button>
+    <button onclick="saveLocal()">💾 Save</button>
+    <button onclick="resetAll()" title="Restore defaults">↺</button>
+  </div>
+</div>
+
+<section>
+  <div class="section-head"><h2>20 · Partner Quiz — Engagement Check</h2><span class="src">5 questions · Tick to check your answer</span></div>
+
+  <div class="quiz-bar">
+    <div class="progress">Score: <b><span id="qCorrect">0</span></b> correct · <b style="color:var(--red)"><span id="qWrong">0</span></b> wrong · <span id="qTotal">0</span> of 5 attempted</div>
+    <button onclick="resetQuiz()">↺ Reset Quiz</button>
+  </div>
+
+  <div class="quiz-grid">
+
+    <div class="quiz-card">
+      <span class="qnum">QUESTION 1</span>
+      <p class="question">What was the SIP inflow in March 2026?</p>
+      <div class="quiz-options">
+        <label class="quiz-option" data-correct="false"><input type="checkbox"/><span class="opt-label">A. ₹29,845 Cr</span><span class="opt-icon"></span></label>
+        <label class="quiz-option" data-correct="false"><input type="checkbox"/><span class="opt-label">B. ₹31,002 Cr</span><span class="opt-icon"></span></label>
+        <label class="quiz-option" data-correct="true"><input type="checkbox"/><span class="opt-label">C. ₹32,087 Cr</span><span class="opt-icon"></span></label>
+        <label class="quiz-option" data-correct="false"><input type="checkbox"/><span class="opt-label">D. ₹30,000 Cr</span><span class="opt-icon"></span></label>
+      </div>
+    </div>
+
+    <div class="quiz-card">
+      <span class="qnum">QUESTION 2</span>
+      <p class="question">Total MF Industry AUM as of March 2026?</p>
+      <div class="quiz-options">
+        <label class="quiz-option" data-correct="false"><input type="checkbox"/><span class="opt-label">A. ₹73 L Cr</span><span class="opt-icon"></span></label>
+        <label class="quiz-option" data-correct="true"><input type="checkbox"/><span class="opt-label">B. ₹80 L Cr</span><span class="opt-icon"></span></label>
+        <label class="quiz-option" data-correct="false"><input type="checkbox"/><span class="opt-label">C. ₹65 L Cr</span><span class="opt-icon"></span></label>
+        <label class="quiz-option" data-correct="false"><input type="checkbox"/><span class="opt-label">D. ₹90 L Cr</span><span class="opt-icon"></span></label>
+      </div>
+    </div>
+
+    <div class="quiz-card">
+      <span class="qnum">QUESTION 3</span>
+      <p class="question">Which category has the highest AUM (Mar-26)?</p>
+      <div class="quiz-options">
+        <label class="quiz-option" data-correct="false"><input type="checkbox"/><span class="opt-label">A. Debt</span><span class="opt-icon"></span></label>
+        <label class="quiz-option" data-correct="false"><input type="checkbox"/><span class="opt-label">B. Hybrid</span><span class="opt-icon"></span></label>
+        <label class="quiz-option" data-correct="true"><input type="checkbox"/><span class="opt-label">C. Equity</span><span class="opt-icon"></span></label>
+        <label class="quiz-option" data-correct="false"><input type="checkbox"/><span class="opt-label">D. Others</span><span class="opt-icon"></span></label>
+      </div>
+    </div>
+
+    <div class="quiz-card">
+      <span class="qnum">QUESTION 4</span>
+      <p class="question">Primary benefit of SIP highlighted in the deck?</p>
+      <div class="quiz-options">
+        <label class="quiz-option" data-correct="false"><input type="checkbox"/><span class="opt-label">A. Tax-free returns</span><span class="opt-icon"></span></label>
+        <label class="quiz-option" data-correct="false"><input type="checkbox"/><span class="opt-label">B. Guaranteed returns</span><span class="opt-icon"></span></label>
+        <label class="quiz-option" data-correct="true"><input type="checkbox"/><span class="opt-label">C. Rupee Cost Averaging</span><span class="opt-icon"></span></label>
+        <label class="quiz-option" data-correct="false"><input type="checkbox"/><span class="opt-label">D. No market risk</span><span class="opt-icon"></span></label>
+      </div>
+    </div>
+
+    <div class="quiz-card">
+      <span class="qnum">QUESTION 5</span>
+      <p class="question">PMS products are typically targeted at?</p>
+      <div class="quiz-options">
+        <label class="quiz-option" data-correct="false"><input type="checkbox"/><span class="opt-label">A. Retail investors with ₹10,000</span><span class="opt-icon"></span></label>
+        <label class="quiz-option" data-correct="false"><input type="checkbox"/><span class="opt-label">B. Students</span><span class="opt-icon"></span></label>
+        <label class="quiz-option" data-correct="true"><input type="checkbox"/><span class="opt-label">C. HNI/UHNI investors (₹50L+)</span><span class="opt-icon"></span></label>
+        <label class="quiz-option" data-correct="false"><input type="checkbox"/><span class="opt-label">D. Only corporate investors</span><span class="opt-icon"></span></label>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <img class="logo-footer" src="centricity-logo.png" alt="Centricity — Together Forward"/>
+  <div>This material is intended for informational purposes only and does not constitute investment advice or a research report as defined under the SEBI (Research Analyst) Regulations, 2014. The views expressed are not tailored to any specific investor(s). Past performance is not indicative of future results. Investment products and market outlooks are subject to risks, including potential loss of principal. Investors should independently evaluate all information and consult their financial advisor before making any investment decisions. Data and information used in this post are sourced on as is basis from publicly available information and third-party reports/sites. Centricity (including its affiliates, directors, and employees) assumes no liability for any loss arising from the use of this material.</div>
+  <div style="margin-top:8px">Centricity Advisory Services Private Limited | Registered Office: 203B, 2nd Floor, Tower B, Global Business Park, DLF QE, Gurgaon, Haryana, India, 122002<br/>CIN: U67190HR2022PTC104568 | SEBI Registered Investment Adviser No. INA000018559</div>
+</footer>
+
+<script src="dashboard-script.js"></script>
+<script>
+function updateQuizCounter(){
+  const cards = document.querySelectorAll('.quiz-card');
+  let correct = 0, wrong = 0, attempted = 0;
+  cards.forEach(card=>{
+    if(card.dataset.locked !== 'true') return;
+    attempted++;
+    const userPick = card.querySelector('.quiz-option.user-pick');
+    if(userPick && userPick.dataset.correct === 'true') correct++;
+    else wrong++;
+  });
+  document.getElementById('qCorrect').textContent = correct;
+  document.getElementById('qWrong').textContent = wrong;
+  document.getElementById('qTotal').textContent = attempted;
+}
+
+// First click locks the whole question. Correct option turns green, the three
+// wrong options turn red, and the checkboxes are disabled so no further changes.
+function handleQuizChange(cb){
+  const opt = cb.closest('.quiz-option');
+  const card = opt.closest('.quiz-card');
+
+  // Already locked → bounce the click (shouldn't happen since inputs are disabled, but safe-guard)
+  if(card.dataset.locked === 'true'){ cb.checked = false; return; }
+
+  card.dataset.locked = 'true';
+  opt.classList.add('user-pick');
+
+  card.querySelectorAll('.quiz-option').forEach(o=>{
+    const isCorrect = o.dataset.correct === 'true';
+    o.classList.add(isCorrect ? 'correct' : 'wrong');
+    const icon = o.querySelector('.opt-icon');
+    if(icon) icon.textContent = isCorrect ? '✓' : '✗';
+    const otherCb = o.querySelector('input[type="checkbox"]');
+    if(otherCb) otherCb.disabled = true;
+  });
+
+  updateQuizCounter();
+}
+
+function resetQuiz(){
+  document.querySelectorAll('.quiz-card').forEach(card=>{
+    delete card.dataset.locked;
+    card.querySelectorAll('.quiz-option').forEach(opt=>{
+      opt.classList.remove('correct','wrong','user-pick');
+      const cb = opt.querySelector('input[type="checkbox"]');
+      if(cb){ cb.checked = false; cb.disabled = false; }
+      const icon = opt.querySelector('.opt-icon');
+      if(icon) icon.textContent = '';
+    });
+  });
+  updateQuizCounter();
+}
+
+document.addEventListener('DOMContentLoaded', ()=>{
+  document.querySelectorAll('.quiz-option input[type="checkbox"]').forEach(cb=>{
+    cb.addEventListener('change', ()=>handleQuizChange(cb));
+  });
+  updateQuizCounter();
+});
+</script>
+</body>
+</html>

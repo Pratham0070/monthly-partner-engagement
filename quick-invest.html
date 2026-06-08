@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Quick Invest — Centricity</title>
+<meta name="viewport" content="width=1280"/>
+<!-- Internal static replica of the "CEN | Quick Investment" tool screen. Opened from 08 · Sales Tools → Quick Invest tile. -->
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Segoe UI',Roboto,Arial,Helvetica,sans-serif;background:#ededed;color:#333;min-height:100vh}
+  .left-rail{position:fixed;left:0;top:0;bottom:0;width:10px;background:#000;z-index:40}
+  .app{padding-left:10px}
+
+  /* ---------- TOP NAV ---------- */
+  .topnav{background:#0b0b0b;height:54px;display:flex;align-items:center;justify-content:space-between;padding:0 24px 0 18px;color:#fff}
+  .topnav .brand img{height:30px;width:auto;display:block}
+  .topnav .right{display:flex;align-items:center;gap:22px}
+  .topnav .user{display:flex;align-items:center;gap:9px}
+  .topnav .avatar{width:30px;height:30px;border-radius:50%;background:#d9d9d9;display:flex;align-items:center;justify-content:center;color:#7a7a7a}
+  .topnav .uname{font-size:13px;letter-spacing:1.2px;font-weight:600;color:#f0f0f0}
+  .topnav .ic{color:#e9e9e9;display:flex;align-items:center;cursor:pointer;position:relative}
+  .topnav .ic:hover{color:#BD9568}
+  .topnav .badge{position:absolute;top:-7px;right:-8px;background:#e8772e;color:#fff;font-size:9px;font-weight:700;border-radius:50%;width:15px;height:15px;display:flex;align-items:center;justify-content:center}
+
+  /* ---------- BREADCRUMB ---------- */
+  .crumb{display:flex;align-items:center;padding:9px 18px;background:#ededed}
+  .crumb .home{width:30px;height:26px;background:#e6e6e6;border:1px solid #d4d4d4;display:flex;align-items:center;justify-content:center;color:#444;border-radius:3px;margin-right:6px}
+  .crumb .tab{background:#BD9568;color:#fff;font-size:12px;font-weight:600;letter-spacing:.4px;padding:6px 20px 6px 14px;clip-path:polygon(0 0, calc(100% - 11px) 0, 100% 50%, calc(100% - 11px) 100%, 0 100%)}
+
+  /* ---------- CARD ---------- */
+  .wrap{padding:18px 18px 40px}
+  .card{background:#fff;border-radius:10px;box-shadow:0 1px 5px rgba(0,0,0,.09);padding:26px 30px 42px;max-width:1240px;margin:0 auto}
+  .card h1{font-size:21px;font-weight:600;color:#222;padding-bottom:14px;border-bottom:1px solid #e4e4e4;margin-bottom:24px}
+
+  .row{display:flex;align-items:flex-start;gap:28px;flex-wrap:wrap}
+  .fld{display:flex;flex-direction:column;gap:8px}
+  .fld label{font-size:13px;color:#666;font-weight:400}
+  .input{border:1px solid #cccccc;border-radius:4px;padding:10px 13px;font-size:14px;color:#333;background:#fff;width:300px;height:42px}
+  .input.selbox{display:flex;align-items:center;justify-content:space-between;cursor:pointer}
+  .input.selbox .sel{color:#9a9a9a;font-size:13px;letter-spacing:2px}
+  .help{font-size:12px;font-weight:700;color:#111;margin-top:1px}
+  .btnfld label{visibility:hidden}
+  .process{background:linear-gradient(180deg,#8a6f56 0%,#6f573f 100%);color:#fff;border:none;border-radius:4px;height:42px;padding:0 34px;font-size:14px;cursor:pointer;letter-spacing:.3px}
+  .process:hover{filter:brightness(1.06)}
+
+  .dummy{margin:22px 0 4px;font-size:14px;color:#222}
+  .dummy b{font-weight:700}
+  .dummy a{color:#BD9568;font-weight:700;text-decoration:none;cursor:pointer}
+  .dummy a:hover{text-decoration:underline}
+
+  .sect{display:flex;align-items:center;background:linear-gradient(90deg,#d3d3d3 0%,#e8e8e8 100%);border-left:6px solid #000;padding:9px 14px;font-size:13px;font-weight:600;color:#333;margin:18px 0 18px;letter-spacing:.3px}
+
+  .alloc{display:flex;align-items:center;gap:34px;flex-wrap:wrap;padding:0 4px}
+  .alloc .grp{display:flex;align-items:center;gap:14px}
+  .chk{display:flex;align-items:center;gap:9px;font-size:14px;color:#333}
+  .chk input{width:15px;height:15px;accent-color:#8a6f56}
+  .alloc .chk{min-width:118px}
+  .pct{display:flex;align-items:center;background:#e9ecef;border:1px solid #ced4da;border-radius:4px;width:172px;overflow:hidden;height:40px}
+  .pct input{flex:1;border:none;background:transparent;padding:9px 13px;font-size:14px;color:#555;outline:none;min-width:0}
+  .pct .u{padding:0 13px;color:#8a8a8a;font-size:13px}
+
+  .ended{display:flex;align-items:center;gap:64px;padding:2px 4px 6px}
+
+  .submit-wrap{display:flex;justify-content:center;margin-top:36px}
+  .submit{background:#7c7771;color:#fff;border:none;border-radius:4px;height:48px;width:390px;max-width:92%;font-size:15px;cursor:pointer;letter-spacing:.3px}
+  .submit:hover{background:#6e6963}
+
+  @media (max-width:980px){ .input{width:240px} }
+  @media (max-width:680px){ .input,.pct{width:100%} .alloc,.ended{gap:20px} }
+</style>
+</head>
+<body>
+  <div class="left-rail"></div>
+  <div class="app">
+
+    <!-- ===== TOP NAV ===== -->
+    <div class="topnav">
+      <div class="brand">
+        <img src="centricity-logo.png" alt="Centricity — Together Forward"/>
+      </div>
+      <div class="right">
+        <div class="user">
+          <span class="avatar"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.6"/><path d="M5 20c0-3.6 3.2-5.6 7-5.6s7 2 7 5.6"/></svg></span>
+          <span class="uname">PRODUCTS TEAM</span>
+        </div>
+        <span class="ic" title="Notifications"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M18 8a6 6 0 1 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg></span>
+        <span class="ic" title="Cart"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="9" cy="20" r="1.5"/><circle cx="18.5" cy="20" r="1.5"/><path d="M2 2h3.2l2.6 12.4a1.8 1.8 0 0 0 1.8 1.4h8.4a1.8 1.8 0 0 0 1.8-1.4L23 6.5H6.2"/></svg><span class="badge">0</span></span>
+        <span class="ic" title="Logout"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="M16 17l5-5-5-5"/><path d="M21 12H9"/></svg></span>
+      </div>
+    </div>
+
+    <!-- ===== BREADCRUMB ===== -->
+    <div class="crumb">
+      <a class="home" href="08-sales-tools.html" title="Back to Sales Tools"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/></svg></a>
+      <span class="tab">CEN | Quick Investment</span>
+    </div>
+
+    <!-- ===== QUICK INVEST CARD ===== -->
+    <div class="wrap">
+      <div class="card">
+        <h1>Quick Invest</h1>
+
+        <div class="row">
+          <div class="fld">
+            <label>Select Client</label>
+            <div class="input selbox"><span>xyz</span><span class="sel">&#10005;&nbsp;&nbsp;&#9662;</span></div>
+          </div>
+          <div class="fld">
+            <label>Amount (INR)</label>
+            <input class="input" type="text" value="500000"/>
+            <span class="help">Five Lakh Rupees Only</span>
+          </div>
+          <div class="fld">
+            <label>Tenure (in Months)</label>
+            <input class="input" type="text" value="12"/>
+          </div>
+          <div class="fld btnfld">
+            <label>.</label>
+            <button class="process">Process</button>
+          </div>
+        </div>
+
+        <div class="dummy"><b>Create a </b><a href="#">Dummy User?</a></div>
+
+        <div class="sect">Asset Allocation Ratio</div>
+        <div class="alloc">
+          <div class="grp">
+            <span class="chk"><input type="checkbox"/> Equity</span>
+            <span class="pct"><input type="text" value="0"/><span class="u">%</span></span>
+          </div>
+          <div class="grp">
+            <span class="chk"><input type="checkbox"/> Debt</span>
+            <span class="pct"><input type="text" value="0"/><span class="u">%</span></span>
+          </div>
+          <div class="grp">
+            <span class="chk"><input type="checkbox"/> REITs / InvITs</span>
+            <span class="pct"><input type="text" value="0"/><span class="u">%</span></span>
+          </div>
+        </div>
+
+        <div class="sect">Open and Closed Ended</div>
+        <div class="ended">
+          <span class="chk"><input type="checkbox"/> Open Ended</span>
+          <span class="chk"><input type="checkbox"/> Close Ended</span>
+        </div>
+
+        <div class="submit-wrap">
+          <button class="submit">Submit</button>
+        </div>
+ 

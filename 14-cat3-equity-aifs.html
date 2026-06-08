@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>14 · Cat III Equity AIFs — Centricity</title>
+<meta name="viewport" content="width=1280"/>
+<link rel="stylesheet" href="dashboard-style.css"/>
+<link rel="stylesheet" href="pastel-theme.css"/>
+</head>
+<body class="view-mode pastel" data-page="14-cat3-equity-aifs">
+
+<div class="topbar">
+  <div class="brand">
+    <img class="logo" src="centricity-logo.png" alt="Centricity — Together Forward"/>
+    <span class="divider"></span>
+    <span class="title">14 · CAT III EQUITY AIFs</span>
+  </div>
+  <div class="actions">
+    <a class="back-btn" href="Monthly_Partner_Engagement_Dashboard.html">← Home</a>
+    <button id="editBtn" onclick="toggleEdit()">✎ Edit Mode</button>
+    <button onclick="window.print()">🖨 Print</button>
+    <button onclick="saveLocal()">💾 Save</button>
+    <button onclick="resetAll()" title="Restore defaults">↺</button>
+  </div>
+</div>
+
+<section>
+  <div class="section-head"><h2>14 · Focused Category III Equity AIFs</h2><span class="src">All options from Centricity Reckoner — May 2026 · Slides 44–55</span></div>
+
+  <!-- ===== Product selector ===== -->
+  <div class="pms-nav no-print">
+    <div class="pms-nav-head">Click a name to open its one-pager — open as many as you like</div>
+    <div class="pms-nav-grid">
+      <button type="button" class="pms-nav-item" data-name="motilal-founders"><span><b>Motilal Oswal Founders Fund VII</b></span></button>
+      <button type="button" class="pms-nav-item" data-name="carnelian-bharat"><span><b>Carnelian Bharat Amritkaal Fund</b></span></button>
+      <button type="button" class="pms-nav-item" data-name="kotak-iconic"><span><b>Kotak Iconic Fund II</b></span></button>
+      <button type="button" class="pms-nav-item" data-name="buoyant-aif"><span><b>Buoyant Capital – Opportunities</b></span></button>
+      <button type="button" class="pms-nav-item" data-name="singularity-eq"><span><b>Singularity Equity Fund 1</b></span></button>
+      <button type="button" class="pms-nav-item" data-name="icici-alpha"><span><b>ICICI Pru Alpha Opportunities</b></span></button>
+      <button type="button" class="pms-nav-item" data-name="sageone-growth"><span><b>SageOne Flagship Growth OE</b></span></button>
+      <button type="button" class="pms-nav-item" data-name="alchemy-lot"><span><b>Alchemy Leaders of Tomorrow</b></span></button>
+      <button type="button" class="pms-nav-item" data-name="alchemy-ltv"><span><b>Alchemy Long Term Ventures 3</b></span></button>
+      <button type="button" class="pms-nav-item" data-name="karma-jasmine"><span><b>Karma Capital Jasmine Fund</b></span></button>
+      <button type="button" class="pms-nav-item" data-name="emkay-stars"><span><b>Emkay Emerging Stars VII</b></span></button>
+      <button type="button" class="pms-nav-item" data-name="vedartha"><span><b>Vedartha India Opportunities I</b></span></button>
+    </div>
+    <div class="pms-nav-actions"><button type="button" class="pms-nav-clear">Collapse all</button></div>
+  </div>
+
+  <div id="pmsList" style="display:flex;flex-direction:column;gap:18px">
+    <div class="card pms-card" data-name="motilal-founders"><img src="reckoner-cat3eq-motilal-founders-vii.png" alt="Motilal Oswal Founders Fund Series VII" style="width:100%;height:auto;display:block;border-radius:2px"/></div>
+    <div class="card pms-card" data-name="carnelian-bharat"><img src="reckoner-cat3eq-carnelian-bharat-amritkaal.png" alt="Carnelian Bharat Amritkaal Fund" style="width:100%;height:auto;display:block;border-radius:2px"/></div>
+    <div class="card pms-card" data-name="kotak-iconic"><img src="reckoner-cat3eq-kotak-iconic-fund-ii.png" alt="Kotak Iconic Fund II" style="width:100%;height:auto;display:block;border-radius:2px"/></div>
+    <div class="card pms-card" data-name="buoyant-aif"><img src="reckoner-cat3eq-buoyant-opportunities.png" alt="Buoyant Capital - Opportunities Strategy (CAT III AIF)" style="width:100%;height:auto;display:block;border-radius:2px"/></div>
+    <div class="card pms-card" data-name="singularity-eq"><img src="reckoner-cat3eq-singularity-equity-fund-1.png" alt="Singularity Equity Fund 1" style="width:100%;height:auto;display:block;border-radius:2px"/></div>
+    <div class="card pms-card" data-name="icici-alpha"><img src="reckoner-cat3eq-icici-pru-alpha-opportunities.png" alt="ICICI Prudential Alpha Opportunities" style="width:100%;height:auto;display:block;border-radius:2px"/></div>
+    <div class="card pms-card" data-name="sageone-growth"><img src="reckoner-cat3eq-sageone-flagship-growth.png" alt="SageOne Flagship Growth OE Fund Scheme 3" style="width:100%;height:auto;display:block;border-radius:2px"/></div>
+    <div class="card pms-card" data-name="alchemy-lot"><img src="reckoner-cat3eq-alchemy-leaders-of-tomorrow.png" alt="Alchemy Leaders of Tomorrow" style="width:100%;height:auto;display:block;border-radius:2px"/></div>
+    <div class="card pms-card" data-name="alchemy-ltv"><img src="reckoner-cat3eq-alchemy-ltv-series-3.png" alt="Alchemy Long Term Ventures Fund Series 3" style="width:100%;height:auto;display:block;border-radius:2px"/></div>
+    <div class="card pms-card" data-name="karma-jasmine"><img src="reckoner-cat3eq-karma-jasmine-fund.png" alt="Karma Capital Jasmine Fund" style="width:100%;height:auto;display:block;border-radius:2px"/></div>
+    <div class="card pms-card" data-name="emkay-stars"><img src="reckoner-cat3eq-emkay-emerging-stars-vii.png" alt="Emkay Emerging Stars Fund Series VII" style="width:100%;height:auto;display:block;border-radius:2px"/></div>
+    <div class="card pms-card" data-name="vedartha"><img src="reckoner-cat3eq-vedartha-india-opp-i.png" alt="Vedartha India Opportunities Fund Series 1" style="width:100%;height:auto;display:block;border-radius:2px"/></div>
+  </div>
+
+  <div id="pmsNoResults" style="text-align:center;padding:30px;color:#888;font-style:italic">↑ Click a product name above to open its one-pager. You can open as many as you like.</div>
+</section>
+
+<footer>
+  <img class="logo-footer" src="centricity-logo.png" alt="Centricity — Together Forward"/>
+  <div>This material is intended for informational purposes only and does not constitute investment advice or a research report as defined under the SEBI (Research Analyst) Regulations, 2014. The views expressed are not tailored to any specific investor(s). Past performance is not indicative of future results. Investment products and market outlooks are subject to risks, including potential loss of principal. Investors should independently evaluate all information and consult their financial advisor before making any investment decisions. Data and information used in this post are sourced on as is basis from publicly available information and third-party reports/sites. Centricity (including its affiliates, directors, and employees) assumes no liability for any loss arising from the use of this material.</div>
+  <div style="margin-top:8px">Centricity Advisory Services Private Limited | Registered Office: 203B, 2nd Floor, Tower B, Global Business Park, DLF QE, Gurgaon, Haryana, India, 122002<br/>CIN: U67190HR2022PTC104568 | SEBI Registered Investment Adviser No. INA000018559</div>
+</footer>
+
+<script src="dashboard-script.js"></script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>02 · Valuations — Centricity</title>
+<meta name="viewport" content="width=1280"/>
+<link rel="stylesheet" href="dashboard-style.css"/>
+<link rel="stylesheet" href="pastel-theme.css"/>
+</head>
+<body class="view-mode pastel" data-page="02-valuations">
+
+<div class="topbar">
+  <div class="brand">
+    <img class="logo" src="centricity-logo.png" alt="Centricity — Together Forward"/>
+    <span class="divider"></span>
+    <span class="title">02 · MARKET VALUATION DASHBOARD</span>
+  </div>
+  <div class="actions">
+    <a class="back-btn" href="Monthly_Partner_Engagement_Dashboard.html">← Home</a>
+    <button id="editBtn" onclick="toggleEdit()">✎ Edit Mode</button>
+    <button onclick="window.print()">🖨 Print</button>
+    <button onclick="saveLocal()">💾 Save</button>
+    <button onclick="resetAll()" title="Restore defaults">↺</button>
+  </div>
+</div>
+
+<section>
+  <div class="section-head"><h2>02 · Market Valuation Dashboard</h2><span class="src">Source: Screener / Trendlyne — as at 05-Jun-2026</span></div>
+
+  <div class="grid-3">
+    <div class="val-card">
+      <div class="title">Nifty 50</div>
+      <div class="desc">Top 50 · Spot 23,367</div>
+      <div class="nums">
+        <div><div class="n" contenteditable="true">20.17</div><div class="l">P/E</div></div>
+        <div><div class="n" contenteditable="true">3.30</div><div class="l">P/B</div></div>
+        <div><div class="n" contenteditable="true">1.32%</div><div class="l">Div Yield</div></div>
+      </div>
+      <span class="tag fair">Fairly Valued</span>
+      <div class="verdict" contenteditable="true">P/E 20.17 — in line with 10Y average (~20–21). Div yield 1.32% sits in the neutral zone (above 1.5% historically signals undervaluation). Large caps look reasonably priced; not a screaming buy, not panic levels either.</div>
+    </div>
+    <div class="val-card">
+      <div class="title">Nifty Midcap 150</div>
+      <div class="desc">Companies ranked 101–250 by market cap</div>
+      <div class="nums">
+        <div><div class="n" contenteditable="true">33.45</div><div class="l">P/E</div></div>
+        <div><div class="n" contenteditable="true">5.30</div><div class="l">P/B</div></div>
+        <div><div class="n" contenteditable="true">0.85%</div><div class="l">Div Yield</div></div>
+      </div>
+      <span class="tag high">Elevated</span>
+      <div class="verdict" contenteditable="true">P/E 33.45 and P/B 5.30 — substantial premium to historical averages. Div yield just 0.85% reinforces the rich-valuation signal. Better earnings growth required to justify current prices; selective approach advised.</div>
+    </div>
+    <div class="val-card">
+      <div class="title">Nifty Smallcap 250</div>
+      <div class="desc">Companies ranked 251–500 by market cap</div>
+      <div class="nums">
+        <div><div class="n" contenteditable="true">31.24</div><div class="l">P/E</div></div>
+        <div><div class="n" contenteditable="true">2.99</div><div class="l">P/B</div></div>
+        <div><div class="n" contenteditable="true">1.16%</div><div class="l">Div Yield</div></div>
+      </div>
+      <span class="tag watch">Watch</span>
+      <div class="verdict" contenteditable="true">P/E 31.24 — drifting higher again from earlier post-correction lows. P/B 2.99 still benign vs midcaps. Div yield 1.16% better than midcaps. Stock selection remains the decisive factor here.</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <img class="logo-footer" src="centricity-logo.png" alt="Centricity — Together Forward"/>
+  <div>This material is intended for informational purposes only and does not constitute investment advice or a research report as defined under the SEBI (Research Analyst) Regulations, 2014. The views expressed are not tailored to any specific investor(s). Past performance is not indicative of future results. Investment products and market outlooks are subject to risks, including potential loss of principal. Investors should independently evaluate all information and consult their financial advisor before making any investment decisions. Data and information used in this post are sourced on as is basis from publicly available information and third-party reports/sites. Centricity (including its affiliates, directors, and employees) assumes no liability for any loss arising from the use of this material.</div>
+  <div style="margin-top:8px">Centricity Advisory Services Private Limited | Registered Office: 203B, 2nd Floor, Tower B, Global Business Park, DLF QE, Gurgaon, Haryana, India, 122002<br/>CIN: U67190HR2022PTC104568 | SEBI Registered Investment Adviser No. INA000018559</div>
+</footer>
+
+<script src="dashboard-script.js"></script>
+</body>
+</html>

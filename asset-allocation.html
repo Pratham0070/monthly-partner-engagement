@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Asset Allocation Module — Centricity</title>
+<meta name="viewport" content="width=1280"/>
+<!-- Internal static replica of the "CEN | Asset Allocation" tool screen. Opened from 08 · Sales Tools → Asset Allocation tile. -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Segoe UI',Roboto,Arial,Helvetica,sans-serif;background:#f7f7f7;color:#333}
+
+  /* ---------- TOP NAV ---------- */
+  .topnav{background:#0b0b0b;height:56px;display:flex;align-items:center;justify-content:space-between;padding:0 24px 0 0;color:#fff;position:relative;z-index:20}
+  .topnav .left{display:flex;align-items:center;gap:14px}
+  .topnav .burger{width:58px;height:56px;display:flex;align-items:center;justify-content:center;color:#e9e9e9;cursor:pointer}
+  .topnav .brand img{height:30px;width:auto;display:block}
+  .topnav .right{display:flex;align-items:center;gap:22px}
+  .topnav .user{display:flex;align-items:center;gap:9px}
+  .topnav .avatar{width:30px;height:30px;border-radius:50%;background:#d9d9d9;display:flex;align-items:center;justify-content:center;color:#7a7a7a}
+  .topnav .uname{font-size:13px;letter-spacing:1.2px;font-weight:600;color:#f0f0f0}
+  .topnav .ic{color:#e9e9e9;display:flex;align-items:center;cursor:pointer;position:relative}
+  .topnav .ic:hover{color:#BD9568}
+  .topnav .badge{position:absolute;top:-7px;right:-8px;background:#e8772e;color:#fff;font-size:9px;font-weight:700;border-radius:50%;width:15px;height:15px;display:flex;align-items:center;justify-content:center}
+
+  /* ---------- SHELL : sidebar + main ---------- */
+  .shell{display:flex;min-height:calc(100vh - 56px)}
+  .sidebar{width:58px;background:#15110d;flex:0 0 58px;display:flex;flex-direction:column;align-items:center;padding:10px 0;gap:2px}
+  .sidebar .sb-ic{width:42px;height:40px;display:flex;align-items:center;justify-content:center;color:#b9b3a8;border-radius:4px;cursor:pointer;transition:background .2s,color .2s}
+  .sidebar .sb-ic:hover{background:#26201a;color:#BD9568}
+  .main{flex:1;min-width:0;background:#f7f7f7}
+
+  /* ---------- BREADCRUMB ---------- */
+  .crumb{display:flex;align-items:center;padding:9px 18px;background:#ededed;border-bottom:1px solid #e2e2e2}
+  .crumb .home{width:30px;height:26px;background:#e6e6e6;border:1px solid #d4d4d4;display:flex;align-items:center;justify-content:center;color:#444;border-radius:3px;margin-right:6px}
+  .crumb .tab{background:#BD9568;color:#fff;font-size:12px;font-weight:600;letter-spacing:.4px;padding:6px 20px 6px 14px;clip-path:polygon(0 0, calc(100% - 11px) 0, 100% 50%, calc(100% - 11px) 100%, 0 100%)}
+
+  /* ---------- HEADING ---------- */
+  .page{padding:18px 26px 40px}
+  .page-title{font-size:19px;color:#222;font-weight:400;padding-bottom:12px;border-bottom:1px solid #e2e2e2;margin-bottom:20px}
+  .page-title b{font-weight:700}
+  .page-title .sub{color:#8a8a8a;font-size:14px;font-weight:400}
+
+  /* ---------- CARDS ---------- */
+  .cards{display:grid;grid-template-columns:1fr 1.6fr;gap:22px}
+  .card{border:1px solid #e0e0e0;border-radius:4px;background:#fff;overflow:hidden}
+  .card .hd{display:flex;align-items:center;justify-content:space-between;background:#ececec;border-bottom:1px solid #e0e0e0;padding:11px 16px}
+  .card .hd .t{font-size:12.5px;font-weight:700;letter-spacing:1px;color:#555}
+  .card .hd .cal{color:#9a9a9a;display:flex}
+  .card .bd{background:#f4f4f4;padding:14px 18px 20px}
+
+  .ason{display:flex;align-items:center;justify-content:flex-end;gap:7px;font-size:12.5px;color:#555;font-style:italic;margin-bottom:6px}
+  .ason b{color:#222;font-style:normal;font-weight:700}
+  .ason .info{width:15px;height:15px;border-radius:50%;background:#bdbdbd;color:#fff;font-size:10px;font-style:normal;display:flex;align-items:center;justify-content:center;font-weight:700}
+
+  .donut-wrap{position:relative;height:230px;margin:6px auto 0;max-width:300px}
+  .legend{display:flex;align-items:center;justify-content:center;gap:34px;margin-top:14px;font-size:12.5px;color:#444}
+  .legend .lg{display:flex;align-items:center;gap:8px}
+  .legend .dot{width:11px;height:11px;border-radius:50%}
+
+  .val-top{display:flex;align-items:center;justify-content:space-between;font-size:12.5px;color:#777;font-style:italic;margin-bottom:6px}
+  .val-top b{color:#444;font-style:normal}
+  .val-wrap{position:relative;height:278px}
+
+  @media (max-width:980px){ .cards{grid-template-columns:1fr} .val-wrap{height:300px} }
+</style>
+</head>
+<body>
+
+  <!-- ===== TOP NAV ===== -->
+  <div class="topnav">
+    <div class="left">
+      <span class="burger"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 6h18M3 12h18M3 18h18"/></svg></span>
+      <span class="brand"><img src="centricity-logo.png" alt="Centricity — Together Forward"/></span>
+    </div>
+    <div class="right">
+      <div class="user">
+        <span class="avatar"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.6"/><path d="M5 20c0-3.6 3.2-5.6 7-5.6s7 2 7 5.6"/></svg></span>
+        <span class="uname">PRODUCTS TEAM</span>
+      </div>
+      <span class="ic" title="Notifications"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M18 8a6 6 0 1 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg></span>
+      <span class="ic" title="Cart"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="9" cy="20" r="1.5"/><circle cx="18.5" cy="20" r="1.5"/><path d="M2 2h3.2l2.6 12.4a1.8 1.8 0 0 0 1.8 1.4h8.4a1.8 1.8 0 0 0 1.8-1.4L23 6.5H6.2"/></svg><span class="badge">0</span></span>
+      <span class="ic" title="Logout"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="M16 17l5-5-5-5"/><path d="M21 12H9"/></svg></span>
+    </div>
+  </div>
+
+  <div class="shell">
+
+    <!-- ===== SIDEBAR ===== -->
+    <aside class="sidebar">
+      <span class="sb-ic" title="Dashboard"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></span>
+      <span class="sb-ic" title="Calendar"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg></span>
+      <span class="sb-ic" title="Products"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 16V8l-9-5-9 5v8l9 5 9-5z"/><path d="M3.3 7.5 12 12.5l8.7-5M12 22V12.5"/></svg></span>
+      <span class="sb-ic" title="Reports"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4h11l5 5v11a0 0 0 0 1 0 0H4z"/><path d="M8 13h8M8 17h8M8 9h3"/></svg></span>
+      <span class="sb-ic" title="Research"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></span>
+      <span class="sb-ic" title="Upload"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M12 18v-6M9.5 14.5 12 12l2.5 2.5"/></svg></span>
+      <span class="sb-ic" title="Documents"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M4 16V4h12"/></svg></span>
+      <span class="sb-ic" title="Switch"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M7 4 3 8l4 4M3 8h13M17 20l4-4-4-4M21 16H8"/></svg></span>
+      <span class="sb-ic" title="Performance"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 3v18h18"/><path d="m6 14 4-5 4 3 5-7"/></svg></span>
+      <span class="sb-ic" title="Institutions"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 21h18M5 21V9l7-5 7 5v12M9 21v-6h6v6"/></svg></span>
+      <span class="sb-ic" title="Download"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg></span>
+    </aside>
+
+    <!-- ===== MAIN ===== -->
+    <main class="main">
+
+      <div class="crumb">
+        <a class="home" href="08-sales-tools.html" title="Back to Sales Tools"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/></svg></a>
+        <span class="tab">CEN | Asset Allocation</span>
+      </div>
+
+      <div class="page">
+        <div class="page-title"><b>Asset Allocation Module</b> <span class="sub">(For Fresh Allocation)</span></div>
+
+        <div class="cards">
+
+          <!-- ALLOCATION -->
+          <div class="card">
+            <div class="hd">
+              <span class="t">ALLOCATION</span>
+              <span class="cal"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg></span>
+            </div>
+            <div class="bd">
+              <div class="ason">As on Date - <b>07-06-2026</b> <span class="info">i</span></div>
+              <div class="donut-wrap"><canvas id="allocDonut"></canvas></div>
+              <div class="legend">
+                <span class="lg"><span class="dot" style="background:#D9BE9E"></span> EQUITY : 35.00%</span>
+                <span class="lg"><span class="dot" style="background:#586C88"></span> DEBT : 65.00%</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- VALUATION INDEX -->
+          <div class="card">
+            <div class="hd">
+              <span class="t">VALUATION INDEX</span>
+              <span class="cal"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg></span>
+            </div>
+            <div class="bd">
+              <div class="val-top"><span>Month <b>- April</b></span><span>Equity : Debt</span></div>
+              <div class="val-wrap"><canvas id="valIndex"></canvas></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+<script>
+  // ---------- ALLOCATION donut ----------
+  new Chart(document.getElementById('allocDonut'), {
+    type:'doughnut',
+    data:{ labels:['Equity','Debt'], datasets:[{ data:[35,65], backgroundColor:['#D9BE9E','#586C88'], borderColor:'#f4f4f4', borderWidth:2, hoverOffset:0 }] },
+    options:{ cutout:'68%', rotation:0, plugins:{legend:{display:false},tooltip:{enabled:false}}, animation:false, responsive:true, maintainAspectRatio:false }
+  });
+
+  // ---------- VALUATION INDEX line + bands ----------
+  const bands=[
+    {from:128,to:170,color:'#EA6A66',name:'High Valuation',ratio:'20 : 80'},
+    {from:118,to:128,color:'#F2A93B',name:'Moderate High Valuation',ratio:'35 : 65'},
+    {from:105,to:118,color:'#5BC0EB',name:'Neutral',ratio:'50 : 50'},
+    {from:85,to:105,color:'#A6D9A6',name:'Moderate Low Valuation',ratio:'65 : 35'},
+    {from:40,to:85,color:'#4FAE7A',name:'Low Valuation',ratio:'80 : 20'}
+  ];
+  const bandsPlugin={ id:'bands', beforeDatasetsDraw(chart){
+    const a=chart.chartArea, y=chart.scales.y, ctx=chart.ctx; if(!a) return; ctx.save();
+    bands.forEach(b=>{
+      const yTop=y.getPixelForValue(b.to), yBot=y.getPixelForValue(b.from);
+      ctx.fillStyle=b.color; ctx.fillRect(a.left, yTop, a.right-a.left, yBot-yTop);
+      ctx.fillStyle='rgba(35,28,20,0.9)'; ctx.font='600 11px Segoe UI,Arial'; ctx.textAlign='center'; ctx.textBaseline='middle';
+      ctx.fillText(b.name, (a.left+a.right)/2, (yTop+yBot)/2);
+      ctx.fillStyle='#333'; ctx.font='12px Segoe UI,Arial'; ctx.textAlign='left';
+      ctx.fillText(b.ratio, a.right+10, (yTop+yBot)/2);
+    });
+    ctx.restore();
+  }};
+  const labels=['Apr-05','Apr-06','Apr-07','Apr-08','Apr-09','Apr-10','Apr-11','Apr-12','Apr-13','Apr-14','Apr-15','Apr-16','Apr-17','Apr-18','Apr-19','Apr-20','Apr-21','Apr-22','Apr-23','Apr-24','Apr-25','Apr-26'];
+  const vals=[90,118,138,150,44,92,70,96,86,78,98,84,104,132,112,122,150,124,100,116,96,110];
+  new Chart(document.getElementById('valIndex'), {
+    type:'line',
+    data:{ labels, datasets:[{ data:vals, borderColor:'#111', borderWidth:1.4, pointRadius:0, tension:0, fill:false }] },
+    options:{
+      animation:false, responsive:true, maintainAspectRatio:false,
+      layout:{padding:{right:54, top:6}},
+      plugins:{legend:{display:false}, tooltip:{enabled:false}},
+      scales:{
+        y:{ min:40, max:170,
+            afterBuildTicks:ax=>{ ax.ticks=[40,70,90,110,130,150,170].map(v=>({value:v})); },
+            grid:{display:false}, border:{color:'#888'},
+            title:{display:true, text:'(VALUATION INDEX)', font:{size:10}, color:'#444'},
+            ticks:{font:{size:10}, color:'#333'} },
+        x:{ grid:{display:false}, border:{color:'#888'},
+            title:{display:true, text:'(MONTH)', font:{size:11}, color:'#444'},
+            ticks:{font:{size:10}, color:'#333', maxRotation:90, minRotation:90, autoSkip:false} }
+      }
+    },
+    plugins:[bandsPlugin]
+  });
+</script>
+</body>
+</html>

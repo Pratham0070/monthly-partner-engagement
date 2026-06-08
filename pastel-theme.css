@@ -1,0 +1,1342 @@
+/* ============================================================
+   CENTRICITY — DARK THEME (shared across all section pages)
+   File kept named pastel-theme.css for HTML link compatibility.
+   Activated by class .pastel on <body>.
+
+   Aesthetic match to home page:
+   - Warm charcoal base (#0A0807) with soft gold radial glow
+   - Hairline gold accents (#BD9568) on cards, KPIs, headings
+   - Cambria throughout, refined letter-spacing
+   - Single cubic-bezier easing curve for coherent motion
+   - Staggered entry animations on grids
+   ============================================================ */
+
+:root{
+  --bg-0:        #0A0807;
+  --bg-1:        #0F0C0A;
+  --bg-2:        #14110D;
+  --bg-3:        #1A1612;
+  --bg-card:     #14110D;
+  --bg-card-hover: #1A1612;
+  --line:        rgba(189,149,104,0.18);
+  --line-mid:    rgba(189,149,104,0.30);
+  --line-strong: rgba(189,149,104,0.55);
+  --hairline:    rgba(239,230,214,0.08);
+  --gold:        #BD9568;
+  --gold-light:  #D9B486;
+  --gold-deep:   #9A7949;
+  --cream:       #EFE6D6;
+  --text-1:      #EFE6D6;
+  --text-2:      rgba(239,230,214,0.72);
+  --text-3:      rgba(239,230,214,0.48);
+  --text-4:      rgba(239,230,214,0.32);
+  --pos:         #6BBF8A;
+  --neg:         #E26B73;
+  --ease:        cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ---------- LAYOUT — viewport-bound, footer hugs bottom ---------- */
+html{
+  overflow-x:hidden !important;
+  max-width:100vw;
+  width:100%;
+  margin:0;
+  padding:0;
+  background:var(--bg-0);
+}
+body.pastel{
+  overflow-x:hidden !important;
+  width:100%;
+  max-width:100vw;
+  margin:0;
+  padding:0;
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  color:var(--text-1);
+  font-family:Cambria, Georgia, 'Times New Roman', serif;
+  background:
+    radial-gradient(ellipse 1400px 700px at 50% -100px, rgba(189,149,104,0.07) 0%, transparent 65%),
+    radial-gradient(ellipse 900px 600px at 100% 100%, rgba(189,149,104,0.04) 0%, transparent 60%),
+    var(--bg-0);
+  /* entry animation removed — render immediately; transform/filter cleared to avoid containing-block bug */
+  animation:none !important;
+  transform:none !important;
+  filter:none !important;
+}
+@keyframes darkPageIn{ from{opacity:0} to{opacity:1} }
+body.pastel > *{ max-width:100%; box-sizing:border-box; }
+body.pastel > .topbar,
+body.pastel > .home-hero,
+body.pastel > .page-nav,
+body.pastel > footer{ flex:0 0 auto; width:100%; }
+body.pastel > section{ flex:1 0 auto; width:100%; }
+
+/* ---------- TOPBAR — glass-morphism dark ---------- */
+body.pastel .topbar{
+  background:rgba(10,8,7,0.78);
+  backdrop-filter:blur(20px) saturate(140%);
+  -webkit-backdrop-filter:blur(20px) saturate(140%);
+  border-bottom:1px solid var(--line);
+  padding:14px 36px;
+  color:var(--cream);
+}
+body.pastel .topbar .brand .title{
+  font-size:11.5px;
+  letter-spacing:3px;
+  font-weight:600;
+  color:rgba(239,230,214,0.92);
+  text-transform:uppercase;
+}
+body.pastel .topbar .brand .divider{
+  background:var(--line-strong);
+  height:22px;
+  width:1px;
+  opacity:0.6;
+}
+body.pastel .topbar .brand img.logo{
+  filter:brightness(1.05) contrast(1.05);
+}
+body.pastel .topbar select,
+body.pastel .topbar button,
+body.pastel .topbar a.back-btn,
+body.pastel .topbar input[type="month"]{
+  background:rgba(255,255,255,0.04);
+  border:1px solid var(--line);
+  color:var(--cream);
+  padding:7px 14px;
+  font-size:11.5px;
+  letter-spacing:0.5px;
+  border-radius:2px;
+  font-family:Cambria, Georgia, serif;
+  transition:background 0.3s var(--ease), border-color 0.3s var(--ease), color 0.3s var(--ease);
+  cursor:pointer;
+}
+body.pastel .topbar button:hover,
+body.pastel .topbar a.back-btn:hover{
+  background:rgba(189,149,104,0.15);
+  border-color:var(--gold);
+  color:var(--gold-light);
+}
+body.pastel .topbar .actions > span{
+  color:var(--text-3) !important;
+  letter-spacing:1.5px;
+  text-transform:uppercase;
+  font-size:10px !important;
+}
+
+/* ---------- SECTION + HEADERS ---------- */
+body.pastel section{
+  padding:48px 56px;
+  background:transparent;
+  border:none;
+  opacity:0;
+  animation:sectionFadeIn 0.7s var(--ease) 0.15s forwards;
+}
+@keyframes sectionFadeIn{
+  from{ opacity:0; transform:translateY(12px); }
+  to  { opacity:1; transform:translateY(0); }
+}
+
+body.pastel .section-head{
+  background:transparent;
+  color:var(--cream);
+  padding:0 0 20px;
+  margin:0 0 36px;
+  border:none;
+  border-bottom:1px solid var(--line);
+  display:block;
+  position:relative;
+}
+body.pastel .section-head::after{
+  content:'';
+  position:absolute;
+  left:0; bottom:-1px;
+  width:72px; height:2px;
+  background:linear-gradient(90deg, var(--gold) 0%, var(--gold-light) 100%);
+}
+body.pastel .section-head h2{
+  font-family:Cambria, Georgia, serif;
+  font-size:24px;
+  font-weight:400;
+  letter-spacing:1.5px;
+  color:var(--cream);
+  text-transform:uppercase;
+  margin:0 0 8px;
+  display:block;
+}
+body.pastel .section-head .src{
+  font-family:Cambria, Georgia, serif;
+  font-size:11px;
+  color:var(--text-3);
+  font-style:italic;
+  letter-spacing:0.5px;
+  background:none;
+  -webkit-text-fill-color:initial;
+  display:block;
+  font-weight:400;
+  text-transform:none;
+}
+
+body.pastel section h3{
+  font-family:Cambria, Georgia, serif;
+  font-size:12.5px;
+  font-weight:700;
+  color:var(--cream);
+  letter-spacing:3px;
+  text-transform:uppercase;
+  margin:40px 0 20px;
+  padding:0;
+  border:none;
+  display:flex; align-items:center; gap:14px;
+}
+body.pastel section h3::before{
+  content:'';
+  display:inline-block;
+  width:36px; height:1px;
+  background:linear-gradient(90deg, var(--gold) 0%, transparent 100%);
+}
+
+body.pastel section h4{
+  font-family:Cambria, Georgia, serif;
+  font-size:13px;
+  font-weight:700;
+  color:var(--cream);
+  letter-spacing:1.5px;
+  text-transform:uppercase;
+  margin:0 0 12px;
+}
+body.pastel section p{
+  font-size:13px;
+  color:var(--text-2);
+  line-height:1.7;
+}
+body.pastel section b,
+body.pastel section strong{ color:var(--cream); font-weight:600; }
+body.pastel section a{ color:var(--gold-light); text-decoration:none; border-bottom:1px solid var(--line); }
+body.pastel section a:hover{ color:var(--gold); border-bottom-color:var(--gold); }
+
+/* ---------- KPI ROW ---------- */
+body.pastel .kpi-row{
+  gap:1px;
+  margin:18px 0 32px;
+  background:var(--line);
+  border:1px solid var(--line);
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  display:grid;
+}
+body.pastel .kpi-row .kpi{
+  background:var(--bg-card);
+  border:none;
+  border-radius:0;
+  padding:22px 22px 20px;
+  box-shadow:none;
+  position:relative;
+  margin:0;
+  transition:background 0.35s var(--ease);
+}
+body.pastel .kpi-row .kpi::after{
+  content:'';
+  position:absolute;
+  left:22px; top:0;
+  width:28px; height:2px;
+  background:linear-gradient(90deg, var(--gold) 0%, var(--gold-light) 100%);
+  transition:width 0.4s var(--ease);
+}
+body.pastel .kpi-row .kpi:hover{ background:var(--bg-card-hover); }
+body.pastel .kpi-row .kpi:hover::after{ width:calc(100% - 44px); }
+body.pastel .kpi-row .kpi .lbl{
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:2px;
+  color:var(--text-3);
+  text-transform:uppercase;
+  margin-top:8px;
+  opacity:1;
+}
+body.pastel .kpi-row .kpi .val{
+  font-family:Cambria, Georgia, serif;
+  font-size:26px;
+  font-weight:400;
+  color:var(--cream);
+  margin-top:10px;
+  line-height:1.1;
+  letter-spacing:-0.3px;
+}
+body.pastel .kpi-row .kpi .sub{
+  font-size:11px;
+  color:var(--text-3);
+  margin-top:6px;
+  font-style:italic;
+  letter-spacing:0.3px;
+}
+
+/* Compact 12-tile variant (Market Outlook) */
+body.pastel .kpi-row.compact-12{
+  grid-template-columns:repeat(6,1fr);
+}
+body.pastel .kpi-row.compact-12 .kpi{ padding:18px 16px; }
+body.pastel .kpi-row.compact-12 .kpi::after{ left:16px; width:22px; }
+body.pastel .kpi-row.compact-12 .kpi:hover::after{ width:calc(100% - 32px); }
+body.pastel .kpi-row.compact-12 .kpi .lbl{ font-size:9.5px; letter-spacing:1.6px; min-height:24px; line-height:1.3; }
+body.pastel .kpi-row.compact-12 .kpi .val{ font-size:22px; }
+body.pastel .kpi-row.compact-12 .kpi .sub{ font-size:10px; }
+@media (max-width:1024px){ body.pastel .kpi-row.compact-12{grid-template-columns:repeat(4,1fr)} }
+@media (max-width:680px){ body.pastel .kpi-row.compact-12{grid-template-columns:repeat(2,1fr)} }
+
+/* ---------- GRIDS ---------- */
+body.pastel section .grid-2,
+body.pastel section .grid-3,
+body.pastel section .grid-4{ gap:20px; display:grid; }
+body.pastel section .grid-2{ grid-template-columns:repeat(2,1fr); }
+body.pastel section .grid-3{ grid-template-columns:repeat(3,1fr); }
+body.pastel section .grid-4{ grid-template-columns:repeat(4,1fr); }
+@media (max-width:1024px){
+  body.pastel section .grid-3,
+  body.pastel section .grid-4{ grid-template-columns:repeat(2,1fr); }
+}
+@media (max-width:680px){
+  body.pastel section .grid-2,
+  body.pastel section .grid-3,
+  body.pastel section .grid-4{ grid-template-columns:1fr; }
+}
+
+/* ---------- CARDS ---------- */
+body.pastel section .card{
+  background:var(--bg-card);
+  border:1px solid var(--line);
+  border-top:2px solid var(--gold);
+  border-radius:0;
+  padding:24px 26px;
+  box-shadow:0 1px 2px rgba(0,0,0,0.3);
+  position:relative;
+  overflow:visible;
+  transition:background 0.4s var(--ease), box-shadow 0.4s var(--ease), transform 0.4s var(--ease), border-color 0.4s var(--ease);
+}
+body.pastel section .card:hover{
+  background:var(--bg-card-hover);
+  box-shadow:0 18px 36px rgba(0,0,0,0.45), 0 4px 12px rgba(189,149,104,0.12);
+  transform:translateY(-3px);
+  border-top-color:var(--gold-light);
+}
+body.pastel section .card h3{
+  margin-top:0;
+  margin-bottom:14px;
+  font-size:11px;
+  letter-spacing:2.5px;
+  color:var(--cream);
+}
+body.pastel section .card h3::before{ display:none; }
+body.pastel section .card h4{
+  font-size:13px;
+  letter-spacing:1.2px;
+  color:var(--cream);
+  margin:0 0 12px;
+}
+body.pastel section .card p{
+  font-size:12.5px;
+  color:var(--text-2);
+  line-height:1.65;
+}
+
+/* Big numbers (page 03 cycle cards) */
+body.pastel section .card .big-num{
+  font-family:Cambria, Georgia, serif;
+  font-size:40px;
+  font-weight:400;
+  color:var(--gold);
+  margin:16px 0 12px;
+  letter-spacing:-1px;
+  line-height:1;
+  -webkit-text-fill-color:var(--gold);
+  background:linear-gradient(180deg, var(--gold-light) 0%, var(--gold) 60%, var(--gold-deep) 100%);
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+body.pastel section .card .ribbon{
+  background:transparent;
+  color:var(--gold-light);
+  border:1px solid var(--gold);
+  border-radius:0;
+  padding:3px 10px;
+  font-size:10px;
+  letter-spacing:1.8px;
+  font-weight:700;
+  text-transform:uppercase;
+  display:inline-block;
+}
+body.pastel section .card .muted{
+  font-size:12px;
+  color:var(--text-3);
+  line-height:1.6;
+  font-style:italic;
+}
+
+/* ---------- CARD-TAN — emphasised card (page 01 outlook) ---------- */
+body.pastel section .card-tan{
+  background:linear-gradient(180deg, rgba(189,149,104,0.08) 0%, rgba(189,149,104,0.02) 100%), var(--bg-card);
+  border:1px solid var(--line-mid);
+  border-top:2px solid var(--gold);
+  border-radius:0;
+  padding:26px 28px;
+  box-shadow:0 1px 2px rgba(0,0,0,0.3);
+  transition:background 0.4s var(--ease), box-shadow 0.4s var(--ease), transform 0.4s var(--ease);
+}
+body.pastel section .card-tan:hover{
+  box-shadow:0 18px 36px rgba(0,0,0,0.45), 0 4px 12px rgba(189,149,104,0.15);
+  transform:translateY(-3px);
+}
+body.pastel section .card-tan h3,
+body.pastel section .card-tan h4{
+  font-size:11.5px;
+  letter-spacing:2.5px;
+  color:var(--cream);
+  text-transform:uppercase;
+  margin:0 0 14px;
+  padding-bottom:0;
+  border:none;
+  display:flex; align-items:center; gap:14px;
+  font-weight:700;
+}
+body.pastel section .card-tan h3::before,
+body.pastel section .card-tan h4::before{
+  content:''; display:inline-block;
+  width:24px; height:1px;
+  background:linear-gradient(90deg, var(--gold) 0%, transparent 100%);
+}
+body.pastel section .card-tan p,
+body.pastel section .card-tan li{
+  font-size:13px;
+  color:var(--text-2);
+  line-height:1.7;
+}
+body.pastel section .card-tan b{ color:var(--cream); }
+
+/* ---------- VAL-CARD (page 02) ---------- */
+body.pastel section .val-card{
+  background:var(--bg-card);
+  border:1px solid var(--line);
+  border-top:2px solid var(--gold);
+  border-radius:0;
+  padding:28px;
+  box-shadow:0 1px 2px rgba(0,0,0,0.3);
+  transition:background 0.4s var(--ease), box-shadow 0.4s var(--ease), transform 0.4s var(--ease);
+}
+body.pastel section .val-card:hover{
+  background:var(--bg-card-hover);
+  box-shadow:0 18px 36px rgba(0,0,0,0.45), 0 4px 12px rgba(189,149,104,0.15);
+  transform:translateY(-3px);
+}
+body.pastel section .val-card .title{
+  font-family:Cambria, Georgia, serif;
+  font-weight:400;
+  font-size:22px;
+  letter-spacing:0.5px;
+  color:var(--cream);
+  text-transform:none;
+  margin:0 0 4px;
+}
+body.pastel section .val-card .desc{
+  font-size:11px;
+  color:var(--text-3);
+  font-style:italic;
+  letter-spacing:0.4px;
+  margin-bottom:20px;
+  text-transform:none;
+}
+body.pastel section .val-card .nums{
+  background:transparent;
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+  border-radius:0;
+  padding:18px 0;
+  margin:0 0 18px;
+  gap:0;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+}
+body.pastel section .val-card .nums div{
+  background:transparent;
+  border-radius:0;
+  border-right:1px solid var(--line);
+  padding:0 12px;
+  text-align:center;
+}
+body.pastel section .val-card .nums div:last-child{ border-right:none; }
+body.pastel section .val-card .nums .n{
+  font-family:Cambria, Georgia, serif;
+  font-size:24px;
+  font-weight:400;
+  color:var(--cream);
+  letter-spacing:-0.3px;
+}
+body.pastel section .val-card .nums .l{
+  font-size:9.5px;
+  color:var(--text-3);
+  letter-spacing:2px;
+  text-transform:uppercase;
+  margin-top:4px;
+}
+body.pastel section .val-card .verdict{
+  background:rgba(189,149,104,0.06);
+  border-left:2px solid var(--gold);
+  border-radius:0;
+  padding:14px 16px;
+  font-size:12.5px;
+  color:var(--text-2);
+  line-height:1.65;
+  font-style:italic;
+  margin-top:14px;
+}
+
+/* Tags */
+body.pastel .tag{
+  display:inline-block;
+  border-radius:0;
+  padding:4px 12px;
+  font-size:9.5px;
+  letter-spacing:2px;
+  font-weight:700;
+  text-transform:uppercase;
+  border:1px solid;
+  background:transparent;
+}
+body.pastel .tag.fair{ color:var(--pos); border-color:var(--pos); }
+body.pastel .tag.watch{ color:var(--gold-light); border-color:var(--gold); }
+body.pastel .tag.high{ color:var(--neg); border-color:var(--neg); }
+
+/* ---------- 4PK GRID (page 07) ---------- */
+body.pastel .pk-grid{
+  gap:1px;
+  margin-top:18px;
+  border:1px solid var(--line);
+  background:var(--line);
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+}
+body.pastel .pk{
+  background:var(--bg-card);
+  border:none;
+  border-radius:0;
+  padding:26px 22px;
+  box-shadow:none;
+  position:relative;
+  transition:background 0.35s var(--ease);
+}
+body.pastel .pk::before{
+  content:'';
+  position:absolute;
+  left:22px; top:0;
+  width:24px; height:2px;
+  background:linear-gradient(90deg, var(--gold) 0%, var(--gold-light) 100%);
+  transition:width 0.4s var(--ease);
+}
+body.pastel .pk:hover{ background:var(--bg-card-hover); }
+body.pastel .pk:hover::before{ width:calc(100% - 44px); }
+body.pastel .pk .pkt{
+  font-family:Cambria, Georgia, serif;
+  font-size:11.5px;
+  letter-spacing:2.5px;
+  color:var(--gold-light);
+  font-weight:700;
+  text-transform:uppercase;
+  margin-top:8px;
+  background:none;
+  -webkit-text-fill-color:var(--gold-light);
+}
+body.pastel .pk p{
+  font-size:12px;
+  color:var(--text-2);
+  line-height:1.65;
+  margin-top:12px;
+}
+@media (max-width:900px){ body.pastel .pk-grid{ grid-template-columns:repeat(2,1fr); } }
+
+/* ---------- KPI used outside .kpi-row (page 07 "Distributors / AUM" row) ---------- */
+body.pastel section > .kpi-row + h3{ margin-top:48px; }
+
+/* ---------- "Coming Soon" tiles ---------- */
+body.pastel .soon-grid{
+  gap:1px;
+  margin-top:18px;
+  border:1px solid var(--line);
+  background:var(--line);
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+}
+body.pastel .soon{
+  background:var(--bg-card);
+  border:none;
+  border-radius:0;
+  padding:32px 20px;
+  box-shadow:none;
+  text-align:center;
+  transition:background 0.35s var(--ease);
+  position:relative;
+}
+body.pastel .soon:hover{ background:var(--bg-card-hover); }
+body.pastel .soon .badge{
+  background:transparent;
+  border:1px solid var(--gold);
+  color:var(--gold-light);
+  border-radius:0;
+  padding:3px 10px;
+  font-size:9px;
+  letter-spacing:2px;
+  font-weight:700;
+  text-transform:uppercase;
+  display:inline-block;
+  margin-bottom:14px;
+}
+body.pastel .soon h4{
+  font-family:Cambria, Georgia, serif;
+  font-size:15px;
+  letter-spacing:0.5px;
+  color:var(--cream);
+  margin:8px 0 6px;
+  font-weight:400;
+  text-transform:none;
+}
+body.pastel .soon p.muted{
+  font-size:10.5px;
+  color:var(--text-3);
+  letter-spacing:1.5px;
+  text-transform:uppercase;
+  font-style:normal;
+  margin:0;
+}
+
+/* ---------- TABLES ---------- */
+body.pastel section .card table,
+body.pastel section table{
+  background:transparent;
+  border-collapse:collapse;
+  font-size:12.5px;
+  margin-top:14px;
+  width:100%;
+  color:var(--text-1);
+}
+body.pastel section .card th,
+body.pastel section table th{
+  background:transparent;
+  color:var(--gold-light);
+  border:none;
+  border-bottom:2px solid var(--gold);
+  padding:12px 10px;
+  text-align:left;
+  font-size:10px;
+  letter-spacing:1.8px;
+  text-transform:uppercase;
+  font-weight:700;
+}
+body.pastel section .card td,
+body.pastel section table td{
+  border:none;
+  border-bottom:1px solid var(--hairline);
+  padding:12px 10px;
+  color:var(--text-2);
+}
+body.pastel section .card tr:nth-child(even) td,
+body.pastel section table tr:nth-child(even) td{ background:rgba(189,149,104,0.025); }
+body.pastel section table tr:hover td{ background:rgba(189,149,104,0.06); color:var(--text-1); }
+body.pastel section td.num,
+body.pastel section td .num,
+body.pastel section .num{ font-variant-numeric:tabular-nums; }
+body.pastel section td.neg,
+body.pastel section .num.neg{ color:var(--neg); font-weight:600; }
+body.pastel section td.pos,
+body.pastel section .num.pos{ color:var(--pos); font-weight:600; }
+
+/* Benchmark / reference rows — gold-tinted band, italic text */
+body.pastel section tr.benchmark-row td{
+  background:linear-gradient(180deg, rgba(189,149,104,0.16) 0%, rgba(189,149,104,0.08) 100%) !important;
+  color:var(--gold-light) !important;
+  font-style:italic;
+  font-weight:600;
+  border-bottom:1px solid var(--line) !important;
+  border-top:1px solid var(--line) !important;
+}
+body.pastel section tr.benchmark-row td i{ font-style:italic; color:var(--cream); letter-spacing:0.3px; }
+body.pastel section tr.benchmark-row:hover td{
+  background:linear-gradient(180deg, rgba(189,149,104,0.22) 0%, rgba(189,149,104,0.12) 100%) !important;
+  color:#FFE6C2 !important;
+}
+
+/* ---------- Plain ul lists ---------- */
+body.pastel ul.tight{
+  background:transparent;
+  border-radius:0;
+  padding:0 0 0 22px;
+  box-shadow:none;
+  margin:14px 0;
+  list-style:none;
+}
+body.pastel ul.tight li{
+  font-size:13px;
+  color:var(--text-2);
+  line-height:1.8;
+  margin:8px 0;
+  position:relative;
+}
+body.pastel ul.tight li::before{
+  content:'';
+  position:absolute;
+  left:-18px; top:12px;
+  width:10px; height:1px;
+  background:var(--gold);
+}
+
+/* ---------- Footer source line ---------- */
+body.pastel section .footer-src{
+  text-align:left;
+  padding-top:22px;
+  margin-top:32px;
+  border-top:1px solid var(--line);
+  font-size:11px;
+  color:var(--text-3);
+  font-style:italic;
+  letter-spacing:0.3px;
+}
+
+/* ---------- BOTTOM PREV / NEXT NAV ---------- */
+body.pastel .page-nav{
+  background:transparent;
+  border-top:1px solid var(--line);
+  padding:28px 56px 40px;
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+}
+body.pastel .page-nav-btn{
+  background:var(--bg-card);
+  border:1px solid var(--line);
+  border-radius:0;
+  box-shadow:none;
+  padding:18px 24px;
+  color:var(--cream);
+  text-decoration:none;
+  transition:background 0.35s var(--ease), border-color 0.35s var(--ease), transform 0.35s var(--ease);
+  flex:1;
+  max-width:340px;
+  display:flex;
+  flex-direction:column;
+  gap:4px;
+}
+body.pastel .page-nav-btn.prev{ border-left:3px solid var(--gold); }
+body.pastel .page-nav-btn.next{ border-right:3px solid var(--gold); text-align:right; align-items:flex-end; }
+body.pastel .page-nav-btn:hover{
+  background:var(--bg-card-hover);
+  border-color:var(--gold);
+  transform:translateY(-2px);
+}
+body.pastel .page-nav-btn.prev:hover{ transform:translate(-4px,-2px); }
+body.pastel .page-nav-btn.next:hover{ transform:translate(4px,-2px); }
+body.pastel .nav-lbl{
+  font-size:9.5px; letter-spacing:2.5px; color:var(--text-3);
+  font-weight:700; text-transform:uppercase;
+}
+body.pastel .nav-ttl{
+  font-family:Cambria, Georgia, serif;
+  font-size:14px; color:var(--cream); font-weight:400; letter-spacing:0.5px; margin-top:4px;
+}
+body.pastel .nav-arrow{ color:var(--gold); font-size:22px; }
+
+/* ---------- FOOTER ---------- */
+body.pastel footer{
+  background:#050403;
+  color:var(--text-2);
+  padding:34px 56px;
+  border-top:1px solid var(--line);
+  text-align:center;
+  font-size:11px;
+  letter-spacing:0.6px;
+  line-height:1.7;
+}
+body.pastel footer img.logo-footer{
+  height:38px;
+  margin:0 auto 14px;
+  opacity:0.92;
+  filter:brightness(1.05);
+}
+body.pastel footer div{ color:var(--text-3); }
+
+/* ---------- PMS / AIF pages (08-13) ---------- */
+body.pastel .pms-card{
+  background:var(--bg-card);
+  border:1px solid var(--line);
+  border-top:2px solid var(--gold);
+  padding:22px 24px;
+  transition:background 0.4s var(--ease), box-shadow 0.4s var(--ease), transform 0.4s var(--ease);
+}
+body.pastel .pms-card:hover{
+  background:var(--bg-card-hover);
+  box-shadow:0 18px 36px rgba(0,0,0,0.45), 0 4px 12px rgba(189,149,104,0.15);
+  transform:translateY(-3px);
+}
+
+/* Search bar — inline styles override everything via !important */
+body.pastel .pms-search-wrap{
+  margin:18px 0 24px !important;
+  position:relative;
+}
+/* The inner container <div> on pages 09-13 has hardcoded white background; override it */
+body.pastel .pms-search-wrap > div{
+  background:var(--bg-card) !important;
+  border:1px solid var(--line) !important;
+  border-left:3px solid var(--gold) !important;
+  border-radius:0 !important;
+  padding:14px 18px !important;
+  gap:14px !important;
+}
+body.pastel .pms-search-wrap > div:focus-within{
+  border-color:var(--line-mid) !important;
+  border-left-color:var(--gold-light) !important;
+  background:var(--bg-card-hover) !important;
+}
+body.pastel .pms-search-wrap input[type="search"],
+body.pastel .pms-search-wrap input[type="text"]{
+  background:transparent !important;
+  border:none !important;
+  color:var(--cream) !important;
+  padding:6px 0 !important;
+  font-size:14px;
+  letter-spacing:0.3px;
+  font-family:Cambria, Georgia, serif !important;
+  border-radius:0 !important;
+  outline:none !important;
+  flex:1;
+}
+body.pastel .pms-search-wrap input::placeholder{
+  color:var(--text-3) !important;
+  font-style:italic;
+}
+/* Magnifying-glass / icon span before input */
+body.pastel .pms-search-wrap > div > span:first-child{
+  filter:grayscale(0.2) brightness(1.1);
+  opacity:0.9;
+}
+/* Count / hint span next to input */
+body.pastel .pms-search-wrap > div > span[id]{
+  color:var(--text-3) !important;
+  font-size:11px !important;
+  letter-spacing:0.5px;
+  font-style:italic;
+}
+/* Clear button inside search bar */
+body.pastel .pms-search-wrap > div button{
+  background:transparent !important;
+  color:var(--gold-light) !important;
+  border:1px solid var(--gold) !important;
+  padding:6px 14px !important;
+  font-family:Cambria, Georgia, serif !important;
+  cursor:pointer;
+  font-size:11px !important;
+  border-radius:0 !important;
+  letter-spacing:0.5px;
+  transition:background 0.3s var(--ease), color 0.3s var(--ease);
+}
+body.pastel .pms-search-wrap > div button:hover{
+  background:var(--gold) !important;
+  color:var(--bg-0) !important;
+}
+/* Hint text underneath search bar */
+body.pastel .pms-search-wrap > div + div{
+  color:var(--text-3) !important;
+  font-size:10.5px !important;
+  margin-top:10px !important;
+  font-style:italic;
+  letter-spacing:0.3px;
+}
+
+/* Checkbox panel (revealed after search) */
+body.pastel .pms-checks{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  margin:16px 0 28px !important;
+  background:var(--bg-card) !important;
+  border:1px solid var(--line) !important;
+  border-left:3px solid var(--gold) !important;
+  padding:18px 22px !important;
+  border-radius:0 !important;
+}
+body.pastel .pms-checks > label,
+body.pastel .pms-check-label{
+  background:transparent !important;
+  border:1px solid var(--line);
+  border-radius:0;
+  color:var(--text-1) !important;
+  padding:10px 14px !important;
+  font-size:13px;
+  letter-spacing:0.3px;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  gap:12px;
+  transition:background 0.3s var(--ease), border-color 0.3s var(--ease), color 0.3s var(--ease);
+}
+body.pastel .pms-checks > label:hover,
+body.pastel .pms-check-label:hover{
+  border-color:var(--gold);
+  background:rgba(189,149,104,0.06) !important;
+  color:var(--cream) !important;
+}
+body.pastel .pms-checks > label b{ color:var(--cream); }
+body.pastel .pms-checks > label .muted,
+body.pastel .pms-checks > label span.muted{
+  color:var(--text-3) !important;
+  font-style:italic;
+}
+body.pastel .pms-check{ accent-color:var(--gold) !important; }
+body.pastel .pms-check:checked + span,
+body.pastel .pms-checks > label:has(.pms-check:checked){
+  background:rgba(189,149,104,0.12) !important;
+  border-color:var(--gold) !important;
+  color:var(--gold-light) !important;
+}
+/* "Clear all" button inside the checkbox panel */
+body.pastel .pms-checks > button{
+  margin-left:auto !important;
+  background:transparent !important;
+  color:var(--gold-light) !important;
+  border:1px solid var(--gold) !important;
+  padding:6px 14px !important;
+  font-family:Cambria, Georgia, serif !important;
+  cursor:pointer;
+  font-size:11px !important;
+  border-radius:0 !important;
+  letter-spacing:0.5px;
+  align-self:flex-end;
+  transition:background 0.3s var(--ease), color 0.3s var(--ease);
+}
+body.pastel .pms-checks > button:hover{
+  background:var(--gold) !important;
+  color:var(--bg-0) !important;
+}
+
+/* ===== Product one-pager selector (replaces search + tick list — pages 10-14, 18) ===== */
+/* Always-visible list of product names. Click a name to open its one-pager; several may be open. */
+body.pastel .pms-nav{
+  margin:16px 0 26px;
+  background:var(--bg-card);
+  border:1px solid var(--line);
+  border-left:3px solid var(--gold);
+  padding:18px 22px;
+}
+body.pastel .pms-nav-head{
+  font-size:11px;font-weight:bold;color:var(--gold);
+  letter-spacing:1px;text-transform:uppercase;margin-bottom:14px;
+}
+body.pastel .pms-nav-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));
+  gap:10px 14px;
+}
+body.pastel .pms-nav-item{
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+  width:100%;text-align:left;cursor:pointer;
+  font-family:Cambria, Georgia, serif;font-size:13px;letter-spacing:0.3px;
+  color:var(--text-1);background:transparent;
+  border:1px solid var(--line);border-left:3px solid transparent;
+  padding:11px 14px;
+}
+body.pastel .pms-nav-item b{color:var(--cream);font-weight:bold;}
+body.pastel .pms-nav-item .muted{color:var(--text-3);font-style:italic;font-size:11px;font-weight:normal;}
+body.pastel .pms-nav-item::after{
+  content:"+ View";font-size:10px;font-weight:bold;letter-spacing:0.5px;
+  text-transform:uppercase;color:var(--gold);white-space:nowrap;opacity:0.85;
+}
+body.pastel .pms-nav-item:hover{
+  border-color:var(--gold);border-left-color:var(--gold);
+  background:rgba(189,149,104,0.06);
+}
+body.pastel .pms-nav-item.active{
+  background:rgba(189,149,104,0.14);
+  border-color:var(--gold);border-left-color:var(--gold);color:var(--gold-light);
+}
+body.pastel .pms-nav-item.active b{color:var(--gold-light);}
+body.pastel .pms-nav-item.active::after{content:"\2715 Hide";opacity:1;}
+body.pastel .pms-nav-actions{display:flex;justify-content:flex-end;margin-top:14px;}
+body.pastel .pms-nav-clear{
+  background:transparent;color:var(--gold-light);border:1px solid var(--gold);
+  padding:6px 14px;font-family:Cambria, Georgia, serif;cursor:pointer;
+  font-size:11px;letter-spacing:0.5px;
+}
+body.pastel .pms-nav-clear:hover{background:var(--gold);color:var(--bg-0);}
+
+/* One-pager cards stay hidden until their name is clicked (prevents a flash of every slide) */
+body.pastel .pms-card{display:none;}
+body.pastel .pms-card.is-open{display:block;}
+
+/* Reckoner images on PMS pages */
+body.pastel .pms-card img,
+body.pastel section img.reckoner-img,
+body.pastel section .card img{
+  max-width:100%;
+  border:1px solid var(--line);
+  background:#fff;
+  margin-top:12px;
+}
+
+/* ---------- QUIZ (page 18) ---------- */
+/* quiz-bar — horizontal info strip with score + reset */
+body.pastel .quiz-bar{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:14px 20px;
+  background:var(--bg-card);
+  border:1px solid var(--line);
+  border-left:3px solid var(--gold);
+  border-radius:0;
+  margin:18px 0 24px;
+  height:auto;
+  overflow:visible;
+}
+body.pastel .quiz-bar .progress{
+  font-size:12px;
+  letter-spacing:0.5px;
+  color:var(--text-2);
+  background:none;
+  height:auto;
+}
+body.pastel .quiz-bar .progress b{
+  color:var(--gold-light);
+  font-size:14px;
+  letter-spacing:0.5px;
+  font-weight:700;
+}
+body.pastel .quiz-bar button{
+  background:transparent;
+  color:var(--gold-light);
+  border:1px solid var(--gold);
+  padding:6px 14px;
+  font-family:Cambria, Georgia, serif;
+  cursor:pointer;
+  font-size:12px;
+  border-radius:0;
+  letter-spacing:0.5px;
+  transition:background 0.3s var(--ease), color 0.3s var(--ease);
+}
+body.pastel .quiz-bar button:hover{ background:var(--gold); color:var(--bg-0); }
+
+body.pastel .quiz-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(360px,1fr));
+  gap:18px;
+}
+
+body.pastel .quiz-card{
+  background:var(--bg-card);
+  border:1px solid var(--line);
+  border-top:2px solid var(--gold);
+  padding:24px 26px;
+  margin:0;
+  transition:background 0.4s var(--ease), box-shadow 0.4s var(--ease), transform 0.4s var(--ease);
+}
+body.pastel .quiz-card:hover{
+  background:var(--bg-card-hover);
+  box-shadow:0 12px 24px rgba(0,0,0,0.35);
+  transform:translateY(-2px);
+}
+body.pastel .quiz-card .qnum{
+  display:inline-block;
+  background:transparent;
+  border:1px solid var(--gold);
+  color:var(--gold-light);
+  padding:3px 10px;
+  font-family:Cambria, Georgia, serif;
+  font-size:10px;
+  letter-spacing:2px;
+  font-weight:700;
+  text-transform:uppercase;
+  border-radius:0;
+  margin-bottom:14px;
+}
+body.pastel .quiz-card .question{
+  font-family:Cambria, Georgia, serif;
+  font-size:15px;
+  color:var(--cream);
+  margin:6px 0 14px;
+  font-weight:400;
+  letter-spacing:0.3px;
+  line-height:1.5;
+}
+body.pastel .quiz-options{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  margin-top:8px;
+}
+body.pastel .quiz-option{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  background:rgba(255,255,255,0.02);
+  border:1px solid var(--line);
+  color:var(--text-1);
+  padding:10px 14px;
+  font-size:13px;
+  font-family:Cambria, Georgia, serif;
+  letter-spacing:0.3px;
+  cursor:pointer;
+  text-align:left;
+  border-radius:0;
+  user-select:none;
+  transition:background 0.3s var(--ease), border-color 0.3s var(--ease), color 0.3s var(--ease), transform 0.3s var(--ease);
+}
+body.pastel .quiz-option:hover{
+  background:rgba(189,149,104,0.08);
+  border-color:var(--gold);
+  color:var(--gold-light);
+  transform:translateX(3px);
+}
+body.pastel .quiz-option input[type="checkbox"]{
+  width:16px;
+  height:16px;
+  accent-color:var(--gold);
+  cursor:pointer;
+  flex-shrink:0;
+  margin:0;
+}
+body.pastel .quiz-option .opt-label{ flex:1; }
+body.pastel .quiz-option .opt-icon{
+  font-weight:bold;
+  font-size:14px;
+  margin-left:auto;
+  opacity:0;
+  transition:opacity 0.3s var(--ease);
+}
+body.pastel .quiz-option.correct{
+  background:rgba(107,191,138,0.12);
+  border-color:var(--pos);
+  color:var(--pos);
+  font-weight:600;
+}
+body.pastel .quiz-option.correct .opt-icon{ opacity:1; color:var(--pos); }
+body.pastel .quiz-option.wrong{
+  background:rgba(226,107,115,0.12);
+  border-color:var(--neg);
+  color:var(--neg);
+  font-weight:600;
+}
+body.pastel .quiz-option.wrong .opt-icon{ opacity:1; color:var(--neg); }
+body.pastel .quiz-option.user-pick{
+  border-width:2px;
+  font-weight:700;
+  box-shadow:0 4px 12px rgba(0,0,0,0.35);
+}
+body.pastel .quiz-option.user-pick::after{
+  content:"YOUR PICK";
+  font-size:9px;
+  letter-spacing:1.5px;
+  background:var(--gold);
+  color:var(--bg-0);
+  padding:2px 6px;
+  border-radius:0;
+  margin-left:6px;
+  font-weight:700;
+}
+body.pastel .quiz-option input[type="checkbox"]:disabled{ cursor:not-allowed; opacity:0.7; }
+body.pastel .quiz-option:has(input:disabled){ cursor:default; }
+body.pastel .quiz-option:has(input:disabled):hover{ transform:none; }
+
+/* ---------- COMMENTARY block (pages 04-06) ---------- */
+body.pastel .commentary{
+  background:rgba(189,149,104,0.05);
+  border-left:2px solid var(--gold);
+  padding:18px 22px;
+  margin:24px 0;
+  font-size:13px;
+  color:var(--text-2);
+  line-height:1.75;
+  font-style:italic;
+}
+body.pastel .commentary b{ color:var(--cream); font-style:normal; }
+
+/* ---------- CHARTS — make sure chart cards work on dark ---------- */
+body.pastel .chart-wrap{
+  background:var(--bg-card);
+  border:1px solid var(--line);
+  border-top:2px solid var(--gold);
+  padding:22px;
+  margin:18px 0;
+}
+body.pastel canvas{ background:transparent !important; }
+
+/* ---------- Editable cells — gold tint in edit mode ---------- */
+body.pastel.view-mode [contenteditable="true"]{
+  background:transparent;
+  outline:none;
+  padding:0;
+  cursor:default;
+  color:inherit;
+}
+body.pastel:not(.view-mode) [contenteditable="true"]{
+  background:rgba(189,149,104,0.18);
+  outline:1px dashed var(--gold);
+  color:var(--cream);
+}
+
+/* ---------- HOVER → GOLD TEXT (cards, KPIs, val-cards, 4PK, soon tiles) ---------- */
+/* Reusing the existing background/shadow transitions; adding smooth color shifts. */
+body.pastel section .card h3,
+body.pastel section .card h4,
+body.pastel section .card p,
+body.pastel section .card .muted,
+body.pastel section .card-tan h3,
+body.pastel section .card-tan h4,
+body.pastel section .card-tan p,
+body.pastel section .card-tan li,
+body.pastel section .card-tan b,
+body.pastel section .val-card .title,
+body.pastel section .val-card .desc,
+body.pastel section .val-card .nums .n,
+body.pastel section .val-card .nums .l,
+body.pastel section .val-card .verdict,
+body.pastel .kpi-row .kpi .lbl,
+body.pastel .kpi-row .kpi .val,
+body.pastel .kpi-row .kpi .sub,
+body.pastel .pk .pkt,
+body.pastel .pk p,
+body.pastel .soon h4,
+body.pastel .soon p.muted,
+body.pastel .soon .badge{
+  transition:color 0.4s var(--ease), letter-spacing 0.4s var(--ease);
+}
+
+/* .card hover → text shifts to gold */
+body.pastel section .card:hover h3,
+body.pastel section .card:hover h4{ color:var(--gold-light); }
+body.pastel section .card:hover p,
+body.pastel section .card:hover .muted{ color:var(--gold); }
+body.pastel section .card:hover b,
+body.pastel section .card:hover strong{ color:var(--gold-light); }
+
+/* .card-tan hover → text shifts to gold */
+body.pastel section .card-tan:hover h3,
+body.pastel section .card-tan:hover h4{ color:var(--gold-light); }
+body.pastel section .card-tan:hover p,
+body.pastel section .card-tan:hover li{ color:var(--gold); }
+body.pastel section .card-tan:hover b{ color:var(--gold-light); }
+
+/* .val-card hover → title + numbers + verdict shift to gold */
+body.pastel section .val-card:hover .title{ color:var(--gold-light); }
+body.pastel section .val-card:hover .desc{ color:var(--gold); }
+body.pastel section .val-card:hover .nums .n{ color:var(--gold-light); }
+body.pastel section .val-card:hover .nums .l{ color:var(--gold); }
+body.pastel section .val-card:hover .verdict{ color:var(--gold); }
+
+/* KPI hover → label + value + sub all shift to gold */
+body.pastel .kpi-row .kpi:hover .lbl{ color:var(--gold); }
+body.pastel .kpi-row .kpi:hover .val{ color:var(--gold-light); }
+body.pastel .kpi-row .kpi:hover .sub{ color:var(--gold); }
+
+/* 4PK hover → title brightens, body shifts to gold */
+body.pastel .pk:hover .pkt{ color:var(--gold-light); -webkit-text-fill-color:var(--gold-light); }
+body.pastel .pk:hover p{ color:var(--gold); }
+
+/* "Coming Soon" hover → all text shifts to gold */
+body.pastel .soon:hover h4{ color:var(--gold-light); }
+body.pastel .soon:hover p.muted{ color:var(--gold); }
+body.pastel .soon:hover .badge{ background:var(--gold); color:var(--bg-0); }
+
+/* ---------- Card / KPI / PK staggered entry ---------- */
+body.pastel section .card,
+body.pastel section .card-tan,
+body.pastel section .val-card,
+body.pastel section .pms-card,
+body.pastel section .quiz-card,
+body.pastel .kpi-row .kpi,
+body.pastel .pk,
+body.pastel .soon{
+  opacity:0;
+  animation:cardIn 0.6s var(--ease) both;
+}
+body.pastel section .card:nth-child(1),
+body.pastel section .card-tan:nth-child(1),
+body.pastel section .val-card:nth-child(1),
+body.pastel .kpi-row .kpi:nth-child(1),
+body.pastel .pk:nth-child(1),
+body.pastel .soon:nth-child(1){ animation-delay:0.30s; }
+body.pastel section .card:nth-child(2),
+body.pastel section .card-tan:nth-child(2),
+body.pastel section .val-card:nth-child(2),
+body.pastel .kpi-row .kpi:nth-child(2),
+body.pastel .pk:nth-child(2),
+body.pastel .soon:nth-child(2){ animation-delay:0.36s; }
+body.pastel section .card:nth-child(3),
+body.pastel section .card-tan:nth-child(3),
+body.pastel section .val-card:nth-child(3),
+body.pastel .kpi-row .kpi:nth-child(3),
+body.pastel .pk:nth-child(3),
+body.pastel .soon:nth-child(3){ animation-delay:0.42s; }
+body.pastel section .card:nth-child(4),
+body.pastel .kpi-row .kpi:nth-child(4),
+body.pastel .pk:nth-child(4),
+body.pastel .soon:nth-child(4){ animation-delay:0.48s; }
+body.pastel section .card:nth-child(5),
+body.pastel .kpi-row .kpi:nth-child(5),
+body.pastel .pk:nth-child(5){ animation-delay:0.54s; }
+body.pastel section .card:nth-child(6),
+body.pastel .kpi-row .kpi:nth-child(6){ animation-delay:0.60s; }
+body.pastel .kpi-row .kpi:nth-child(7){ animation-delay:0.66s; }
+body.pastel .kpi-row .kpi:nth-child(8){ animation-delay:0.72s; }
+body.pastel .kpi-row .kpi:nth-child(9){ animation-delay:0.78s; }
+body.pastel .kpi-row .kpi:nth-child(10){ animation-delay:0.84s; }
+body.pastel .kpi-row .kpi:nth-child(11){ animation-delay:0.90s; }
+body.pastel .kpi-row .kpi:nth-child(12){ animation-delay:0.96s; }
+@keyframes cardIn{
+  from{ opacity:0; transform:translateY(14px); }
+  to  { opacity:1; transform:translateY(0); }
+}
+
+/* ---------- Tighten padding on narrower screens ---------- */
+@media (max-width:900px){
+  body.pastel section{ padding:36px 28px; }
+  body.pastel .page-nav{ padding:24px 28px 32px; flex-direction:column; }
+  body.pastel .page-nav-btn{ max-width:none; }
+  body.pastel footer{ padding:28px 28px; }
+  body.pastel .topbar{ padding:12px 24px; }
+}
+
+/* ---------- Print ---------- */
+@media print{
+  body.pastel{ background:#fff !important; color:#000 !important; }
+  body.pastel section,
+  body.pastel .card,
+  body.pastel .card-tan,
+  body.pastel .val-card,
+  body.pastel .kpi-row .kpi,
+  body.pastel .pk,
+  body.pastel .soon,
+  body.pastel .quiz-card,
+  body.pastel .pms-card{ background:#fff !important; color:#000 !important; border-color:#ccc !important; }
+  body.pastel section h2,
+  body.pastel section h3,
+  body.pastel section h4,
+  body.pastel .section-head h2,
+  body.pastel .cream,
+  body.pastel .val-card .title,
+  body.pastel .val-card .nums .n{ color:#000 !important; }
+  body.pastel footer,
+  body.pastel .topbar{ background:#fff !important; color:#000 !important; }
+}
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce){
+  body.pastel,
+  body.pastel section,
+  body.pastel section .card,
+  body.pastel section .card-tan,
+  body.pastel section .val-card,
+  body.pastel section .pms-card,
+  body.pastel section .quiz-card,
+  body.pastel .kpi-row .kpi,
+  body.pastel .pk,
+  body.pastel .soon{
+    animation:none !important;
+    opacity:1 !important;
+    transform:none !important;
+  }
+}

@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>10 · Focused Debt PMS — Centricity</title>
+<meta name="viewport" content="width=1280"/>
+<link rel="stylesheet" href="dashboard-style.css"/>
+<link rel="stylesheet" href="pastel-theme.css"/>
+</head>
+<body class="view-mode pastel" data-page="10-focused-debt-pms">
+
+<div class="topbar">
+  <div class="brand">
+    <img class="logo" src="centricity-logo.png" alt="Centricity — Together Forward"/>
+    <span class="divider"></span>
+    <span class="title">10 · FOCUSED DEBT PMS</span>
+  </div>
+  <div class="actions">
+    <a class="back-btn" href="Monthly_Partner_Engagement_Dashboard.html">← Home</a>
+    <button id="editBtn" onclick="toggleEdit()">✎ Edit Mode</button>
+    <button onclick="window.print()">🖨 Print</button>
+    <button onclick="saveLocal()">💾 Save</button>
+    <button onclick="resetAll()" title="Restore defaults">↺</button>
+  </div>
+</div>
+
+<section>
+  <div class="section-head"><h2>10 · Focused Debt PMS</h2><span class="src">All options from Centricity Reckoner — May 2026 · Performance as on 30-Apr-2026</span></div>
+
+  <!-- ===== Product selector ===== -->
+  <div class="pms-nav no-print">
+    <div class="pms-nav-head">Click a name to open its one-pager — open as many as you like</div>
+    <div class="pms-nav-grid">
+      <button type="button" class="pms-nav-item" data-name="neo"><span><b>Neo Yield Enhancer</b> <span class="muted">(Short Term)</span></span></button>
+      <button type="button" class="pms-nav-item" data-name="phillip"><span><b>Phillip Conservative Credit Portfolio</b> <span class="muted">(Medium Term)</span></span></button>
+      <button type="button" class="pms-nav-item" data-name="sundaram"><span><b>Sundaram F.I.R.S.T. Debt PMS</b> <span class="muted">(Medium–Long Term)</span></span></button>
+    </div>
+    <div class="pms-nav-actions"><button type="button" class="pms-nav-clear">Collapse all</button></div>
+  </div>
+
+  <div id="pmsList" style="display:flex;flex-direction:column;gap:18px">
+
+    <div class="card pms-card" data-name="neo" data-pms="neo yield enhancer short term nbfc aaa a- liquidity quarterly 10.50 11.50 gross alpha 1500" style="padding:0;border-top:none">
+      <img src="reckoner-pms-neo-yield-enhancer.png" alt="Neo Yield Enhancer — Debt PMS Short Term, as per Centricity Reckoner May 2026" style="width:100%;height:auto;display:block;border-radius:2px"/>
+    </div>
+
+    <div class="card pms-card" data-name="phillip" data-pms="phillip conservative credit portfolio medium term aa secured 10 10.50 ytm vaibhav singhal monthly 102 cr growth regular income" style="padding:0;border-top:none">
+      <img src="reckoner-pms-phillip-conservative.png" alt="Phillip Conservative Credit Portfolio — Debt PMS Medium Term, as per Centricity Reckoner May 2026" style="width:100%;height:auto;display:block;border-radius:2px"/>
+    </div>
+
+    <div class="card pms-card" data-name="sundaram" data-pms="sundaram first f.i.r.s.t debt pms medium long term aaa bbb conservative moderate aggressive 9 10 12 ytm 78 50 lakhs 2.5 3 years duration" style="padding:0;border-top:none">
+      <img src="reckoner-pms-sundaram-first.png" alt="Sundaram F.I.R.S.T. Debt PMS — Medium–Long Term, as per Centricity Reckoner May 2026" style="width:100%;height:auto;display:block;border-radius:2px"/>
+    </div>
+
+  </div>
+
+  <div id="pmsNoResults" style="text-align:center;padding:30px;color:#888;font-style:italic">↑ Click a product name above to open its one-pager. You can open as many as you like.</div>
+</section>
+
+<footer>
+  <img class="logo-footer" src="centricity-logo.png" alt="Centricity — Together Forward"/>
+  <div>This material is intended for informational purposes only and does not constitute investment advice or a research report as defined under the SEBI (Research Analyst) Regulations, 2014. The views expressed are not tailored to any specific investor(s). Past performance is not indicative of future results. Investment products and market outlooks are subject to risks, including potential loss of principal. Investors should independently evaluate all information and consult their financial advisor before making any investment decisions. Data and information used in this post are sourced on as is basis from publicly available information and third-party reports/sites. Centricity (including its affiliates, directors, and employees) assumes no liability for any loss arising from the use of this material.</div>
+  <div style="margin-top:8px">Centricity Advisory Services Private Limited | Registered Office: 203B, 2nd Floor, Tower B, Global Business Park, DLF QE, Gurgaon, Haryana, India, 122002<br/>CIN: U67190HR2022PTC104568 | SEBI Registered Investment Adviser No. INA000018559</div>
+</footer>
+
+<script src="dashboard-script.js"></script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>16 · FDs & Bonds — Centricity</title>
+<meta name="viewport" content="width=1280"/>
+<link rel="stylesheet" href="dashboard-style.css"/>
+<link rel="stylesheet" href="pastel-theme.css"/>
+</head>
+<body class="view-mode pastel" data-page="16-fds-bonds">
+
+<div class="topbar">
+  <div class="brand">
+    <img class="logo" src="centricity-logo.png" alt="Centricity — Together Forward"/>
+    <span class="divider"></span>
+    <span class="title">16 · FDs & BONDS</span>
+  </div>
+  <div class="actions">
+    <a class="back-btn" href="Monthly_Partner_Engagement_Dashboard.html">← Home</a>
+    <button id="editBtn" onclick="toggleEdit()">✎ Edit Mode</button>
+    <button onclick="window.print()">🖨 Print</button>
+    <button onclick="saveLocal()">💾 Save</button>
+    <button onclick="resetAll()" title="Restore defaults">↺</button>
+  </div>
+</div>
+
+<section>
+  <div class="section-head"><h2>16 · Fixed Deposits & Bond Options</h2><span class="src">Rates as on 08-May-2026 · Subject to change</span></div>
+
+  <div class="grid-2">
+    <div class="card">
+      <h3>Shriram FD</h3>
+      <p>Shriram Finance — 40+ years in lending to underserved segments. Nifty 50 constituent. AAA/Stable (CARE).</p>
+      <div class="kpi-row">
+        <div class="kpi"><div class="lbl">AUM</div><div class="val">₹<span contenteditable="true">2.63</span> L Cr</div></div>
+        <div class="kpi"><div class="lbl">Net Profit FY25</div><div class="val">₹<span contenteditable="true">9,761</span> Cr</div></div>
+        <div class="kpi"><div class="lbl">ROA / ROE</div><div class="val"><span contenteditable="true">3.32</span>% / <span contenteditable="true">17.34</span>%</div></div>
+        <div class="kpi"><div class="lbl">Gross / Net NPA</div><div class="val"><span contenteditable="true">4.55</span>% / <span contenteditable="true">2.64</span>%</div></div>
+      </div>
+      <table>
+        <tr><th>Tenure</th><th>Regular</th><th>Senior Citizen</th></tr>
+        <tr><td>12 months</td><td>6.75%</td><td>7.25%</td></tr>
+        <tr><td>18–23 months</td><td>7.00%</td><td>7.50%</td></tr>
+        <tr><td>24–35 months</td><td>7.05%</td><td>7.55%</td></tr>
+        <tr><td>36–60 months</td><td>7.25%</td><td>7.75%</td></tr>
+      </table>
+      <p class="muted">3,220+ branches. CAR ~20.66%. Min ₹5,000.</p>
+    </div>
+
+    <div class="card">
+      <h3>Bond Options</h3>
+      <h4>High Yield</h4>
+      <table>
+        <tr><th>Issuer</th><th>Min Inv</th><th>Rating</th><th>Annual Return</th><th>Coupon</th><th>Maturity</th></tr>
+        <tr><td>Navi Finserv</td><td>₹5 L</td><td>A</td><td class="num">10.00%</td><td class="num">10.75%</td><td>31-Dec-2027</td></tr>
+        <tr><td>Satin Creditcare</td><td>₹5 L</td><td>A</td><td class="num">10.15%</td><td class="num">10.15%</td><td>13-Jul-2028</td></tr>
+      </table>
+      <h4>Private Bonds</h4>
+      <table>
+        <tr><th>Issuer</th><th>Min Inv</th><th>Rating</th><th>Annual Return</th><th>Coupon</th><th>Maturity</th></tr>
+        <tr><td>IIFL Samasta Finance</td><td>₹5 L</td><td>AA-</td><td class="num">9.50%</td><td class="num">9.20%</td><td>12-Feb-2028</td></tr>
+        <tr><td>Spandana Sphoorty Financial</td><td>₹5 L</td><td>BBB+</td><td class="num">10.60%</td><td class="num">11.25%</td><td>26-Apr-2028</td></tr>
+      </table>
+      <h4>Government / Quasi-Sov</h4>
+      <table>
+        <tr><th>Issuer</th><th>Min Inv</th><th>Rating</th><th>Annual Return</th><th>Coupon</th><th>Maturity</th></tr>
+        <tr><td>AP Mineral Development Corp</td><td>₹10 L</td><td>AA</td><td class="num">8.35%</td><td class="num">9.30%</td><td>7-May-2030</td></tr>
+        <tr><td>Telangana State Indl Infra Corp</td><td>₹10 L</td><td>AA</td><td class="num">8.35%</td><td class="num">9.35%</td><td>31-Dec-2029</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <img class="logo-footer" src="centricity-logo.png" alt="Centricity — Together Forward"/>
+  <div>This material is intended for informational purposes only and does not constitute investment advice or a research report as defined under the SEBI (Research Analyst) Regulations, 2014. The views expressed are not tailored to any specific investor(s). Past performance is not indicative of future results. Investment products and market outlooks are subject to risks, including potential loss of principal. Investors should independently evaluate all information and consult their financial advisor before making any investment decisions. Data and information used in this post are sourced on as is basis from publicly available information and third-party reports/sites. Centricity (including its affiliates, directors, and employees) assumes no liability for any loss arising from the use of this material.</div>
+  <div style="margin-top:8px">Centricity Advisory Services Private Limited | Registered Office: 203B, 2nd Floor, Tower B, Global Business Park, DLF QE, Gurgaon, Haryana, India, 122002<br/>CIN: U67190HR2022PTC104568 | SEBI Registered Investment Adviser No. INA000018559</div>
+</footer>
+
+<script src="dashboard-script.js"></script>
+</body>
+</html>

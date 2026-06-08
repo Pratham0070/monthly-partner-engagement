@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>11 · Focused Equity PMS — Centricity</title>
+<meta name="viewport" content="width=1280"/>
+<link rel="stylesheet" href="dashboard-style.css"/>
+<link rel="stylesheet" href="pastel-theme.css"/>
+</head>
+<body class="view-mode pastel" data-page="11-focused-equity-pms">
+
+<div class="topbar">
+  <div class="brand">
+    <img class="logo" src="centricity-logo.png" alt="Centricity — Together Forward"/>
+    <span class="divider"></span>
+    <span class="title">11 · FOCUSED EQUITY PMS</span>
+  </div>
+  <div class="actions">
+    <a class="back-btn" href="Monthly_Partner_Engagement_Dashboard.html">← Home</a>
+    <button id="editBtn" onclick="toggleEdit()">✎ Edit Mode</button>
+    <button onclick="window.print()">🖨 Print</button>
+    <button onclick="saveLocal()">💾 Save</button>
+    <button onclick="resetAll()" title="Restore defaults">↺</button>
+  </div>
+</div>
+
+<section>
+  <div class="section-head"><h2>11 · Focused Equity PMS</h2><span class="src">All options from Centricity Reckoner — May 2026 · Slides 20–40 · As on 30-Apr-2026</span></div>
+
+  <!-- ===== Product selector ===== -->
+  <div class="pms-nav no-print">
+    <div class="pms-nav-head">Click a name to open its one-pager — open as many as you like</div>
+    <div class="pms-nav-grid">
+      <button type="button" class="pms-nav-item" data-name="icici-largecap"><span><b>ICICI Pru Largecap Strategy</b> <span class="muted">(Large Cap)</span></span></button>
+      <button type="button" class="pms-nav-item" data-name="renaissance"><span><b>Renaissance Opportunities Portfolio</b> <span class="muted">(Large Cap)</span></span></button>
+      <button type="button" class="pms-nav-item" data-name="unifi"><span><b>UNIFI Capital Blended Rangoli</b> <span class="muted">(Multi Cap)</span></span></button>
+      <button type="button" class="pms-nav-item" data-name="icici-contra"><span><b>ICICI Pru Contra Strategy</b> <span class="muted">(Multi Cap)</span></span></button>
+      <button type="button" class="pms-nav-item" data-name="abakkus-allcap"><span><b>Abakkus All Cap Approach</b> <span class="muted">(Multi Cap)</span></span></button>
+      <button type="button" class="pms-nav-item" data-name="karma"><span><b>Karma Wealth Builder Portfolio</b> <span class="muted">(Multi Cap)</span></span></button>
+      <button type="button" class="pms-nav-item" data-name="stallion"><span><b>Stallion Asset Core Fund</b> <span class="muted">(Multi Cap)</span></span></button>
+      <button type="button" class="pms-nav-item" data-name="buoyant"><span><b>Buoyant Capital – Opportunities</b> <span class="muted">(Multi Cap)</span></span></button>
+      <button type="button" class="pms-nav-item" data-name="motilal-founders"><span><b>Motilal Oswal Founders Portfolio</b> <span class="muted">(Multi Cap)</span></span></button>
+      <button type="button" class="pms-nav-item" data-name="girik"><span><b>Girik Multicap Growth Equity</b> <span class="muted">(Multi Cap)</span></span></button>
+      <button type="button" class="pms-nav-item" data-name="aaa-india"><span><b>AAA India Opportunity Plan Fund</b> <span class="muted">(Multi Cap)</span></span></button>
+      <button type="button" class="pms-nav-item" data-name="aditya-birla"><span><b>Aditya Birla SL India Special Opp</b> <span class="muted">(Multi Cap)</span></span></button>
+      <button type="button" class="pms-nav-item" data-name="negen"><span><b>Negen Capital – Special Situations</b> <span class="muted">(Multi Cap)</span></span></button>
+      <button type="button" class="pms-nav-item" data-name="icici-value"><span><b>ICICI Pru Value Strategy</b> <span class="muted">(Multi Cap)</span></span></button>
+      <button type="button" class="pms-nav-item" data-name="emkay-golden"><span><b>Emkay Golden Decade PMS</b> <span class="muted">(Multi Cap)</span></span></button>
+      <button type="button" class="pms-nav-item" data-name="icici-pipe"><span><b>ICICI Pru PIPE Strategy</b> <span class="muted">(Mid & Small Cap)</span></span></button>
+      <button type="button" class="pms-nav-item" data-name="abakkus-emerging"><span><b>Abakkus Emerging Opp Approach</b> <span class="muted">(Mid & Small Cap)</span></span></button>
+      <button type="button" class="pms-nav-item" data-name="sageone"><span><b>SageOne Core Portfolio</b> <span class="muted">(Mid & Small Cap)</span></span></button>
+      <button type="button" class="pms-nav-item" data-name="carnelian"><span><b>Carnelian Shift Strategy</b> <span class="muted">(Mid & Small Cap)</span></span></button>
+      <button type="button" class="pms-nav-item" data-name="burman"><span><b>Burman Capital Management PMS</b> <span class="muted">(Mid & Small Cap)</span></span></button>
+      <button type="button" class="pms-nav-item" data-name="tcg"><span><b>TCG Transformative Growth</b> <span class="muted">(Mid & Small Cap)</span></span></button>
+    </div>
+    <div class="pms-nav-actions"><button type="button" class="pms-nav-clear">Collapse all</button></div>
+  </div>
+
+  <div id="pmsList" style="display:flex;flex-direction:column;gap:18px">
+    <div class="card pms-card" data-name="icici-largecap" data-pms="icici prudential largecap large cap strategy"><img src="reckoner-eqpms-icici-pru-largecap.png" alt="ICICI Prudential Largecap Strategy" style="width:100%;height:auto;display:block;border-radius:2px"/></div>
+    <div class="card pms-card" data-name="renaissance" data-pms="renaissance opportunities portfolio large cap"><img src="reckoner-eqpms-renaissance-opportunities.png" alt="Renaissance Opportunities Portfolio" style="width:100%;height:auto;display:block;border-radius:2px"/></div>
+    <div class="card pms-card" data-name="unifi" data-pms="unifi capital blended rangoli multi cap"><img src="reckoner-eqpms-unifi-blended-rangoli.png" alt="UNIFI Capital Blended Rangoli" style="width:100%;height:auto;display:block;border-radius:2px"/></div>
+    <div class="card pms-card" data-name="icici-contra" data-pms="icici prudential contra strategy multi cap"><img src="reckoner-eqpms-icici-pru-contra.png" alt="ICICI Prudential Contra Strategy" style="width:100%;height:auto;display:block;border-radius:2px"/></div>
+    <div class="card pms-card" data-name="abakkus-allcap" data-pms="abakkus all cap approach multi"><img src="reckoner-eqpms-abakkus-all-cap.png" alt="Abakkus All Cap Approach" style="width:100%;height:auto;display:block;border-radius:2px"/></div>
+    <div class="card pms-card" data-name="karma" data-pms="karma wealth builder portfolio multi cap"><img src="reckoner-eqpms-karma-wealth-builder.png" alt="Karma Wealth Builder Portfolio" style="width:100%;height:auto;display:block;border-radius:2px"/></div>
+    <div class="card pms-card" data-name="stallion" data-pms="stallion asset core fund portfolio multi cap"><img src="reckoner-eqpms-stallion-core-fund.png" alt="Stallion Asset Core Fund Portfolio" style="width:100%;height:auto;display:block;border-radius:2px"/></div>
+    <div class="card pms-card" data-name="buoyant" data-pms="buoyant capital opportunities strategy multi cap khivasara mistry"><img src="reckoner-eqpms-buoyant-opportunities.png" alt="Buoyant Capital – Opportunities Strategy" style="width:100%;height:auto;display:block;border-radius:2px"/></div>
+    <div class="card pms-card" data-name="motilal-founders" data-pms="motilal oswal founders portfolio multi cap"><img src="reckoner-eqpms-motilal-oswal-founders.png" alt="Motilal Oswal Founders Portfolio" style="width:100%;height:auto;display:block;border-radius:2px"/></div>
+    <div class="card pms-card" data-name="girik" data-pms="girik multicap growth equity strategy multi cap"><img src="reckoner-eqpms-girik-multicap-growth.png" alt="Girik Multicap Growth Equity Strategy" style="width:100%;height:auto;display:block;border-radius:2px"/></div>
+    <div class="card pms-card" data-name="aaa-india" data-pms="aaa india opportunity plan fund multi cap"><img src="reckoner-eqpms-aaa-india-opportunity.png" alt="AAA India Opportunity Plan Fund" style="width:100%;height:auto;display:block;border-radius:2px"/></div>
+    <div class="card pms-card" data-name="aditya-birla" data-pms="aditya birla sun life india special opportunities portfolio multi cap"><img src="reckoner-eqpms-aditya-birla-india-special-opp.png" alt="Aditya Birla Sun Life India Special Opportunities Portfolio" style="width:100%;height:auto;display:block;border-radius:2px"/></div>
+    <div class="card pms-card" data-name="negen" data-pms="negen capital special situations dynamic allocation fund multi cap"><img src="reckoner-eqpms-negen-special-situations.png" alt="Negen Capital - Special Situations and Dynamic Allocation Fund" style="width:100%;height:auto;display:block;border-radius:2px"/></div>
+    <div class="card pms-card" data-name="icici-value" data-pms="icici prudential value strategy multi cap"><img src="reckoner-eqpms-icici-pru-value.png" alt="ICICI Prudential Value Strategy" style="width:100%;height:auto;display:block;border-radius:2px"/></div>
+    <div class="card pms-card" data-name="emkay-golden" data-pms="emkay golden decade pms multi cap sonthalia"><img src="reckoner-eqpms-emkay-golden-decade.png" alt="Emkay Golden Decade PMS" style="width:100%;height:auto;display:block;border-radius:2px"/></div>
+    <div class="card pms-card" data-name="icici-pipe" data-pms="icici prudential pipe strategy mid small cap"><img src="reckoner-eqpms-icici-pru-pipe.png" alt="ICICI Prudential PIPE Strategy" style="width:100%;height:auto;display:block;border-radius:2px"/></div>
+    <div class="card pms-card" data-name="abakkus-emerging" data-pms="abakkus emerging opportunities approach mid small cap"><img src="reckoner-eqpms-abakkus-emerging-opp.png" alt="Abakkus Emerging Opportunities Approach" style="width:100%;height:auto;display:block;border-radius:2px"/></div>
+    <div class="card pms-card" data-name="sageone" data-pms="sageone core portfolio mid small cap"><img src="reckoner-eqpms-sageone-core-portfolio.png" alt="SageOne Core Portfolio" style="width:100%;height:auto;display:block;border-radius:2px"/></div>
+    <div class="card pms-card" data-name="carnelian" data-pms="carnelian shift strategy mid small cap bahety pharma engineering"><img src="reckoner-eqpms-carnelian-shift.png" alt="Carnelian Shift Strategy" style="width:100%;height:auto;display:block;border-radius:2px"/></div>
+    <div class="card pms-card" data-name="burman" data-pms="burman capital management pms mid small cap"><img src="reckoner-eqpms-burman-capital.png" alt="Burman Capital Management PMS" style="width:100%;height:auto;display:block;border-radius:2px"/></div>
+    <div class="card pms-card" data-name="tcg" data-pms="tcg transformative growth portfolio mid small cap"><img src="reckoner-eqpms-tcg-transformative-growth.png" alt="TCG Transformative Growth Portfolio" style="width:100%;height:auto;display:block;border-radius:2px"/></div>
+  </div>
+
+  <div id="pmsNoResults" style="text-align:center;padding:30px;color:#888;font-style:italic">↑ Click a product name above to open its one-pager. You can open as many as you like.</div>
+</section>
+
+<footer>
+  <img class="logo-footer" src="centricity-logo.png" alt="Centricity — Together Forward"/>
+  <div>This material is intended for informational purposes only and does not constitute investment advice or a research report as defined under the SEBI (Research Analyst) Regulations, 2014. The views expressed are not tailored to any specific investor(s). Past performance is not indicative of future results. Investment products and market outlooks are subject to risks, including potential loss of principal. Investors should independently evaluate all information and consult their financial advisor before making any investment decisions. Data and information used in this post are sourced on as is basis from publicly available information and third-party reports/sites. Centricity (including its affiliates, directors, and employees) assumes no liability for any loss arising from the use of this material.</div>
+  <div style="margin-top:8px">Centricity Advisory Services Private Limited | Registered Office: 203B, 2nd Floor, Tower B, Global Business Park, DLF QE, Gurgaon, Haryana, India, 122002<br/>CIN: U67190HR2022PTC104568 | SEBI Registered Investment Adviser No. INA000018559</div>
+</footer>
+
+<script src="dashboard-script.js"></script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>13 · Cat II Equity AIFs — Centricity</title>
+<meta name="viewport" content="width=1280"/>
+<link rel="stylesheet" href="dashboard-style.css"/>
+<link rel="stylesheet" href="pastel-theme.css"/>
+</head>
+<body class="view-mode pastel" data-page="13-cat2-equity-aifs">
+
+<div class="topbar">
+  <div class="brand">
+    <img class="logo" src="centricity-logo.png" alt="Centricity — Together Forward"/>
+    <span class="divider"></span>
+    <span class="title">13 · CAT II EQUITY AIFs (PE-VC)</span>
+  </div>
+  <div class="actions">
+    <a class="back-btn" href="Monthly_Partner_Engagement_Dashboard.html">← Home</a>
+    <button id="editBtn" onclick="toggleEdit()">✎ Edit Mode</button>
+    <button onclick="window.print()">🖨 Print</button>
+    <button onclick="saveLocal()">💾 Save</button>
+    <button onclick="resetAll()" title="Restore defaults">↺</button>
+  </div>
+</div>
+
+<section>
+  <div class="section-head"><h2>13 · Focused Category II Equity AIFs (PE-VC)</h2><span class="src">All options from Centricity Reckoner — May 2026 · Slides 56–62</span></div>
+
+  <!-- ===== Product selector ===== -->
+  <div class="pms-nav no-print">
+    <div class="pms-nav-head">Click a name to open its one-pager — open as many as you like</div>
+    <div class="pms-nav-grid">
+      <button type="button" class="pms-nav-item" data-name="incred-growth"><span><b>InCred Growth Partners Fund II</b></span></button>
+      <button type="button" class="pms-nav-item" data-name="360one-early"><span><b>360 ONE Early-Stage Fund Series I</b></span></button>
+      <button type="button" class="pms-nav-item" data-name="campus-iii"><span><b>Campus Fund III</b></span></button>
+      <button type="button" class="pms-nav-item" data-name="bharat-value"><span><b>Bharat Value Fund Series IV</b></span></button>
+      <button type="button" class="pms-nav-item" data-name="singularity-fof"><span><b>Singularity Fund of Funds II</b> <span class="muted">(2 slides)</span></span></button>
+      <button type="button" class="pms-nav-item" data-name="valuequest-scale"><span><b>ValueQuest S.C.A.L.E. Fund II</b></span></button>
+    </div>
+    <div class="pms-nav-actions"><button type="button" class="pms-nav-clear">Collapse all</button></div>
+  </div>
+
+  <div id="pmsList" style="display:flex;flex-direction:column;gap:18px">
+    <div class="card pms-card" data-name="incred-growth"><img src="reckoner-cat2eq-incred-growth-partners-ii.png" alt="InCred Growth Partners Fund II" style="width:100%;height:auto;display:block;border-radius:2px"/></div>
+    <div class="card pms-card" data-name="360one-early"><img src="reckoner-cat2eq-360-one-early-stage-i.png" alt="360 ONE Early-Stage Fund Series I" style="width:100%;height:auto;display:block;border-radius:2px"/></div>
+    <div class="card pms-card" data-name="campus-iii"><img src="reckoner-cat2eq-campus-fund-iii.png" alt="Campus Fund III" style="width:100%;height:auto;display:block;border-radius:2px"/></div>
+    <div class="card pms-card" data-name="bharat-value"><img src="reckoner-cat2eq-bharat-value-fund-iv.png" alt="Bharat Value Fund Series IV" style="width:100%;height:auto;display:block;border-radius:2px"/></div>
+    <div class="card pms-card" data-name="singularity-fof"><img src="reckoner-cat2eq-singularity-fof-ii-page1.png" alt="Singularity Fund of Funds II - Page 1" style="width:100%;height:auto;display:block;border-radius:2px"/></div>
+    <div class="card pms-card" data-name="singularity-fof"><img src="reckoner-cat2eq-singularity-fof-ii-page2.png" alt="Singularity Fund of Funds II - Page 2" style="width:100%;height:auto;display:block;border-radius:2px"/></div>
+    <div class="card pms-card" data-name="valuequest-scale"><img src="reckoner-cat2eq-valuequest-scale-ii.png" alt="ValueQuest S.C.A.L.E. Fund II" style="width:100%;height:auto;display:block;border-radius:2px"/></div>
+  </div>
+
+  <div id="pmsNoResults" style="text-align:center;padding:30px;color:#888;font-style:italic">↑ Click a product name above to open its one-pager. You can open as many as you like.</div>
+</section>
+
+<footer>
+  <img class="logo-footer" src="centricity-logo.png" alt="Centricity — Together Forward"/>
+  <div>This material is intended for informational purposes only and does not constitute investment advice or a research report as defined under the SEBI (Research Analyst) Regulations, 2014. The views expressed are not tailored to any specific investor(s). Past performance is not indicative of future results. Investment products and market outlooks are subject to risks, including potential loss of principal. Investors should independently evaluate all information and consult their financial advisor before making any investment decisions. Data and information used in this post are sourced on as is basis from publicly available information and third-party reports/sites. Centricity (including its affiliates, directors, and employees) assumes no liability for any loss arising from the use of this material.</div>
+  <div style="margin-top:8px">Centricity Advisory Services Private Limited | Registered Office: 203B, 2nd Floor, Tower B, Global Business Park, DLF QE, Gurgaon, Haryana, India, 122002<br/>CIN: U67190HR2022PTC104568 | SEBI Registered Investment Adviser No. INA000018559</div>
+</footer>
+
+<script src="dashboard-script.js"></script>
+</body>
+</html>

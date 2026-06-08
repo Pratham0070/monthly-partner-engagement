@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>01 · Market Outlook — Centricity</title>
+<meta name="viewport" content="width=1280"/>
+<link rel="stylesheet" href="dashboard-style.css"/>
+<link rel="stylesheet" href="pastel-theme.css"/>
+</head>
+<body class="view-mode pastel" data-page="01-market-outlook">
+
+<div class="topbar">
+  <div class="brand">
+    <img class="logo" src="centricity-logo.png" alt="Centricity — Together Forward"/>
+    <span class="divider"></span>
+    <span class="title">01 · MARKET OUTLOOK</span>
+  </div>
+  <div class="actions">
+    <a class="back-btn" href="Monthly_Partner_Engagement_Dashboard.html">← Home</a>
+    <button id="editBtn" onclick="toggleEdit()">✎ Edit Mode</button>
+    <button onclick="window.print()">🖨 Print</button>
+    <button onclick="saveLocal()">💾 Save</button>
+    <button onclick="resetAll()" title="Restore defaults">↺</button>
+  </div>
+</div>
+
+<section>
+  <div class="section-head"><h2>01 · Market Outlook & Macro Snapshot</h2><span class="src">Sources: AMFI · RBI · SEBI · APMI · Mint · Financial Express</span></div>
+
+  <div class="kpi-row compact-12">
+    <div class="kpi"><div class="lbl">10Y G-Sec</div><div class="val"><span contenteditable="true">7.00</span>%</div><div class="sub">Prev <span contenteditable="true">7.10</span>%</div></div>
+    <div class="kpi"><div class="lbl">CPI</div><div class="val"><span contenteditable="true">3.48</span>%</div><div class="sub">Apr · prev <span contenteditable="true">3.40</span>%</div></div>
+    <div class="kpi"><div class="lbl">Repo Rate</div><div class="val"><span contenteditable="true">5.25</span>%</div><div class="sub"><span contenteditable="true">Neutral</span></div></div>
+    <div class="kpi"><div class="lbl">GDP (FY27)</div><div class="val"><span contenteditable="true">6.9</span>%</div><div class="sub">RBI projection</div></div>
+    <div class="kpi"><div class="lbl">Forex Res.</div><div class="val">$<span contenteditable="true">682</span>B</div><div class="sub">Prev $<span contenteditable="true">681</span>B</div></div>
+    <div class="kpi"><div class="lbl">Mfg PMI</div><div class="val"><span contenteditable="true">55.0</span></div><div class="sub">May · prev <span contenteditable="true">54.7</span></div></div>
+    <div class="kpi"><div class="lbl">GST (May)</div><div class="val">₹<span contenteditable="true">1.94</span>L Cr</div><div class="sub">+3.2% YoY</div></div>
+    <div class="kpi"><div class="lbl">Per Capita</div><div class="val">₹<span contenteditable="true">2.65</span>L</div><div class="sub">Prev ₹<span contenteditable="true">2.52</span>L</div></div>
+    <div class="kpi"><div class="lbl">Brent Crude</div><div class="val">$<span contenteditable="true">96.18</span></div><div class="sub">per barrel · 08-Jun</div></div>
+    <div class="kpi"><div class="lbl">Gold 24K</div><div class="val">₹<span contenteditable="true">1.53</span>L</div><div class="sub">per 10g · 07-Jun</div></div>
+    <div class="kpi"><div class="lbl">Silver</div><div class="val">₹<span contenteditable="true">2.65</span>L</div><div class="sub">per kg · 07-Jun</div></div>
+    <div class="kpi"><div class="lbl">Nifty 50</div><div class="val"><span contenteditable="true">23,367</span></div><div class="sub">Close 05-Jun</div></div>
+  </div>
+
+  <h3>Geopolitical & Macro Drivers</h3>
+  <div class="grid-3">
+    <div class="card"><h4>India–US Trade Talks</h4><p contenteditable="true">Ongoing dialogue around tariffs and tech transfer; outcome remains pivotal for IT services and pharma exports.</p></div>
+    <div class="card"><h4>Weak Monsoon Outlook (El Niño)</h4><p contenteditable="true">Below-normal monsoon probability flagged. Watch rural consumption, agri inputs, FMCG rural mix.</p></div>
+    <div class="card"><h4>India–EU FTA</h4><p contenteditable="true">"Mother of all deals" — auto, dairy, IP at the center. Potential medium-term tailwind for export-led manufacturing.</p></div>
+    <div class="card"><h4>Middle East / Oil Risk</h4><p contenteditable="true">Fragile ceasefire keeps crude event-driven. Every $10 move on Brent is a meaningful CAD / inflation lever for India.</p></div>
+    <div class="card"><h4>FII Outflows & Rupee</h4><p contenteditable="true">FII selling pressure persists; DII and SIP flows offsetting. Rupee tracking dollar strength.</p></div>
+    <div class="card"><h4>Defense Spending Surge</h4><p contenteditable="true">India–Pakistan stand-off aftermath driving defense capex. Listed defense PSUs in focus.</p></div>
+  </div>
+
+  <h3 style="margin-top:24px">Outlook by Asset Class</h3>
+  <div class="grid-3">
+    <div class="card-tan"><h4>Equity</h4><p contenteditable="true">DIIs and domestic retail SIPs continue to offset FII outflows. Large- and small-cap valuations normalizing. Selective opportunities in financials (sentiment-driven P/E compression) and industrials (capex tailwind). Earnings growth is the swing factor for the next leg.</p></div>
+    <div class="card-tan"><h4>Debt</h4><p contenteditable="true">Yield curve remains steep — short rates stable post RBI's neutral pause; long-end yields sticky on inflation and fiscal worries. Expect curve to remain steep at the ends. Globally elevated yields keep volatility alive.</p></div>
+    <div class="card-tan"><h4>Commodities</h4><p contenteditable="true"><b>Crude:</b> Brent ~$96/bbl — up ~5% from late-May as the Strait of Hormuz supply-risk premium crept back despite intermittent US–Iran diplomatic progress; still event-driven, CAD / inflation lever active. <b>Gold:</b> ₹1.53 L per 10g — eased from ₹1.56 L as risk appetite firmed; hedge bid intact, central-bank demand (China-led) underpins medium-term upside. <b>Silver:</b> ₹2.65 L per kg — softer on the week; weak global-growth drag offset by industrial demand.</p></div>
+  </div>
+  <div class="footer-src">Sources: RBI · MoSPI · AMFI · S&P Global · GST Network · Trading Economics · Screener · Trendlyne · 08-Jun-2026 (auto-refreshed)</div>
+</section>
+
+<footer>
+  <img class="logo-footer" src="centricity-logo.png" alt="Centricity — Together Forward"/>
+  <div>This material is intended for informational purposes only and does not constitute investment advice or a research report as defined under the SEBI (Research Analyst) Regulations, 2014. The views expressed are not tailored to any specific investor(s). Past performance is not indicative of future results. Investment products and market outlooks are subject to risks, including potential loss of principal. Investors should independently evaluate all information and consult their financial advisor before making any investment decisions. Data and information used in this post are sourced on as is basis from publicly available information and third-party reports/sites. Centricity (including its affiliates, directors, and employees) assumes no liability for any loss arising from the use of this material.</div>
+  <div style="margin-top:8px">Centricity Advisory Services Private Limited | Registered Office: 203B, 2nd Floor, Tower B, Global Business Park, DLF QE, Gurgaon, Haryana, India, 122002<br/>CIN: U67190HR2022PTC104568 | SEBI Registered Investment Adviser No. INA000018559</div>
+</footer>
+
+<script src="dashboard-script.js">

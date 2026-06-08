@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>06 · AIF Industry — Centricity</title>
+<meta name="viewport" content="width=1280"/>
+<link rel="stylesheet" href="dashboard-style.css"/>
+<link rel="stylesheet" href="pastel-theme.css"/>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<style>
+  /* Page 06 · AIF Industry — chart presentation */
+  body[data-page="06-aif-industry"] .chart-wrap{ height:300px; }
+  body[data-page="06-aif-industry"] .card h3{ margin-bottom:6px; }
+  @media (max-width:680px){ body[data-page="06-aif-industry"] .chart-wrap{ height:250px; } }
+</style>
+</head>
+<body class="view-mode pastel" data-page="06-aif-industry">
+
+<div class="topbar">
+  <div class="brand">
+    <img class="logo" src="centricity-logo.png" alt="Centricity — Together Forward"/>
+    <span class="divider"></span>
+    <span class="title">06 · AIF INDUSTRY</span>
+  </div>
+  <div class="actions">
+    <a class="back-btn" href="Monthly_Partner_Engagement_Dashboard.html">← Home</a>
+    <button id="editBtn" onclick="toggleEdit()">✎ Edit Mode</button>
+    <button onclick="window.print()">🖨 Print</button>
+    <button onclick="saveLocal()">💾 Save</button>
+    <button onclick="resetAll()" title="Restore defaults">↺</button>
+  </div>
+</div>
+
+<section>
+  <div class="section-head"><h2>06 · AIF Industry Update</h2><span class="src">Source: SEBI — as on 31-Dec-25</span></div>
+
+  <div class="kpi-row">
+    <div class="kpi"><div class="lbl">AIF Commitments Raised</div><div class="val">₹<span contenteditable="true">15.74</span> L Cr</div><div class="sub">Dec-25</div></div>
+    <div class="kpi"><div class="lbl">Investments Deployed</div><div class="val">₹<span contenteditable="true">6.45</span> L Cr</div><div class="sub">Dec-25</div></div>
+    <div class="kpi"><div class="lbl">Funds Raised</div><div class="val">₹<span contenteditable="true">6.78</span> L Cr</div><div class="sub">Dec-25</div></div>
+  </div>
+
+  <div class="grid-2">
+    <div class="card">
+      <h3>Commitments — Growth Trend (₹ L Cr)</h3>
+      <div class="chart-wrap"><canvas id="aifTrend" data-chart-type="bar" data-series='{"labels":["Mar-21","Mar-22","Mar-23","Mar-24","Mar-25","Dec-25"],"datasets":[{"label":"Commitments (₹ L Cr)","data":[5.35,6.94,8.45,11.10,14.20,15.74],"backgroundColor":"#BD9568"}]}'></canvas></div>
+    </div>
+    <div class="card">
+      <h3>AIF Commitments by Category</h3>
+      <div class="chart-wrap"><canvas id="aifCat" data-chart-type="doughnut" data-series='{"labels":["Cat I","Cat II","Cat III"],"datasets":[{"data":[10,78,12],"backgroundColor":["#DBC8B2","#BD9568","#8C8C8C"]}]}'></canvas></div>
+      <p class="muted">Cat II (private credit, PE-VC) dominates commitments. Cat III growing with public market AIFs.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <img class="logo-footer" src="centricity-logo.png" alt="Centricity — Together Forward"/>
+  <div>This material is intended for informational purposes only and does not constitute investment advice or a research report as defined under the SEBI (Research Analyst) Regulations, 2014. The views expressed are not tailored to any specific investor(s). Past performance is not indicative of future results. Investment products and market outlooks are subject to risks, including potential loss of principal. Investors should independently evaluate all information and consult their financial advisor before making any investment decisions. Data and information used in this post are sourced on as is basis from publicly available information and third-party reports/sites. Centricity (including its affiliates, directors, and employees) assumes no liability for any loss arising from the use of this material.</div>
+  <div style="margin-top:8px">Centricity Advisory Services Private Limited | Registered Office: 203B, 2nd Floor, Tower B, Global Business Park, DLF QE, Gurgaon, Haryana, India, 122002<br/>CIN: U67190HR2022PTC104568 | SEBI Registered Investment Adviser No. INA000018559</div>
+</footer>
+
+<script src="dashboard-script.js"></script>
+</body>
+</html>

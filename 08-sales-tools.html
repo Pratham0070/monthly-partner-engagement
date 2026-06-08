@@ -1,0 +1,485 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>08 · Sales Tools — Centricity</title>
+<meta name="viewport" content="width=1280"/>
+<link rel="stylesheet" href="dashboard-style.css"/>
+<link rel="stylesheet" href="pastel-theme.css"/>
+<style>
+  /* =========================================================
+     PAGE 08 · SALES TOOLS — premium / classy layout
+     Page-scoped CSS, dark theme palette inherited.
+     Mirrors the aesthetic on 07-about-centricity.html.
+     ========================================================= */
+
+  body[data-page="08-sales-tools"] section{ padding:0 0 64px; }
+
+  /* ---------- HERO ---------- */
+  body[data-page="08-sales-tools"] .tools-hero{
+    padding:88px 56px 72px;
+    text-align:center;
+    position:relative;
+    background:
+      radial-gradient(ellipse 900px 480px at 50% 0%, rgba(189,149,104,0.10) 0%, transparent 65%),
+      linear-gradient(180deg, rgba(189,149,104,0.04) 0%, transparent 100%);
+    border-bottom:1px solid var(--line);
+    margin-bottom:64px;
+    opacity:0;
+    animation:toolsFadeIn 0.8s var(--ease) 0.1s forwards;
+  }
+  @keyframes toolsFadeIn{ from{opacity:0; transform:translateY(10px);} to{opacity:1; transform:translateY(0);} }
+
+  body[data-page="08-sales-tools"] .tools-eyebrow{
+    font-family:Cambria, Georgia, serif;
+    font-size:11px;
+    letter-spacing:5px;
+    color:var(--gold-light);
+    text-transform:uppercase;
+    font-weight:700;
+    margin-bottom:24px;
+  }
+  body[data-page="08-sales-tools"] .tools-wordmark{
+    font-family:Cambria, Georgia, serif;
+    font-size:60px;
+    font-weight:300;
+    letter-spacing:9px;
+    color:var(--cream);
+    margin:0 0 24px;
+    line-height:1.1;
+    text-transform:uppercase;
+  }
+  body[data-page="08-sales-tools"] .tools-wordmark b{
+    font-weight:600;
+    background:linear-gradient(180deg, #E2BB87 0%, var(--gold) 50%, #9A7949 100%);
+    -webkit-background-clip:text;
+    background-clip:text;
+    -webkit-text-fill-color:transparent;
+    display:inline-block;
+  }
+  body[data-page="08-sales-tools"] .tools-tagline{
+    font-family:Cambria, Georgia, serif;
+    font-size:16px;
+    color:var(--text-2);
+    max-width:680px;
+    margin:0 auto 32px;
+    line-height:1.7;
+    font-style:italic;
+    letter-spacing:0.3px;
+  }
+  body[data-page="08-sales-tools"] .tools-meta{
+    display:inline-block;
+    font-size:10.5px;
+    letter-spacing:4px;
+    color:var(--text-3);
+    text-transform:uppercase;
+    padding:0;
+    position:relative;
+  }
+  body[data-page="08-sales-tools"] .tools-meta::before,
+  body[data-page="08-sales-tools"] .tools-meta::after{
+    content:'';
+    position:absolute;
+    top:50%;
+    width:48px;
+    height:1px;
+    background:linear-gradient(90deg, transparent 0%, var(--gold) 100%);
+  }
+  body[data-page="08-sales-tools"] .tools-meta::before{ right:calc(100% + 16px); }
+  body[data-page="08-sales-tools"] .tools-meta::after{
+    left:calc(100% + 16px);
+    background:linear-gradient(90deg, var(--gold) 0%, transparent 100%);
+  }
+
+  /* ---------- FOUR TOOL TILES — monumental cards ---------- */
+  body[data-page="08-sales-tools"] .tool-grid{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+    margin:0 56px 80px;
+  }
+  body[data-page="08-sales-tools"] .tool-tile{
+    background:var(--bg-card);
+    padding:52px 32px 44px;
+    position:relative;
+    text-align:center;
+    transition:background 0.5s var(--ease);
+    overflow:hidden;
+  }
+  body[data-page="08-sales-tools"] .tool-tile:hover{ background:var(--bg-card-hover); }
+  body[data-page="08-sales-tools"] .tool-tile::before{
+    content:'';
+    position:absolute;
+    left:0; top:0; right:0;
+    height:2px;
+    background:linear-gradient(90deg, transparent 0%, var(--gold) 50%, transparent 100%);
+    transform:scaleX(0);
+    transition:transform 0.6s var(--ease);
+  }
+  body[data-page="08-sales-tools"] .tool-tile:hover::before{ transform:scaleX(1); }
+  body[data-page="08-sales-tools"] .tool-num{
+    font-family:Cambria, Georgia, serif;
+    font-size:11px;
+    letter-spacing:4px;
+    color:var(--gold);
+    font-weight:700;
+    margin-bottom:24px;
+    text-transform:uppercase;
+  }
+  body[data-page="08-sales-tools"] .tool-icon{
+    font-size:42px;
+    margin:0 0 22px;
+    line-height:1;
+    transition:transform 0.5s var(--ease);
+  }
+  body[data-page="08-sales-tools"] .tool-tile:hover .tool-icon{
+    transform:translateY(-4px) scale(1.05);
+  }
+  body[data-page="08-sales-tools"] .tool-title{
+    font-family:Cambria, Georgia, serif;
+    font-size:18px;
+    font-weight:600;
+    color:var(--cream);
+    margin:0 0 16px;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+    transition:color 0.4s var(--ease);
+  }
+  body[data-page="08-sales-tools"] .tool-tile:hover .tool-title{ color:var(--gold-light); }
+  body[data-page="08-sales-tools"] .tool-tile .underline{
+    display:block;
+    width:32px;
+    height:1px;
+    background:var(--gold);
+    margin:0 auto 18px;
+    transition:width 0.5s var(--ease);
+  }
+  body[data-page="08-sales-tools"] .tool-tile:hover .underline{ width:72px; }
+  body[data-page="08-sales-tools"] .tool-desc{
+    font-size:13px;
+    color:var(--text-2);
+    line-height:1.7;
+    max-width:240px;
+    margin:0 auto;
+    transition:color 0.4s var(--ease);
+  }
+  body[data-page="08-sales-tools"] .tool-tile:hover .tool-desc{ color:var(--text-1); }
+
+  /* ---------- THE OUTCOME — full-width band ---------- */
+  body[data-page="08-sales-tools"] .outcome-band{
+    margin:0 56px 80px;
+    padding:56px 48px;
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    text-align:center;
+    position:relative;
+    background:
+      radial-gradient(ellipse 800px 240px at 50% 50%, rgba(189,149,104,0.06) 0%, transparent 70%);
+  }
+  body[data-page="08-sales-tools"] .outcome-eyebrow{
+    font-family:Cambria, Georgia, serif;
+    font-size:10.5px;
+    letter-spacing:4px;
+    color:var(--gold-light);
+    text-transform:uppercase;
+    font-weight:700;
+    display:block;
+    margin-bottom:14px;
+  }
+  body[data-page="08-sales-tools"] .outcome-headline{
+    font-family:Cambria, Georgia, serif;
+    font-size:30px;
+    font-weight:300;
+    letter-spacing:3px;
+    color:var(--cream);
+    margin:0 0 18px;
+    line-height:1.3;
+    text-transform:uppercase;
+  }
+  body[data-page="08-sales-tools"] .outcome-headline b{
+    font-weight:600;
+    background:linear-gradient(180deg, #E2BB87 0%, var(--gold) 60%, #9A7949 100%);
+    -webkit-background-clip:text;
+    background-clip:text;
+    -webkit-text-fill-color:transparent;
+  }
+  body[data-page="08-sales-tools"] .outcome-underline{
+    display:block;
+    width:80px;
+    height:1px;
+    background:linear-gradient(90deg, transparent 0%, var(--gold) 50%, transparent 100%);
+    margin:18px auto 22px;
+  }
+  body[data-page="08-sales-tools"] .outcome-pillars{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:48px;
+    flex-wrap:wrap;
+    margin-top:30px;
+  }
+  body[data-page="08-sales-tools"] .outcome-pill{
+    font-family:Cambria, Georgia, serif;
+    font-size:13px;
+    color:var(--text-2);
+    letter-spacing:0.4px;
+    font-style:italic;
+    position:relative;
+    padding:0 8px;
+  }
+  body[data-page="08-sales-tools"] .outcome-pill b{
+    color:var(--gold-light);
+    font-style:normal;
+    font-weight:700;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+    font-size:11px;
+    display:block;
+    margin-bottom:6px;
+  }
+  body[data-page="08-sales-tools"] .outcome-pill:not(:last-child)::after{
+    content:'·';
+    position:absolute;
+    right:-24px;
+    top:50%;
+    transform:translateY(-50%);
+    color:var(--gold);
+    font-size:18px;
+  }
+
+  /* ---------- HOW IT WORKS — three-step flow ---------- */
+  body[data-page="08-sales-tools"] .flow-section{
+    padding:0 56px;
+    margin-bottom:24px;
+  }
+  body[data-page="08-sales-tools"] .flow-head{
+    text-align:center;
+    margin-bottom:48px;
+  }
+  body[data-page="08-sales-tools"] .flow-head .eyebrow{
+    font-family:Cambria, Georgia, serif;
+    font-size:10.5px;
+    letter-spacing:4px;
+    color:var(--gold-light);
+    text-transform:uppercase;
+    font-weight:700;
+    margin-bottom:14px;
+    display:block;
+  }
+  body[data-page="08-sales-tools"] .flow-head h2{
+    font-family:Cambria, Georgia, serif;
+    font-size:28px;
+    font-weight:300;
+    letter-spacing:4px;
+    color:var(--cream);
+    margin:0;
+    text-transform:uppercase;
+    line-height:1.2;
+  }
+  body[data-page="08-sales-tools"] .flow-head h2 b{
+    font-weight:600;
+    background:linear-gradient(180deg, #E2BB87 0%, var(--gold) 60%, #9A7949 100%);
+    -webkit-background-clip:text;
+    background-clip:text;
+    -webkit-text-fill-color:transparent;
+  }
+  body[data-page="08-sales-tools"] .flow-head .underline{
+    display:block;
+    width:64px;
+    height:1px;
+    background:linear-gradient(90deg, transparent 0%, var(--gold) 50%, transparent 100%);
+    margin:18px auto 0;
+  }
+
+  body[data-page="08-sales-tools"] .flow-steps{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+  }
+  body[data-page="08-sales-tools"] .flow-step{
+    background:var(--bg-card);
+    padding:36px 30px;
+    position:relative;
+    transition:background 0.4s var(--ease);
+  }
+  body[data-page="08-sales-tools"] .flow-step:hover{ background:var(--bg-card-hover); }
+  body[data-page="08-sales-tools"] .flow-roman{
+    font-family:Cambria, Georgia, serif;
+    font-size:11px;
+    letter-spacing:3px;
+    color:var(--gold);
+    font-weight:700;
+    margin-bottom:12px;
+    text-transform:uppercase;
+  }
+  body[data-page="08-sales-tools"] .flow-title{
+    font-family:Cambria, Georgia, serif;
+    font-size:16px;
+    font-weight:600;
+    color:var(--gold-light);
+    margin:0 0 12px;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+    transition:color 0.4s var(--ease);
+  }
+  body[data-page="08-sales-tools"] .flow-step:hover .flow-title{ color:#FFE6C2; }
+  body[data-page="08-sales-tools"] .flow-step p{
+    font-size:13px;
+    color:var(--text-2);
+    line-height:1.7;
+    margin:0;
+    transition:color 0.4s var(--ease);
+  }
+  body[data-page="08-sales-tools"] .flow-step:hover p{ color:var(--text-1); }
+
+  /* ---------- STAGGERED ENTRY ---------- */
+  body[data-page="08-sales-tools"] .tool-tile,
+  body[data-page="08-sales-tools"] .flow-step,
+  body[data-page="08-sales-tools"] .outcome-pill{
+    opacity:0;
+    animation:cellIn 0.7s var(--ease) both;
+  }
+  body[data-page="08-sales-tools"] .tool-tile:nth-child(1){ animation-delay:0.25s; }
+  body[data-page="08-sales-tools"] .tool-tile:nth-child(2){ animation-delay:0.33s; }
+  body[data-page="08-sales-tools"] .tool-tile:nth-child(3){ animation-delay:0.41s; }
+  body[data-page="08-sales-tools"] .tool-tile:nth-child(4){ animation-delay:0.49s; }
+  body[data-page="08-sales-tools"] .outcome-pill:nth-child(1){ animation-delay:0.30s; }
+  body[data-page="08-sales-tools"] .outcome-pill:nth-child(2){ animation-delay:0.38s; }
+  body[data-page="08-sales-tools"] .outcome-pill:nth-child(3){ animation-delay:0.46s; }
+  body[data-page="08-sales-tools"] .flow-step:nth-child(1){ animation-delay:0.30s; }
+  body[data-page="08-sales-tools"] .flow-step:nth-child(2){ animation-delay:0.40s; }
+  body[data-page="08-sales-tools"] .flow-step:nth-child(3){ animation-delay:0.50s; }
+  @keyframes cellIn{
+    from{ opacity:0; transform:translateY(16px); }
+    to  { opacity:1; transform:translateY(0); }
+  }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width:1024px){
+    body[data-page="08-sales-tools"] .tool-grid{ grid-template-columns:repeat(2,1fr); }
+    body[data-page="08-sales-tools"] .flow-steps{ grid-template-columns:1fr; }
+    body[data-page="08-sales-tools"] .tools-wordmark{ font-size:42px; letter-spacing:6px; }
+    body[data-page="08-sales-tools"] .outcome-headline{ font-size:24px; letter-spacing:2px; }
+    body[data-page="08-sales-tools"] .outcome-pillars{ gap:32px; }
+  }
+  @media (max-width:680px){
+    body[data-page="08-sales-tools"] .tool-grid,
+    body[data-page="08-sales-tools"] .outcome-band,
+    body[data-page="08-sales-tools"] .flow-section{ margin:0 24px 56px; padding-left:0; padding-right:0; }
+    body[data-page="08-sales-tools"] .tools-hero{ padding:64px 24px 48px; }
+    body[data-page="08-sales-tools"] .outcome-band{ padding:40px 24px; }
+    body[data-page="08-sales-tools"] .tool-grid{ grid-template-columns:1fr; }
+    body[data-page="08-sales-tools"] .outcome-pill:not(:last-child)::after{ display:none; }
+  }
+
+  /* Quick Invest tile → opens the Quick Invest tool screen */
+  body[data-page="08-sales-tools"] a.tool-tile{ display:block; text-decoration:none; color:inherit; cursor:pointer; }
+</style>
+</head>
+<body class="view-mode pastel" data-page="08-sales-tools">
+
+<div class="topbar">
+  <div class="brand">
+    <img class="logo" src="centricity-logo.png" alt="Centricity — Together Forward"/>
+    <span class="divider"></span>
+    <span class="title">08 · SALES TOOLS</span>
+  </div>
+  <div class="actions">
+    <a class="back-btn" href="Monthly_Partner_Engagement_Dashboard.html">← Home</a>
+    <button id="editBtn" onclick="toggleEdit()">✎ Edit Mode</button>
+    <button onclick="window.print()">🖨 Print</button>
+    <button onclick="saveLocal()">💾 Save</button>
+    <button onclick="resetAll()" title="Restore defaults">↺</button>
+  </div>
+</div>
+
+<section>
+
+  <!-- ===== HERO ===== -->
+  <div class="tools-hero">
+    <div class="tools-eyebrow">08 · Centricity Sales Tools</div>
+    <h1 class="tools-wordmark">Faster. <b>Sharper.</b> Right.</h1>
+    <p class="tools-tagline">A suite of partner-first sales tools — built to compress decision time, balance every portfolio, and make every recommendation defensible from the first conversation.</p>
+    <div class="tools-meta">Built for the Centricity Partner Network</div>
+  </div>
+
+  <!-- ===== FOUR TOOLS ===== -->
+  <div class="tool-grid">
+    <a class="tool-tile" href="quick-invest.html">
+      <div class="tool-num">I</div>
+      <div class="tool-icon">⚡</div>
+      <h3 class="tool-title">Quick Invest</h3>
+      <span class="underline"></span>
+      <p class="tool-desc">Instantly match client requirements to the right funds. Reduce decision time and enable seamless onboarding with intelligent recommendations.</p>
+    </a>
+    <a class="tool-tile" href="asset-allocation.html">
+      <div class="tool-num">II</div>
+      <div class="tool-icon">📊</div>
+      <h3 class="tool-title">Asset Allocation</h3>
+      <span class="underline"></span>
+      <p class="tool-desc">Design well-balanced portfolios across asset classes. Align every investment to the client's goals, risk appetite and time horizon.</p>
+    </a>
+    <a class="tool-tile" href="what-if-analysis.html">
+      <div class="tool-num">III</div>
+      <div class="tool-icon">🔍</div>
+      <h3 class="tool-title">What-If Analysis</h3>
+      <span class="underline"></span>
+      <p class="tool-desc">Model market scenarios before committing. Understand how different time horizons impact outcomes and build confident recommendations.</p>
+    </a>
+    <a class="tool-tile" href="goal-simulation.html">
+      <div class="tool-num">IV</div>
+      <div class="tool-icon">🎯</div>
+      <h3 class="tool-title">Goal Simulation</h3>
+      <span class="underline"></span>
+      <p class="tool-desc">Save for specific goals — a house, a car, retirement. Maps savings to income and time horizon with disciplined projections.</p>
+    </a>
+  </div>
+
+  <!-- ===== OUTCOME BAND ===== -->
+  <div class="outcome-band">
+    <span class="outcome-eyebrow">The Outcome</span>
+    <h2 class="outcome-headline">Every Client. <b>Every Conversation.</b></h2>
+    <span class="outcome-underline"></span>
+    <div class="outcome-pillars">
+      <div class="outcome-pill"><b>Balanced</b>Well-structured portfolios</div>
+      <div class="outcome-pill"><b>Aligned</b>Optimal asset allocation</div>
+      <div class="outcome-pill"><b>Confident</b>Enhanced investment experience</div>
+    </div>
+  </div>
+
+  <!-- ===== HOW IT WORKS ===== -->
+  <div class="flow-section">
+    <div class="flow-head">
+      <span class="eyebrow">How Partners Use It</span>
+      <h2>From Client Brief to <b>Recommendation</b></h2>
+      <span class="underline"></span>
+    </div>
+    <div class="flow-steps">
+      <div class="flow-step">
+        <div class="flow-roman">Step · I</div>
+        <h3 class="flow-title">Profile the Client</h3>
+        <p>Capture goals, risk appetite, time horizon and existing portfolio in one structured intake — no more switching tabs.</p>
+      </div>
+      <div class="flow-step">
+        <div class="flow-roman">Step · II</div>
+        <h3 class="flow-title">Model the Allocation</h3>
+        <p>Run asset allocation against goal-based outcomes. Stress-test with What-If scenarios across market cycles.</p>
+      </div>
+      <div class="flow-step">
+        <div class="flow-roman">Step · III</div>
+        <h3 class="flow-title">Present with Conviction</h3>
+        <p>Generate a clean, partner-branded recommendation backed by Centricity research and ready for the client meeting.</p>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<footer>
+  <img class="logo-footer" src="centricity-logo.png" alt="Centricity — Together Forward"/>
+  <div>This material is intended for informational purposes only and does not constitute investment advice or a research report as defined under the SEBI (Research Analyst) Regulations, 2014. The views expressed are not tailored to any specific investor(s). Past performance is not indicative of future results. Investment products and market outlooks are subject to risks, including potential loss of principal. Investors should independently evaluate all information and consult their financial advisor before making any investment decisions. Data and information used in this post are sourced on as is basis from publicly available information and third-party reports/sites. Centricity (including its affiliates, directors, and employees) assumes no liability for any loss arising from the use of this material.</div>
+  <div style="margin-top:8px">Centricity Advisory Services Private 

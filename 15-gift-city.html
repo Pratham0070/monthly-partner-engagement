@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>15 · GIFT City Funds — Centricity</title>
+<meta name="viewport" content="width=1280"/>
+<link rel="stylesheet" href="dashboard-style.css"/>
+<link rel="stylesheet" href="pastel-theme.css"/>
+<style>
+  /* Page 15 · Outbound-Retail fund name → opens its one-pager (PDF from GIFT MF deck) */
+  body[data-page="15-gift-city"] a.fund-link{color:var(--gold-light);text-decoration:none;border-bottom:1px dotted rgba(189,149,104,0.6);font-weight:600;cursor:pointer}
+  body[data-page="15-gift-city"] a.fund-link:hover{color:#fff;border-bottom-color:var(--gold)}
+</style>
+</head>
+<body class="view-mode pastel" data-page="15-gift-city">
+
+<div class="topbar">
+  <div class="brand">
+    <img class="logo" src="centricity-logo.png" alt="Centricity — Together Forward"/>
+    <span class="divider"></span>
+    <span class="title">15 · GIFT CITY FUNDS</span>
+  </div>
+  <div class="actions">
+    <a class="back-btn" href="Monthly_Partner_Engagement_Dashboard.html">← Home</a>
+    <button id="editBtn" onclick="toggleEdit()">✎ Edit Mode</button>
+    <button onclick="window.print()">🖨 Print</button>
+    <button onclick="saveLocal()">💾 Save</button>
+    <button onclick="resetAll()" title="Restore defaults">↺</button>
+  </div>
+</div>
+
+<section>
+  <div class="section-head"><h2>15 · GIFT City Funds</h2><span class="src">Outbound + Inbound · Retail and Non-Retail</span></div>
+
+  <h3>Outbound — Retail (Min $5,000)</h3>
+  <table>
+    <tr><th>Fund</th><th>Strategy</th><th>Allocation</th></tr>
+    <tr><td><a class="fund-link" href="onepager-pp-sp500.png" title="Open one-pager (screenshot)">Parag Parikh S&P 500 FOF</a></td><td>S&P 500</td><td>USA 100%</td></tr>
+    <tr><td><a class="fund-link" href="onepager-pp-nasdaq100.png" title="Open one-pager (screenshot)">Parag Parikh Nasdaq 100 FOF</a></td><td>Nasdaq 100</td><td>USA 100%</td></tr>
+    <tr><td><a class="fund-link" href="onepager-dsp-global-equity.png" title="Open one-pager (screenshot)">DSP Global Equity</a></td><td>Diversified global</td><td>US · Europe · China · Japan · Korea</td></tr>
+    <tr><td><a class="fund-link" href="onepager-edelweiss-greater-china.png" title="Open one-pager (screenshot)">Edelweiss Greater China</a></td><td>JP Morgan Greater China feeder</td><td>China 63% · Taiwan 35% · HK 1.9%</td></tr>
+  </table>
+
+  <h3>Outbound — Non-Retail (Min $150,000)</h3>
+  <table>
+    <tr><th>Fund</th><th>Strategy</th><th>Allocation</th></tr>
+    <tr><td>Mirae Asset Global Allocation</td><td>Global portfolio</td><td>USA, EMs, AI & Innovation, Semis</td></tr>
+    <tr><td>Aditya Birla Global Bluechip Equity</td><td>Feeder into Lyptus Cap</td><td>USA 63.6% · Taiwan 4.8% · China 3.6% · Canada</td></tr>
+    <tr><td>Ionic Global Innovation</td><td>Innovation-led</td><td>US 45.9% · East Asia 30.1% · LATAM 4.8%</td></tr>
+    <tr><td>Ashoka Whiteoak Global EM</td><td>Feeder — Whiteoak EM</td><td>China+HK 36.3% · Taiwan 23.9% · S.Korea</td></tr>
+  </table>
+
+  <h3>Inbound — Retail</h3>
+  <table>
+    <tr><th>Fund</th><th>Min Inv (USD)</th><th>Strategy</th></tr>
+    <tr><td>Tata India Dynamic Equity</td><td>500</td><td>Two-segment dynamic equity</td></tr>
+    <tr><td>Sundaram India Midcap GIFT</td><td>5,000</td><td>Feeder to Sundaram Mid Cap</td></tr>
+  </table>
+
+  <h3>Inbound — Non-Retail (Min $150,000)</h3>
+  <table>
+    <tr><th>Fund</th><th>Strategy</th></tr>
+    <tr><td>Alchemy India Long Term Fund</td><td>Mirrors flagship Alchemy strategy</td></tr>
+    <tr><td>Motilal Oswal Founder Strategy GIFT</td><td>Replicates MO flagship</td></tr>
+    <tr><td>Carnelian India Amritkaal</td><td>India structural themes</td></tr>
+    <tr><td>Edelweiss Multi Manager</td><td>8 underlying managers</td></tr>
+    <tr><td>Bandhan Large & Mid Cap (GIFT)</td><td>MF Feeder — Bandhan flagship</td></tr>
+    <tr><td>Bandhan Small Cap (GIFT)</td><td>3-pronged GARP — Quality, Growth, Value</td></tr>
+  </table>
+</section>
+
+<footer>
+  <img class="logo-footer" src="centricity-logo.png" alt="Centricity — Together Forward"/>
+  <div>This material is intended for informational purposes only and does not constitute investment advice or a research report as defined under the SEBI (Research Analyst) Regulations, 2014. The views expressed are not tailored to any specific investor(s). Past performance is not indicative of future results. Investment products and market outlooks are subject to risks, including potential loss of principal. Investors should ind

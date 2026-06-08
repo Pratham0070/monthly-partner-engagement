@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>12 · Cat II Debt AIFs — Centricity</title>
+<meta name="viewport" content="width=1280"/>
+<link rel="stylesheet" href="dashboard-style.css"/>
+<link rel="stylesheet" href="pastel-theme.css"/>
+</head>
+<body class="view-mode pastel" data-page="12-cat2-debt-aifs">
+
+<div class="topbar">
+  <div class="brand">
+    <img class="logo" src="centricity-logo.png" alt="Centricity — Together Forward"/>
+    <span class="divider"></span>
+    <span class="title">12 · CAT II DEBT AIFs</span>
+  </div>
+  <div class="actions">
+    <a class="back-btn" href="Monthly_Partner_Engagement_Dashboard.html">← Home</a>
+    <button id="editBtn" onclick="toggleEdit()">✎ Edit Mode</button>
+    <button onclick="window.print()">🖨 Print</button>
+    <button onclick="saveLocal()">💾 Save</button>
+    <button onclick="resetAll()" title="Restore defaults">↺</button>
+  </div>
+</div>
+
+<section>
+  <div class="section-head"><h2>12 · Focused Category II Debt AIFs</h2><span class="src">All options from Centricity Reckoner — May 2026 · Slides 84–89</span></div>
+
+  <!-- ===== Product selector ===== -->
+  <div class="pms-nav no-print">
+    <div class="pms-nav-head">Click a name to open its one-pager — open as many as you like</div>
+    <div class="pms-nav-grid">
+      <button type="button" class="pms-nav-item" data-name="mosaic"><span><b>Mosaic Multiyield Fund Series I</b></span></button>
+      <button type="button" class="pms-nav-item" data-name="uti-structured"><span><b>UTI Structured Debt Fund Series IV</b></span></button>
+      <button type="button" class="pms-nav-item" data-name="neo-special"><span><b>Neo Special Credit Opp Fund II/IIA</b></span></button>
+      <button type="button" class="pms-nav-item" data-name="neo-infra"><span><b>Neo Infra Income Opp Fund II</b></span></button>
+      <button type="button" class="pms-nav-item" data-name="incred-credit"><span><b>InCred Credit Opportunities Fund III</b></span></button>
+      <button type="button" class="pms-nav-item" data-name="sundaram-pco"><span><b>Sundaram Performing Credit Opp Fund I</b></span></button>
+    </div>
+    <div class="pms-nav-actions"><button type="button" class="pms-nav-clear">Collapse all</button></div>
+  </div>
+
+  <div id="pmsList" style="display:flex;flex-direction:column;gap:18px">
+    <div class="card pms-card" data-name="mosaic" data-pms="mosaic"><img src="reckoner-cat2debt-mosaic-multiyield-series-i.png" alt="Mosaic Multiyield Fund Series I" style="width:100%;height:auto;display:block;border-radius:2px"/></div>
+    <div class="card pms-card" data-name="uti-structured" data-pms="uti structured"><img src="reckoner-cat2debt-uti-structured-debt-iv.png" alt="UTI Structured Debt Fund Series IV" style="width:100%;height:auto;display:block;border-radius:2px"/></div>
+    <div class="card pms-card" data-name="neo-special" data-pms="neo special credit"><img src="reckoner-cat2debt-neo-special-credit-ii.png" alt="Neo Special Credit Opportunities Fund II/IIA" style="width:100%;height:auto;display:block;border-radius:2px"/></div>
+    <div class="card pms-card" data-name="neo-infra" data-pms="neo infra income"><img src="reckoner-cat2debt-neo-infra-income-ii.png" alt="Neo Infra Income Opportunities Fund II" style="width:100%;height:auto;display:block;border-radius:2px"/></div>
+    <div class="card pms-card" data-name="incred-credit" data-pms="incred credit opportunities"><img src="reckoner-cat2debt-incred-credit-opp-iii.png" alt="InCred Credit Opportunities Fund III" style="width:100%;height:auto;display:block;border-radius:2px"/></div>
+    <div class="card pms-card" data-name="sundaram-pco" data-pms="sundaram performing credit"><img src="reckoner-cat2debt-sundaram-performing-credit.png" alt="Sundaram Performing Credit Opportunities Fund I" style="width:100%;height:auto;display:block;border-radius:2px"/></div>
+  </div>
+
+  <div id="pmsNoResults" style="text-align:center;padding:30px;color:#888;font-style:italic">↑ Click a product name above to open its one-pager. You can open as many as you like.</div>
+</section>
+
+<footer>
+  <img class="logo-footer" src="centricity-logo.png" alt="Centricity — Together Forward"/>
+  <div>This material is intended for informational purposes only and does not constitute investment advice or a research report as defined under the SEBI (Research Analyst) Regulations, 2014. The views expressed are not tailored to any specific investor(s). Past performance is not indicative of future results. Investment products and market outlooks are subject to risks, including potential loss of principal. Investors should independently evaluate all information and consult their financial advisor before making any investment decisions. Data and information used in this post are sourced on as is basis from publicly available information and third-party reports/sites. Centricity (including its affiliates, directors, and employees) assumes no liability for any loss arising from the use of this material.</div>
+  <div style="margin-top:8px">Centricity Advisory Services Private Limited | Registered Office: 203B, 2nd Floor, Tower B, Global Business Park, DLF QE, Gurgaon, Haryana, India, 122002<br/>CIN: U67190HR2022PTC104568 | SEBI Registered Investment Adviser No. INA000018559</div>
+</footer>
+
+<script src="dashboard-script.js"></script>
+</body>
+</html>

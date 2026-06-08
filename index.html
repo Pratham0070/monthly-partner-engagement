@@ -1,0 +1,549 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Centricity — Monthly Partner Engagement</title>
+<meta name="viewport" content="width=1280"/>
+<link rel="stylesheet" href="dashboard-style.css"/>
+<style>
+  /* ============================================================
+     CENTRICITY — LIGHT THEME (home page only)
+     Refined, editorial, classy.  Pure-white base, restrained
+     gold hairlines, warm cream hover wash, choreographed
+     smooth animations on a single cubic-bezier curve.
+     ============================================================ */
+
+  :root{
+    --bg-0:        #0A0807;     /* page base — dark charcoal */
+    --bg-1:        #0F0C0A;     /* subtle surface */
+    --bg-2:        #14110D;     /* tile surface */
+    --bg-3:        #1C1813;     /* tile hover wash */
+    --line:        rgba(189,149,104,0.18);  /* gold hairline */
+    --line-strong: #BD9568;     /* accent hairline */
+    --gold:        #BD9568;
+    --gold-light:  #D9B486;
+    --gold-deep:   #9A7949;
+    --ink:         #EFE6D6;     /* cream body text */
+    --ink-2:       rgba(239,230,214,0.72);
+    --ink-3:       rgba(239,230,214,0.48);
+    --topbar-bg:   #0F0C0A;     /* topbar + footer */
+    --topbar-text: rgba(239,230,214,0.92);
+    --ease:        cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* ---------- LAYOUT — viewport-bound, footer at bottom ---------- */
+  html{
+    overflow-x:hidden !important;
+    max-width:100vw;
+    width:100%;
+    background:var(--bg-0);
+  }
+  body[data-page="home"]{
+    overflow-x:hidden !important;
+    width:100%;
+    max-width:100vw;
+    margin:0;
+    padding:0;
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    background:
+      radial-gradient(ellipse 1200px 700px at 50% -100px, rgba(189,149,104,0.06) 0%, transparent 65%),
+      radial-gradient(ellipse 900px 600px at 100% 100%, rgba(189,149,104,0.03) 0%, transparent 60%),
+      var(--bg-0);
+    color:var(--ink);
+    font-family:Cambria, Georgia, 'Times New Roman', serif;
+    /* Entry animation removed — render immediately. transform/filter cleared so
+       no containing block is created for fixed descendants. */
+    animation:none !important;
+    transform:none !important;
+    filter:none !important;
+  }
+  @keyframes lightPageIn{ from{opacity:0} to{opacity:1} }
+  body[data-page="home"] > *{ max-width:100%; box-sizing:border-box; }
+  body[data-page="home"] > .topbar,
+  body[data-page="home"] > .home-hero,
+  body[data-page="home"] > footer{ flex:0 0 auto; width:100%; }
+  body[data-page="home"] > .tile-grid{ flex:1 0 auto; }
+
+  /* ---------- TOPBAR — slim dark band for contrast against white ---------- */
+  body[data-page="home"] .topbar{
+    background:var(--topbar-bg);
+    border-bottom:1px solid var(--line-strong);
+    padding:14px 36px;
+    transition:background 0.4s var(--ease);
+  }
+  body[data-page="home"] .topbar .brand .title{
+    font-size:11.5px;
+    letter-spacing:3px;
+    font-weight:600;
+    color:var(--topbar-text);
+    text-transform:uppercase;
+  }
+  body[data-page="home"] .topbar .brand .divider{
+    background:rgba(189,149,104,0.55);
+    height:22px;
+    width:1px;
+    opacity:0.6;
+  }
+  body[data-page="home"] .topbar .brand img.logo{
+    filter:brightness(1.05) contrast(1.05);
+  }
+  body[data-page="home"] .topbar select,
+  body[data-page="home"] .topbar button,
+  body[data-page="home"] .topbar a.back-btn,
+  body[data-page="home"] .topbar input[type="month"]{
+    background:rgba(255,255,255,0.06);
+    border:1px solid rgba(189,149,104,0.45);
+    color:var(--topbar-text);
+    padding:7px 14px;
+    font-size:11.5px;
+    letter-spacing:0.5px;
+    border-radius:2px;
+    font-family:Cambria, Georgia, serif;
+    transition:background 0.3s var(--ease), border-color 0.3s var(--ease), color 0.3s var(--ease);
+    cursor:pointer;
+  }
+  body[data-page="home"] .topbar button:hover,
+  body[data-page="home"] .topbar a.back-btn:hover{
+    background:rgba(189,149,104,0.18);
+    border-color:var(--gold);
+    color:var(--gold-light);
+  }
+  body[data-page="home"] .topbar .actions > span{
+    color:rgba(255,255,255,0.5) !important;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+    font-size:10px !important;
+  }
+
+  /* ---------- HERO — quiet, refined wordmark on white ---------- */
+  body[data-page="home"] .home-hero{
+    background:transparent;
+    color:var(--ink);
+    padding:78px 32px 60px;
+    border-bottom:none;
+    text-align:center;
+    position:relative;
+    z-index:2;
+  }
+  body[data-page="home"] .home-hero h1{
+    font-family:Cambria, Georgia, serif;
+    font-size:38px;
+    font-weight:300;
+    letter-spacing:8px;
+    color:var(--ink);
+    margin:0 0 18px;
+    text-transform:uppercase;
+    opacity:0;
+    animation:heroIn 0.9s var(--ease) 0.15s both;
+  }
+  body[data-page="home"] .home-hero h1 b{
+    font-weight:600;
+    background:linear-gradient(180deg, #C9A074 0%, var(--gold) 50%, var(--gold-deep) 100%);
+    -webkit-background-clip:text;
+    background-clip:text;
+    -webkit-text-fill-color:transparent;
+  }
+  body[data-page="home"] .home-hero .month-pill{
+    display:inline-block;
+    background:transparent;
+    color:var(--ink-3);
+    font-size:10.5px;
+    letter-spacing:4px;
+    text-transform:uppercase;
+    padding:0;
+    margin-top:0;
+    opacity:0;
+    animation:heroIn 0.9s var(--ease) 0.35s both;
+  }
+  /* Decorative gold underline below hero */
+  body[data-page="home"] .home-hero::after{
+    content:'';
+    position:absolute;
+    left:50%;
+    bottom:36px;
+    transform:translateX(-50%) scaleX(0);
+    transform-origin:center;
+    width:80px;
+    height:1px;
+    background:linear-gradient(90deg, transparent 0%, var(--gold) 50%, transparent 100%);
+    animation:goldLineGrow 1s var(--ease) 0.55s forwards;
+  }
+  @keyframes heroIn{
+    from{ opacity:0; transform:translateY(14px); }
+    to  { opacity:1; transform:translateY(0); }
+  }
+  @keyframes goldLineGrow{
+    to{ transform:translateX(-50%) scaleX(1); }
+  }
+
+  /* ---------- TILE GRID — hairline frame on white ---------- */
+  body[data-page="home"] .tile-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
+    gap:1px;
+    background:var(--line);
+    padding:0;
+    margin:0 48px 64px;
+    border:1px solid var(--line);
+    box-sizing:border-box;
+    max-width:calc(100% - 96px);
+  }
+  @media (max-width:900px){
+    body[data-page="home"] .tile-grid{
+      margin:0 24px 48px;
+      max-width:calc(100% - 48px);
+    }
+  }
+
+  /* ---------- TILE BASE ---------- */
+  body[data-page="home"] .tile{
+    position:relative;
+    background:var(--bg-2);
+    color:var(--ink);
+    text-decoration:none;
+    padding:34px 28px 28px;
+    min-height:200px;
+    display:flex;
+    flex-direction:column;
+    border:none;
+    border-radius:0;
+    box-shadow:none;
+    overflow:hidden;
+    isolation:isolate;
+    transition:
+      background 0.5s var(--ease),
+      transform 0.5s var(--ease),
+      box-shadow 0.5s var(--ease),
+      color 0.5s var(--ease);
+    opacity:0;
+    animation:tileIn 0.7s var(--ease) both;
+  }
+  /* Staggered entry — wave across the grid */
+  body[data-page="home"] .tile:nth-child(1){ animation-delay:0.55s; }
+  body[data-page="home"] .tile:nth-child(2){ animation-delay:0.60s; }
+  body[data-page="home"] .tile:nth-child(3){ animation-delay:0.65s; }
+  body[data-page="home"] .tile:nth-child(4){ animation-delay:0.70s; }
+  body[data-page="home"] .tile:nth-child(5){ animation-delay:0.75s; }
+  body[data-page="home"] .tile:nth-child(6){ animation-delay:0.80s; }
+  body[data-page="home"] .tile:nth-child(7){ animation-delay:0.85s; }
+  body[data-page="home"] .tile:nth-child(8){ animation-delay:0.90s; }
+  body[data-page="home"] .tile:nth-child(9){ animation-delay:0.95s; }
+  body[data-page="home"] .tile:nth-child(10){ animation-delay:1.00s; }
+  body[data-page="home"] .tile:nth-child(11){ animation-delay:1.05s; }
+  body[data-page="home"] .tile:nth-child(12){ animation-delay:1.10s; }
+  body[data-page="home"] .tile:nth-child(13){ animation-delay:1.15s; }
+  body[data-page="home"] .tile:nth-child(14){ animation-delay:1.20s; }
+  body[data-page="home"] .tile:nth-child(15){ animation-delay:1.25s; }
+  body[data-page="home"] .tile:nth-child(16){ animation-delay:1.30s; }
+  body[data-page="home"] .tile:nth-child(17){ animation-delay:1.35s; }
+  body[data-page="home"] .tile:nth-child(18){ animation-delay:1.40s; }
+  body[data-page="home"] .tile:nth-child(19){ animation-delay:1.45s; }
+  @keyframes tileIn{
+    from{ opacity:0; transform:translateY(18px); }
+    to  { opacity:1; transform:translateY(0); }
+  }
+
+  /* Gold accent line at top-left, grows on hover */
+  body[data-page="home"] .tile::before{
+    content:'';
+    position:absolute;
+    left:28px;
+    top:0;
+    width:32px;
+    height:2px;
+    background:linear-gradient(90deg, var(--gold) 0%, var(--gold-light) 100%);
+    transition:width 0.55s var(--ease);
+    z-index:2;
+  }
+  /* Soft warm wash that fades in on hover */
+  body[data-page="home"] .tile::after{
+    content:'';
+    position:absolute;
+    inset:-1px;
+    background:radial-gradient(circle at 50% 0%, rgba(189,149,104,0.10) 0%, transparent 60%);
+    opacity:0;
+    transition:opacity 0.5s var(--ease);
+    pointer-events:none;
+    z-index:0;
+  }
+  body[data-page="home"] .tile > *{ position:relative; z-index:1; }
+
+  body[data-page="home"] .tile .num{
+    font-family:Cambria, Georgia, serif;
+    font-size:11px;
+    color:var(--gold);
+    font-weight:700;
+    letter-spacing:3px;
+    margin-bottom:14px;
+    transition:color 0.4s var(--ease), letter-spacing 0.4s var(--ease);
+  }
+  body[data-page="home"] .tile .label{
+    font-family:Cambria, Georgia, serif;
+    font-size:17px;
+    font-weight:600;
+    color:var(--ink);
+    margin:0 0 12px;
+    text-transform:uppercase;
+    letter-spacing:1.5px;
+    line-height:1.3;
+    transition:color 0.4s var(--ease);
+  }
+  body[data-page="home"] .tile .desc{
+    font-family:Cambria, Georgia, serif;
+    font-size:12.5px;
+    color:var(--ink-2);
+    line-height:1.6;
+    flex:1;
+    font-style:italic;
+    transition:color 0.4s var(--ease);
+  }
+  body[data-page="home"] .tile .arrow{
+    margin-top:18px;
+    align-self:flex-start;
+    font-size:18px;
+    color:var(--gold);
+    font-weight:300;
+    background:none;
+    width:auto; height:auto;
+    border-radius:0;
+    box-shadow:none;
+    display:inline-block;
+    transform:translateX(0);
+    transition:transform 0.5s var(--ease), color 0.4s var(--ease);
+  }
+
+  /* ---------- TILE HOVER → warm cream wash + gold text ---------- */
+  body[data-page="home"] .tile:hover{
+    background:var(--bg-3);
+    transform:translateY(-4px);
+    box-shadow:
+      0 24px 48px rgba(26,24,21,0.10),
+      0 8px 20px rgba(189,149,104,0.18);
+    z-index:3;
+  }
+  body[data-page="home"] .tile:hover::before{
+    width:calc(100% - 56px);
+  }
+  body[data-page="home"] .tile:hover::after{
+    opacity:1;
+  }
+  body[data-page="home"] .tile:hover .num{
+    letter-spacing:4px;
+    color:var(--gold-deep);
+  }
+  body[data-page="home"] .tile:hover .label{
+    color:var(--gold-deep);
+  }
+  body[data-page="home"] .tile:hover .desc{
+    color:var(--gold);
+  }
+  body[data-page="home"] .tile:hover .arrow{
+    transform:translateX(10px);
+    color:var(--gold-deep);
+  }
+
+  /* "Selected" click state — gentle highlight before the page navigates away */
+  body[data-page="home"] .tile.tile-selected{
+    background:var(--bg-3);
+    transform:translateY(-4px) scale(0.998);
+    box-shadow:
+      0 0 0 1px var(--gold),
+      0 30px 60px rgba(26,24,21,0.15),
+      0 12px 30px rgba(189,149,104,0.30);
+  }
+  body[data-page="home"] .tile.tile-selected::before{
+    width:calc(100% - 56px);
+  }
+
+  /* ---------- FOOTER — keep dark for elegant book-end ---------- */
+  body[data-page="home"] footer{
+    background:var(--topbar-bg);
+    color:rgba(255,255,255,0.78);
+    padding:34px 36px;
+    border-top:1px solid rgba(189,149,104,0.35);
+    text-align:center;
+    font-size:11px;
+    letter-spacing:0.6px;
+    line-height:1.7;
+  }
+  body[data-page="home"] footer img.logo-footer{
+    height:38px;
+    margin:0 auto 14px;
+    opacity:0.95;
+    filter:brightness(1.05);
+  }
+  body[data-page="home"] footer div{
+    color:rgba(255,255,255,0.55);
+  }
+
+  /* ---------- Print + reduced-motion ---------- */
+  @media print{
+    body[data-page="home"]{ background:#fff; color:#000; }
+    body[data-page="home"] .tile{ background:#fff; color:#000; border:1px solid #ccc; }
+    body[data-page="home"] .topbar,
+    body[data-page="home"] footer{ background:#fff !important; color:#000 !important; }
+  }
+  @media (prefers-reduced-motion: reduce){
+    body[data-page="home"],
+    body[data-page="home"] .tile,
+    body[data-page="home"] .home-hero h1,
+    body[data-page="home"] .home-hero .month-pill,
+    body[data-page="home"] .home-hero::after{ animation:none !important; opacity:1 !important; transform:none !important; }
+  }
+
+  /* ============ GROUPED HOME REDESIGN ============ */
+  body[data-page="home"] .home-hero{ padding:58px 32px 24px; }
+  body[data-page="home"] .home-hero .tagline{
+    display:block; font-size:10.5px; letter-spacing:5px; text-transform:uppercase;
+    font-weight:700; color:var(--gold-deep); margin:0 0 14px;
+  }
+  body[data-page="home"] .home-hero .lede{
+    max-width:640px; margin:20px auto 0; font-size:13px; line-height:1.7;
+    color:var(--ink-2); font-style:italic;
+  }
+  body[data-page="home"] .home-hero::after{ display:none; }
+
+  body[data-page="home"] .tile-sections{ flex:1 0 auto; padding:8px 48px 56px; }
+  @media (max-width:900px){ body[data-page="home"] .tile-sections{ padding:8px 24px 40px; } }
+  body[data-page="home"] .tile-section{ margin:0 0 36px; }
+  body[data-page="home"] .tile-section:last-child{ margin-bottom:8px; }
+  body[data-page="home"] .tile-section-head{ display:flex; align-items:center; gap:16px; margin:0 0 14px; }
+  body[data-page="home"] .tile-section-head .lbl{
+    font-size:12px; letter-spacing:3px; text-transform:uppercase; font-weight:700;
+    color:var(--gold-deep); white-space:nowrap;
+  }
+  body[data-page="home"] .tile-section-head .rule{
+    flex:1; height:1px; background:linear-gradient(90deg, var(--gold) 0%, var(--line) 90%);
+  }
+  body[data-page="home"] .tile-section-head .count{
+    font-size:10px; letter-spacing:2px; color:var(--ink-3); text-transform:uppercase; white-space:nowrap;
+  }
+  body[data-page="home"] .tile-section .tile-grid{
+    margin:0; max-width:none;
+    grid-template-columns:repeat(auto-fit, minmax(238px, 1fr));
+  }
+  body[data-page="home"] .tile .ghost{
+    position:absolute; right:12px; bottom:-18px; z-index:0;
+    font-family:Cambria, Georgia, serif; font-weight:700; font-size:88px; line-height:1;
+    color:var(--gold); opacity:0.10; pointer-events:none; letter-spacing:-3px;
+    transition:opacity 0.5s var(--ease), color 0.5s var(--ease);
+  }
+  body[data-page="home"] .tile:hover .ghost{ opacity:0.16; color:var(--gold-light); }
+
+  /* ---- Slightly larger content type (layout unchanged) ---- */
+  body[data-page="home"] .home-hero .tagline{ font-size:11.5px; }
+  body[data-page="home"] .home-hero .month-pill{ font-size:11.5px; }
+  body[data-page="home"] .tile-section-head .lbl{ font-size:13px; }
+  body[data-page="home"] .tile-section-head .count{ font-size:11px; }
+  body[data-page="home"] .tile .num{ font-size:12px; }
+  body[data-page="home"] .tile .label{ font-size:19px; }
+  body[data-page="home"] .tile .desc{ font-size:14px; }
+
+  /* ---- Section headings removed — flatten all tiles into one aligned grid ---- */
+  body[data-page="home"] .tile-sections{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(238px, 1fr));
+    gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+    margin:6px 48px 56px;
+    padding:0;
+    max-width:none;
+  }
+  @media (max-width:900px){
+    body[data-page="home"] .tile-sections{ margin:6px 24px 40px; }
+  }
+  body[data-page="home"] .tile-section{ display:contents; }
+  body[data-page="home"] .tile-section .tile-grid{ display:contents; }
+  body[data-page="home"] .tile-section-head{ display:none; }
+</style>
+</head>
+<body class="view-mode" data-page="home">
+
+<div class="topbar">
+  <div class="brand">
+    <img class="logo" src="centricity-logo.png" alt="Centricity — Together Forward"/>
+    <span class="divider"></span>
+    <span class="title">MONTHLY PARTNER ENGAGEMENT</span>
+  </div>
+  <div class="actions">
+    <span>Reporting Month</span>
+    <input type="month" id="reportMonth" value="2026-05"/>
+    <button id="editBtn" onclick="toggleEdit()">✎ Edit Mode</button>
+    <button onclick="window.print()">🖨 Print</button>
+    <button onclick="saveLocal()">💾 Save</button>
+    <button onclick="resetAll()" title="Restore defaults">↺</button>
+  </div>
+</div>
+
+<div class="home-hero">
+  <span class="tagline">Together Forward</span>
+  <h1>MONTHLY <b>PARTNER ENGAGEMENT</b></h1>
+  <div class="month-pill" id="monthPill">Reporting Month — May 2026</div>
+</div>
+
+<div class="tile-sections">
+
+  <div class="tile-section">
+    <div class="tile-section-head"><span class="lbl">Markets &amp; Macro</span><span class="rule"></span><span class="count">01–03</span></div>
+    <div class="tile-grid">
+      <a class="tile" href="01-market-outlook.html"><span class="ghost">01</span><div class="num">01</div><div class="label">Market Outlook</div><div class="desc">Geopolitical drivers, macro indicators, equity / debt / commodity outlook</div><div class="arrow">→</div></a>
+      <a class="tile" href="02-valuations.html"><span class="ghost">02</span><div class="num">02</div><div class="label">Valuations</div><div class="desc">Nifty 50, Midcap 150, Smallcap 250 — P/E, P/B, Div Yield with verdicts</div><div class="arrow">→</div></a>
+      <a class="tile" href="03-earnings.html"><span class="ghost">03</span><div class="num">03</div><div class="label">Earnings &amp; Sensex</div><div class="desc">How earnings cycles drive market performance across FY phases</div><div class="arrow">→</div></a>
+    </div>
+  </div>
+
+  <div class="tile-section">
+    <div class="tile-section-head"><span class="lbl">Industry Pulse</span><span class="rule"></span><span class="count">04–06</span></div>
+    <div class="tile-grid">
+      <a class="tile" href="04-mf-industry.html"><span class="ghost">04</span><div class="num">04</div><div class="label">MF Industry</div><div class="desc">SIP inflows, total AUM, sub-asset class breakdown</div><div class="arrow">→</div></a>
+      <a class="tile" href="05-pms-industry.html"><span class="ghost">05</span><div class="num">05</div><div class="label">PMS Industry</div><div class="desc">AUM trend, client base, observations on positioning</div><div class="arrow">→</div></a>
+      <a class="tile" href="06-aif-industry.html"><span class="ghost">06</span><div class="num">06</div><div class="label">AIF Industry</div><div class="desc">Commitments, deployment, category mix, growth trend</div><div class="arrow">→</div></a>
+    </div>
+  </div>
+
+  <div class="tile-section">
+    <div class="tile-section-head"><span class="lbl">The Firm &amp; Tools</span><span class="rule"></span><span class="count">07–08</span></div>
+    <div class="tile-grid">
+      <a class="tile" href="07-about-centricity.html"><span class="ghost">07</span><div class="num">07</div><div class="label">About Centricity</div><div class="desc">4PK framework, what we provide, and what's coming next</div><div class="arrow">→</div></a>
+      <a class="tile" href="08-sales-tools.html"><span class="ghost">08</span><div class="num">08</div><div class="label">Sales Tools</div><div class="desc">Quick Invest · Asset Allocation · What-If · Goal Simulation</div><div class="arrow">→</div></a>
+    </div>
+  </div>
+
+  <div class="tile-section">
+    <div class="tile-section-head"><span class="lbl">Focused Products</span><span class="rule"></span><span class="count">09–18</span></div>
+    <div class="tile-grid">
+      <a class="tile" href="09-focused-mutual-funds.html"><span class="ghost">09</span><div class="num">09</div><div class="label">Focused Mutual Funds</div><div class="desc">Performance tables — Equity and Debt schemes</div><div class="arrow">→</div></a>
+      <a class="tile" href="10-focused-debt-pms.html"><span class="ghost">10</span><div class="num">10</div><div class="label">Focused Debt PMS</div><div class="desc">Neo Yield Enhancer · Sundaram F.I.R.S.T.</div><div class="arrow">→</div></a>
+      <a class="tile" href="11-focused-equity-pms.html"><span class="ghost">11</span><div class="num">11</div><div class="label">Focused Equity PMS</div><div class="desc">Buoyant Opportunities · Carnelian Shift</div><div class="arrow">→</div></a>
+      <a class="tile" href="12-cat2-debt-aifs.html"><span class="ghost">12</span><div class="num">12</div><div class="label">Cat II Debt AIFs</div><div class="desc">Neo Infra Income Opportunities II · Mosaic Multiyield Series I</div><div class="arrow">→</div></a>
+      <a class="tile" href="13-cat2-equity-aifs.html"><span class="ghost">13</span><div class="num">13</div><div class="label">Cat II Equity AIFs</div><div class="desc">InCred Growth Partners II · 360 ONE Early Stage Series I</div><div class="arrow">→</div></a>
+      <a class="tile" href="14-cat3-equity-aifs.html"><span class="ghost">14</span><div class="num">14</div><div class="label">Cat III Equity AIFs</div><div class="desc">Alchemy LTV 3 · Buoyant Cat III · Emkay Emerging Stars VII</div><div class="arrow">→</div></a>
+      <a class="tile" href="15-gift-city.html"><span class="ghost">15</span><div class="num">15</div><div class="label">GIFT City Funds</div><div class="desc">Outbound and Inbound — Retail and Non-Retail</div><div class="arrow">→</div></a>
+      <a class="tile" href="16-fds-bonds.html"><span class="ghost">16</span><div class="num">16</div><div class="label">FDs &amp; Bonds</div><div class="desc">Shriram FD rates · Curated bond options</div><div class="arrow">→</div></a>
+      <a class="tile" href="17-unlisted-equity.html"><span class="ghost">17</span><div class="num">17</div><div class="label">Unlisted Equity</div><div class="desc">Market size, drivers, and HNI demand for pre-listing assets</div><div class="arrow">→</div></a>
+      <a class="tile" href="18-unlisted-options.html"><span class="ghost">18</span><div class="num">18</div><div class="label">Unlisted Options</div><div class="desc">SBI AMC · Orbis · PPFAS · Goodluck Defence · ESDS</div><div class="arrow">→</div></a>
+    </div>
+  </div>
+
+  <div class="tile-section">
+    <div class="tile-section-head"><span class="lbl">Engagement &amp; Analytics</span><span class="rule"></span><span class="count">19–20</span></div>
+    <div class="tile-grid">
+      <a class="tile" href="20-drawdowns.html"><span class="ghost">19</span><div class="num">19</div><div class="label">Fund Drawdowns</div><div class="desc">Capital-call (commitment) schedules for AIF &amp; SIF structures, per the reckoner</div><div class="arrow">→</div></a>
+      <a class="tile" href="19-partner-quiz.html"><span class="ghost">20</span><div class="num">20</div><div class="label">Partner Quiz</div><div class="desc">5-question engagement check for partner meetings</div><div class="arrow">→</div></a>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <img class="logo-footer" src="centricity-logo.png" alt="Centricity — Together Forward"/>
+  <div>This material is intended for informational purposes only and does not constitute investment advice or a research report as defined under the SEBI (Research Analyst) Regulations, 2014. The views expressed are not tailored to any specific investor(s). Past performance is not indicative of future results. Investment products and market outlooks are subject to risks, including potential loss of principal. Investors should independently evaluate all information and consult their financial advisor before making any investment decisions. Data and information used in this post are sourced on as is basis from publicly available information and third-party reports/sites. Centricity (including its affiliates, directors, and employees) assumes no liability for any loss arising from the use of this material.</div>
+  <div style="margin-top:8px">Centricity Advisory Services Private Limited | Registered Office: 203B, 2nd Floor, Tower B, Global Business Park, DLF QE, Gurgaon, Haryana, India, 122002<br/>CIN: U67190HR2022PTC104568 | SEBI Registered Investment Adviser No. INA000018559</div>
+</footer>
+
+<script src="dashboard-script.js"></script>
+</body>
+</html>

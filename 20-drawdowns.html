@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>19 · Fund Drawdowns — Centricity</title>
+<meta name="viewport" content="width=1280"/>
+<link rel="stylesheet" href="dashboard-style.css"/>
+<link rel="stylesheet" href="pastel-theme.css"/>
+</head>
+<body class="view-mode pastel" data-page="20-drawdowns">
+
+<div class="topbar">
+  <div class="brand">
+    <img class="logo" src="centricity-logo.png" alt="Centricity — Together Forward"/>
+    <span class="divider"></span>
+    <span class="title">19 · FUND DRAWDOWNS</span>
+  </div>
+  <div class="actions">
+    <a class="back-btn" href="Monthly_Partner_Engagement_Dashboard.html">← Home</a>
+    <button id="editBtn" onclick="toggleEdit()">✎ Edit Mode</button>
+    <button onclick="window.print()">🖨 Print</button>
+    <button onclick="saveLocal()">💾 Save</button>
+    <button onclick="resetAll()" title="Restore defaults">↺</button>
+  </div>
+</div>
+
+<section>
+  <div class="section-head"><h2>19 · Fund Drawdown Schedules</h2></div>
+
+  <div style="overflow-x:auto">
+  <table>
+    <thead style="background:#000;color:#fff"><tr>
+      <th style="background:#000;color:#fff;width:34%">Fund</th>
+      <th style="background:#000;color:#fff">Drawdown — capital-call / commitment schedule</th>
+    </tr></thead>
+    <tbody>
+
+      <tr style="background:#000;color:#fff"><td colspan="2" style="padding:7px 10px;letter-spacing:1.5px;text-transform:uppercase;font-size:11px;border-color:#000"><b>① Equity AIFs · Category III</b></td></tr>
+      <tr><td>Motilal Oswal Founders Fund Series VII</td><td>25% initial, followed by 3 drawdowns of 25% each — at the discretion of the IM</td></tr>
+      <tr><td>Carnelian Bharat Amritkaal Fund</td><td>Initial 30%, balance in two equal tranches over a period of ~8 months</td></tr>
+      <tr><td>Buoyant Capital – Opportunities Strategy</td><td>100% upfront</td></tr>
+      <tr><td>ICICI Prudential Alpha Opportunities</td><td>100% upfront</td></tr>
+      <tr><td>SageOne Flagship Growth OE Fund (Scheme 3)</td><td>100%</td></tr>
+      <tr><td>Alchemy Leaders of Tomorrow</td><td>100% upfront</td></tr>
+      <tr><td>Alchemy Long Term Ventures Fund Series 3</td><td>50% initial, then 4 equal tranches of 25% each</td></tr>
+      <tr><td>Karma Capital Jasmine Fund</td><td>100% upfront</td></tr>
+      <tr><td>Emkay Emerging Stars Fund Series VII</td><td>₹20 lakh drawn by March 2026, then four quarterly tranches of ₹20 lakh thereafter</td></tr>
+      <tr><td>Vedartha India Opportunities Fund – Series 1</td><td>Initial 25%, balance in 3 equal tranches (Aug-26, Nov-26 &amp; Feb-27)</td></tr>
+
+      <tr style="background:#000;color:#fff"><td colspan="2" style="padding:7px 10px;letter-spacing:1.5px;text-transform:uppercase;font-size:11px;border-color:#000"><b>② Equity AIFs · Category II (PE-VC)</b></td></tr>
+      <tr><td>InCred Growth Partners Fund II</td><td>17.5% initial; balance called in stages until Dec 2027</td></tr>
+      <tr><td>360 ONE Early-Stage Fund Series I</td><td>35% initial; balance in 18 months</td></tr>
+      <tr><td>Campus Fund III</td><td>10% initial; a further 10–15% each June &amp; December until 2028</td></tr>
+      <tr><td>Bharat Value Fund Series IV</td><td>Initial 10%; balance 90% in 8–9 months</td></tr>
+      <tr><td>Singularity Fund of Funds II (SFoF II)</td><td>Initial drawdown 40% (minimum commitment ₹1 Cr)</td></tr>
+      <tr><td>ValueQuest S.C.A.L.E. Fund II</td><td>Initial 30%; second 30% within 9–10 months; final balance within 6–8 months after the second</td></tr>
+
+      <tr style="background:#000;color:#fff"><td colspan="2" style="padding:7px 10px;letter-spacing:1.5px;text-transform:uppercase;font-size:11px;border-color:#000"><b>③ Debt AIFs · Category III · Short Term</b></td></tr>
+      <tr><td>Northern Arc Money Market Alpha Fund</td><td>100% upfront</td></tr>
+      <tr><td>Vivriti Short Term Debt Fund</td><td>100% upfront</td></tr>
+
+      <tr style="background:#000;color:#fff"><td colspan="2" style="padding:7px 10px;letter-spacing:1.5px;text-transform:uppercase;font-size:11px;border-color:#000"><b>④ Debt AIFs · Category II · Medium–Long Term</b></td></tr>
+      <tr><td>Mosaic Multiyield Fund Series I</td><td>100%</td></tr>
+      <tr><td>UTI Structured Debt Fund Series IV</td><td>50% initial investment, balance by final close</td></tr>
+      <tr><td>Neo Special Credit Opportunities Fund II / IIA</td><td>35% initial, 15–20% every quarter; final close by Mar 2027 (5–6 drawdowns)</td></tr>
+      <tr><td>Neo Infra Income Opportunities Fund II</td><td>5% initial</td></tr>
+      <tr><td>Sundaram Performing Credit Opportunities Fund I</td><td>25% × 4 instalments over ~12 months</td></tr>
+
+      <tr style="background:#000;color:#fff"><td colspan="2" style="padding:7px 10px;letter-spacing:1.5px;text-transform:uppercase;font-size:11px;border-color:#000"><b>⑤ Hybrid · SIF (Specialised Investment Fund)</b></td></tr>
+      <tr><td>Edelweiss Altiva Hybrid Long Short Fund</td><td>100%</td></tr>
+      <tr><td>Tata Titanium Hybrid Long Short Fund</td><td>100%</td></tr>
+
+      <tr style="background:#000;color:#fff"><td colspan="2" style="padding:7px 10px;letter-spacing:1.5px;text-transform:uppercase;font-size:11px;border-color:#000"><b>⑥ Hybrid · Category III AIF</b></td></tr>
+      <tr><td>Kotak Optimus Fund (Aggressive · 80:20)</td><td>100% upfront</td></tr>
+      <tr><td>Kotak Optimus Fund (Moderate · 50:50)</td><td>100% upfront</td></tr>
+
+    </tbody>
+  </table>
+  </div>
+
+  <div class="footer-src">Source: Centricity Investment Reckoner — May 2026 (per-fund one-pagers). “Drawdown” is reproduced as the capital-call / commitment schedule stated in the reckoner and is not a measure of investment loss. Funds without a stated drawdown field (mutual funds, PMS, and a few AIFs) are not listed. Investments in AIFs/SIFs are subject to liquidity, valuation and regulatory risks.</div>
+</section>
+
+<footer>
+  <img class="logo-footer" src="centricity-logo.png" alt="Centricity — Together Forward"/>
+  <div>This material is intended for informational purposes only and does not constitute investment advice or a research report as defined under the SEBI (Research Analyst) Regulations, 2014. The views expressed are not tailored to any specific investor(s). Past performance is not indicative of future results. Investment products and market outlooks are subject to risks, including potential loss of principal. Investors should independently evaluate all information and consult their financial advisor before making any investment decisions. Data and information used in this post are sourced on as is basis from publicly available information and third-party reports/sites. Centricity (including its affiliates, directors, and employees) assumes no liability for any loss arising from the use of this material.</div>
+  <div style="margin-top:8px">Centricity Advisory Services Private Limited | Registered Office: 203B, 2nd Floor, Tower B, Global Business Park, DLF QE, Gurgaon, Haryana, India, 122002<br/>CIN: U67190HR2022PTC104568 | SEBI Registered Investment Adviser No. INA000018559</div>
+</footer>
+
+<script src="dashboard-script.js"></script>
+</body>
+</html>

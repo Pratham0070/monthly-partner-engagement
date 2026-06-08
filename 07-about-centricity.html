@@ -1,0 +1,706 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>07 · About Centricity</title>
+<meta name="viewport" content="width=1280"/>
+<link rel="stylesheet" href="dashboard-style.css"/>
+<link rel="stylesheet" href="pastel-theme.css"/>
+<style>
+  /* =========================================================
+     PAGE 07 · ABOUT CENTRICITY — elevated layout
+     Page-scoped CSS. Dark theme palette inherited.
+     ========================================================= */
+
+  body[data-page="07-about-centricity"] section{ padding:0 0 64px; }
+
+  /* ---------- HERO ---------- */
+  body[data-page="07-about-centricity"] .about-hero{
+    padding:88px 56px 72px;
+    text-align:center;
+    position:relative;
+    background:
+      radial-gradient(ellipse 900px 480px at 50% 0%, rgba(189,149,104,0.10) 0%, transparent 65%),
+      linear-gradient(180deg, rgba(189,149,104,0.04) 0%, transparent 100%);
+    border-bottom:1px solid var(--line);
+    margin-bottom:64px;
+    opacity:0;
+    animation:aboutFadeIn 0.8s var(--ease) 0.1s forwards;
+  }
+  @keyframes aboutFadeIn{ from{opacity:0; transform:translateY(10px);} to{opacity:1; transform:translateY(0);} }
+
+  body[data-page="07-about-centricity"] .about-eyebrow{
+    font-family:Cambria, Georgia, serif;
+    font-size:11px;
+    letter-spacing:5px;
+    color:var(--gold-light);
+    text-transform:uppercase;
+    font-weight:700;
+    margin-bottom:24px;
+  }
+  body[data-page="07-about-centricity"] .about-wordmark{
+    font-family:Cambria, Georgia, serif;
+    font-size:64px;
+    font-weight:300;
+    letter-spacing:10px;
+    color:var(--cream);
+    margin:0 0 24px;
+    line-height:1.1;
+    text-transform:uppercase;
+  }
+  body[data-page="07-about-centricity"] .about-wordmark b{
+    font-weight:600;
+    background:linear-gradient(180deg, #E2BB87 0%, var(--gold) 50%, #9A7949 100%);
+    -webkit-background-clip:text;
+    background-clip:text;
+    -webkit-text-fill-color:transparent;
+    display:inline-block;
+  }
+  body[data-page="07-about-centricity"] .about-tagline{
+    font-family:Cambria, Georgia, serif;
+    font-size:16px;
+    color:var(--text-2);
+    max-width:680px;
+    margin:0 auto 32px;
+    line-height:1.7;
+    font-style:italic;
+    letter-spacing:0.3px;
+  }
+  body[data-page="07-about-centricity"] .about-meta{
+    display:inline-block;
+    font-size:10.5px;
+    letter-spacing:4px;
+    color:var(--text-3);
+    text-transform:uppercase;
+    padding:0;
+    position:relative;
+  }
+  body[data-page="07-about-centricity"] .about-meta::before,
+  body[data-page="07-about-centricity"] .about-meta::after{
+    content:'';
+    position:absolute;
+    top:50%;
+    width:48px;
+    height:1px;
+    background:linear-gradient(90deg, transparent 0%, var(--gold) 100%);
+  }
+  body[data-page="07-about-centricity"] .about-meta::before{ right:calc(100% + 16px); }
+  body[data-page="07-about-centricity"] .about-meta::after{
+    left:calc(100% + 16px);
+    background:linear-gradient(90deg, var(--gold) 0%, transparent 100%);
+  }
+
+  /* ---------- THREE PILLARS ---------- */
+  body[data-page="07-about-centricity"] .pillars{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+    margin:0 56px 72px;
+  }
+  body[data-page="07-about-centricity"] .pillar{
+    background:var(--bg-card);
+    padding:48px 36px 40px;
+    position:relative;
+    text-align:center;
+    transition:background 0.5s var(--ease);
+  }
+  body[data-page="07-about-centricity"] .pillar:hover{
+    background:var(--bg-card-hover);
+  }
+  body[data-page="07-about-centricity"] .pillar-num{
+    font-family:Cambria, Georgia, serif;
+    font-size:11px;
+    letter-spacing:4px;
+    color:var(--gold);
+    font-weight:700;
+    margin-bottom:24px;
+    text-transform:uppercase;
+  }
+  body[data-page="07-about-centricity"] .pillar-icon{
+    font-size:42px;
+    margin:0 0 22px;
+    line-height:1;
+    filter:grayscale(0.1);
+    transition:transform 0.5s var(--ease);
+  }
+  body[data-page="07-about-centricity"] .pillar:hover .pillar-icon{
+    transform:translateY(-4px) scale(1.05);
+  }
+  body[data-page="07-about-centricity"] .pillar h3{
+    font-family:Cambria, Georgia, serif;
+    font-size:20px;
+    font-weight:400;
+    color:var(--cream);
+    margin:0 0 16px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    border:none;
+    padding:0;
+    display:block;
+    transition:color 0.4s var(--ease);
+  }
+  body[data-page="07-about-centricity"] .pillar h3::before{ display:none; }
+  body[data-page="07-about-centricity"] .pillar:hover h3{ color:var(--gold-light); }
+  body[data-page="07-about-centricity"] .pillar p{
+    font-size:13px;
+    color:var(--text-2);
+    line-height:1.7;
+    max-width:280px;
+    margin:0 auto;
+    transition:color 0.4s var(--ease);
+  }
+  body[data-page="07-about-centricity"] .pillar:hover p{ color:var(--text-1); }
+  body[data-page="07-about-centricity"] .pillar p b{
+    display:block;
+    color:var(--gold-light);
+    font-weight:600;
+    font-style:italic;
+    margin-bottom:8px;
+    font-size:13.5px;
+    transition:color 0.4s var(--ease);
+  }
+
+  /* ---------- STATS BAND — monumental numbers ---------- */
+  body[data-page="07-about-centricity"] .stats-band{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    margin:0 56px 80px;
+    padding:48px 0;
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+    position:relative;
+    background:
+      radial-gradient(ellipse 800px 240px at 50% 50%, rgba(189,149,104,0.05) 0%, transparent 70%);
+  }
+  body[data-page="07-about-centricity"] .stat{
+    text-align:center;
+    padding:0 24px;
+    position:relative;
+    transition:transform 0.4s var(--ease);
+  }
+  body[data-page="07-about-centricity"] .stat:hover{ transform:translateY(-3px); }
+  body[data-page="07-about-centricity"] .stat:not(:last-child)::after{
+    content:'';
+    position:absolute;
+    right:0; top:25%;
+    width:1px;
+    height:50%;
+    background:var(--line);
+  }
+  body[data-page="07-about-centricity"] .stat-num{
+    font-family:Cambria, Georgia, serif;
+    font-size:54px;
+    font-weight:300;
+    letter-spacing:-1px;
+    line-height:1;
+    background:linear-gradient(180deg, #E2BB87 0%, var(--gold) 60%, #9A7949 100%);
+    -webkit-background-clip:text;
+    background-clip:text;
+    -webkit-text-fill-color:transparent;
+    margin-bottom:14px;
+  }
+  body[data-page="07-about-centricity"] .stat-lbl{
+    font-family:Cambria, Georgia, serif;
+    font-size:10.5px;
+    color:var(--text-3);
+    letter-spacing:3px;
+    text-transform:uppercase;
+    font-weight:600;
+  }
+
+  /* ---------- 4PK FRAMEWORK ---------- */
+  body[data-page="07-about-centricity"] .pk-section{
+    padding:0 56px;
+    margin-bottom:80px;
+  }
+  body[data-page="07-about-centricity"] .pk-section-head{
+    text-align:center;
+    margin-bottom:48px;
+  }
+  body[data-page="07-about-centricity"] .pk-section-head .eyebrow{
+    font-family:Cambria, Georgia, serif;
+    font-size:10.5px;
+    letter-spacing:4px;
+    color:var(--gold-light);
+    text-transform:uppercase;
+    font-weight:700;
+    margin-bottom:14px;
+    display:block;
+  }
+  body[data-page="07-about-centricity"] .pk-section-head h2{
+    font-family:Cambria, Georgia, serif;
+    font-size:32px;
+    font-weight:300;
+    letter-spacing:4px;
+    color:var(--cream);
+    margin:0;
+    text-transform:uppercase;
+    line-height:1.2;
+  }
+  body[data-page="07-about-centricity"] .pk-section-head h2 b{
+    font-weight:600;
+    background:linear-gradient(180deg, #E2BB87 0%, var(--gold) 60%, #9A7949 100%);
+    -webkit-background-clip:text;
+    background-clip:text;
+    -webkit-text-fill-color:transparent;
+  }
+  body[data-page="07-about-centricity"] .pk-section-head .underline{
+    display:block;
+    width:80px;
+    height:1px;
+    background:linear-gradient(90deg, transparent 0%, var(--gold) 50%, transparent 100%);
+    margin:18px auto 0;
+  }
+  body[data-page="07-about-centricity"] .pk-grid-v2{
+    display:grid;
+    grid-template-columns:repeat(5, 1fr);
+    gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+  }
+  body[data-page="07-about-centricity"] .pk-cell{
+    background:var(--bg-card);
+    padding:36px 24px 32px;
+    position:relative;
+    text-align:center;
+    transition:background 0.5s var(--ease);
+  }
+  body[data-page="07-about-centricity"] .pk-cell:hover{ background:var(--bg-card-hover); }
+  body[data-page="07-about-centricity"] .pk-roman{
+    font-family:Cambria, Georgia, serif;
+    font-size:11px;
+    letter-spacing:3px;
+    color:var(--gold);
+    font-weight:700;
+    margin-bottom:14px;
+    text-transform:uppercase;
+  }
+  body[data-page="07-about-centricity"] .pk-title{
+    font-family:Cambria, Georgia, serif;
+    font-size:18px;
+    font-weight:600;
+    color:var(--gold-light);
+    margin:0 0 16px;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+    transition:color 0.4s var(--ease);
+  }
+  body[data-page="07-about-centricity"] .pk-cell:hover .pk-title{ color:#FFE6C2; }
+  body[data-page="07-about-centricity"] .pk-cell .underline{
+    display:block;
+    width:32px;
+    height:1px;
+    background:var(--gold);
+    margin:0 auto 16px;
+    transition:width 0.5s var(--ease);
+  }
+  body[data-page="07-about-centricity"] .pk-cell:hover .underline{ width:64px; }
+  body[data-page="07-about-centricity"] .pk-cell p{
+    font-size:12px;
+    color:var(--text-2);
+    line-height:1.65;
+    margin:0;
+    transition:color 0.4s var(--ease);
+  }
+  body[data-page="07-about-centricity"] .pk-cell:hover p{ color:var(--text-1); }
+
+  /* ---------- WHAT WE PROVIDE — icon-card grid ---------- */
+  body[data-page="07-about-centricity"] .provide-section{
+    padding:0 56px;
+    margin-bottom:80px;
+  }
+  body[data-page="07-about-centricity"] .provide-grid{
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+  }
+  body[data-page="07-about-centricity"] .provide-item{
+    background:var(--bg-card);
+    padding:26px 30px;
+    display:flex;
+    align-items:flex-start;
+    gap:20px;
+    transition:background 0.4s var(--ease);
+  }
+  body[data-page="07-about-centricity"] .provide-item:hover{ background:var(--bg-card-hover); }
+  body[data-page="07-about-centricity"] .provide-icon{
+    flex:0 0 36px;
+    width:36px;
+    height:36px;
+    border:1px solid var(--gold);
+    color:var(--gold-light);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-family:Cambria, Georgia, serif;
+    font-size:14px;
+    font-weight:600;
+    letter-spacing:0;
+    transition:background 0.4s var(--ease), color 0.4s var(--ease);
+  }
+  body[data-page="07-about-centricity"] .provide-item:hover .provide-icon{
+    background:var(--gold);
+    color:var(--bg-0);
+  }
+  body[data-page="07-about-centricity"] .provide-text{
+    flex:1;
+    font-family:Cambria, Georgia, serif;
+    font-size:13.5px;
+    color:var(--text-1);
+    line-height:1.6;
+    padding-top:6px;
+    transition:color 0.4s var(--ease);
+  }
+  body[data-page="07-about-centricity"] .provide-item:hover .provide-text{ color:var(--gold-light); }
+
+  /* ---------- COMING SOON — refined ---------- */
+  body[data-page="07-about-centricity"] .soon-section{
+    padding:0 56px;
+    margin-bottom:24px;
+  }
+  body[data-page="07-about-centricity"] .soon-grid-v2{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:18px;
+  }
+  body[data-page="07-about-centricity"] .soon-card{
+    background:var(--bg-card);
+    border:1px solid var(--line);
+    padding:36px 24px 30px;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+    transition:background 0.5s var(--ease), border-color 0.5s var(--ease), transform 0.5s var(--ease), box-shadow 0.5s var(--ease);
+  }
+  body[data-page="07-about-centricity"] .soon-card::before{
+    content:'';
+    position:absolute;
+    left:0; top:0; right:0;
+    height:2px;
+    background:linear-gradient(90deg, transparent 0%, var(--gold) 50%, transparent 100%);
+    transform:scaleX(0);
+    transition:transform 0.6s var(--ease);
+  }
+  body[data-page="07-about-centricity"] .soon-card:hover{
+    background:var(--bg-card-hover);
+    border-color:var(--gold);
+    transform:translateY(-4px);
+    box-shadow:0 18px 36px rgba(0,0,0,0.45), 0 4px 12px rgba(189,149,104,0.18);
+  }
+  body[data-page="07-about-centricity"] .soon-card:hover::before{ transform:scaleX(1); }
+  body[data-page="07-about-centricity"] .soon-badge{
+    display:inline-block;
+    background:transparent;
+    color:var(--gold-light);
+    border:1px solid var(--gold);
+    padding:3px 12px;
+    font-size:9px;
+    letter-spacing:2.5px;
+    font-weight:700;
+    text-transform:uppercase;
+    margin-bottom:18px;
+  }
+  body[data-page="07-about-centricity"] .soon-card h4{
+    font-family:Cambria, Georgia, serif;
+    font-size:18px;
+    font-weight:400;
+    color:var(--cream);
+    margin:0 0 6px;
+    letter-spacing:1px;
+    transition:color 0.4s var(--ease);
+  }
+  body[data-page="07-about-centricity"] .soon-card:hover h4{ color:var(--gold-light); }
+  body[data-page="07-about-centricity"] .soon-card .soon-cat{
+    font-family:Cambria, Georgia, serif;
+    font-size:10px;
+    color:var(--text-3);
+    letter-spacing:2.5px;
+    text-transform:uppercase;
+    margin:0;
+    transition:color 0.4s var(--ease);
+  }
+  body[data-page="07-about-centricity"] .soon-card:hover .soon-cat{ color:var(--gold); }
+
+  /* ---------- Section eyebrows for in-page transitions ---------- */
+  body[data-page="07-about-centricity"] .section-eyebrow{
+    text-align:center;
+    margin-bottom:48px;
+  }
+  body[data-page="07-about-centricity"] .section-eyebrow .eyebrow{
+    font-family:Cambria, Georgia, serif;
+    font-size:10.5px;
+    letter-spacing:4px;
+    color:var(--gold-light);
+    text-transform:uppercase;
+    font-weight:700;
+    margin-bottom:14px;
+    display:block;
+  }
+  body[data-page="07-about-centricity"] .section-eyebrow h2{
+    font-family:Cambria, Georgia, serif;
+    font-size:28px;
+    font-weight:300;
+    letter-spacing:4px;
+    color:var(--cream);
+    margin:0;
+    text-transform:uppercase;
+    line-height:1.2;
+  }
+  body[data-page="07-about-centricity"] .section-eyebrow .underline{
+    display:block;
+    width:64px;
+    height:1px;
+    background:linear-gradient(90deg, transparent 0%, var(--gold) 50%, transparent 100%);
+    margin:18px auto 0;
+  }
+
+  /* ---------- STAGGERED ENTRY ---------- */
+  body[data-page="07-about-centricity"] .pillar,
+  body[data-page="07-about-centricity"] .stat,
+  body[data-page="07-about-centricity"] .pk-cell,
+  body[data-page="07-about-centricity"] .provide-item,
+  body[data-page="07-about-centricity"] .soon-card{
+    opacity:0;
+    animation:cellIn 0.7s var(--ease) both;
+  }
+  body[data-page="07-about-centricity"] .pillar:nth-child(1){ animation-delay:0.25s; }
+  body[data-page="07-about-centricity"] .pillar:nth-child(2){ animation-delay:0.35s; }
+  body[data-page="07-about-centricity"] .pillar:nth-child(3){ animation-delay:0.45s; }
+  body[data-page="07-about-centricity"] .stat:nth-child(1){ animation-delay:0.30s; }
+  body[data-page="07-about-centricity"] .stat:nth-child(2){ animation-delay:0.38s; }
+  body[data-page="07-about-centricity"] .stat:nth-child(3){ animation-delay:0.46s; }
+  body[data-page="07-about-centricity"] .stat:nth-child(4){ animation-delay:0.54s; }
+  body[data-page="07-about-centricity"] .pk-cell:nth-child(1){ animation-delay:0.30s; }
+  body[data-page="07-about-centricity"] .pk-cell:nth-child(2){ animation-delay:0.38s; }
+  body[data-page="07-about-centricity"] .pk-cell:nth-child(3){ animation-delay:0.46s; }
+  body[data-page="07-about-centricity"] .pk-cell:nth-child(4){ animation-delay:0.54s; }
+  body[data-page="07-about-centricity"] .pk-cell:nth-child(5){ animation-delay:0.62s; }
+  body[data-page="07-about-centricity"] .provide-item:nth-child(1){ animation-delay:0.28s; }
+  body[data-page="07-about-centricity"] .provide-item:nth-child(2){ animation-delay:0.34s; }
+  body[data-page="07-about-centricity"] .provide-item:nth-child(3){ animation-delay:0.40s; }
+  body[data-page="07-about-centricity"] .provide-item:nth-child(4){ animation-delay:0.46s; }
+  body[data-page="07-about-centricity"] .provide-item:nth-child(5){ animation-delay:0.52s; }
+  body[data-page="07-about-centricity"] .provide-item:nth-child(6){ animation-delay:0.58s; }
+  body[data-page="07-about-centricity"] .soon-card:nth-child(1){ animation-delay:0.30s; }
+  body[data-page="07-about-centricity"] .soon-card:nth-child(2){ animation-delay:0.38s; }
+  body[data-page="07-about-centricity"] .soon-card:nth-child(3){ animation-delay:0.46s; }
+  body[data-page="07-about-centricity"] .soon-card:nth-child(4){ animation-delay:0.54s; }
+  @keyframes cellIn{
+    from{ opacity:0; transform:translateY(16px); }
+    to  { opacity:1; transform:translateY(0); }
+  }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width:1024px){
+    body[data-page="07-about-centricity"] .pillars{ grid-template-columns:1fr; }
+    body[data-page="07-about-centricity"] .stats-band{ grid-template-columns:repeat(2,1fr); gap:32px 0; }
+    body[data-page="07-about-centricity"] .stat:not(:last-child)::after{ display:none; }
+    body[data-page="07-about-centricity"] .pk-grid-v2{ grid-template-columns:repeat(2,1fr); }
+    body[data-page="07-about-centricity"] .provide-grid{ grid-template-columns:1fr; }
+    body[data-page="07-about-centricity"] .soon-grid-v2{ grid-template-columns:repeat(2,1fr); }
+    body[data-page="07-about-centricity"] .about-wordmark{ font-size:44px; letter-spacing:6px; }
+    body[data-page="07-about-centricity"] .stat-num{ font-size:42px; }
+  }
+  @media (max-width:680px){
+    body[data-page="07-about-centricity"] .pillars,
+    body[data-page="07-about-centricity"] .stats-band,
+    body[data-page="07-about-centricity"] .pk-section,
+    body[data-page="07-about-centricity"] .provide-section,
+    body[data-page="07-about-centricity"] .soon-section{ margin:0 24px 56px; padding-left:0; padding-right:0; }
+    body[data-page="07-about-centricity"] .about-hero{ padding:64px 24px 48px; }
+    body[data-page="07-about-centricity"] .stats-band{ grid-template-columns:1fr; }
+    body[data-page="07-about-centricity"] .soon-grid-v2{ grid-template-columns:1fr; }
+  }
+</style>
+</head>
+<body class="view-mode pastel" data-page="07-about-centricity">
+
+<div class="topbar">
+  <div class="brand">
+    <img class="logo" src="centricity-logo.png" alt="Centricity — Together Forward"/>
+    <span class="divider"></span>
+    <span class="title">07 · ABOUT CENTRICITY</span>
+  </div>
+  <div class="actions">
+    <a class="back-btn" href="Monthly_Partner_Engagement_Dashboard.html">← Home</a>
+    <button id="editBtn" onclick="toggleEdit()">✎ Edit Mode</button>
+    <button onclick="window.print()">🖨 Print</button>
+    <button onclick="saveLocal()">💾 Save</button>
+    <button onclick="resetAll()" title="Restore defaults">↺</button>
+  </div>
+</div>
+
+<section>
+
+  <!-- ===== HERO ===== -->
+  <div class="about-hero">
+    <div class="about-eyebrow">07 · About Centricity</div>
+    <h1 class="about-wordmark">Together <b>Forward</b></h1>
+    <p class="about-tagline">A wealth-tech firm building the future of advisory — empowering investment professionals with technology, deep domain expertise, and the trust of an institution.</p>
+    <div class="about-meta">Established 2022 · Centricity.co.in</div>
+  </div>
+
+  <!-- ===== THREE PILLARS ===== -->
+  <div class="pillars">
+    <div class="pillar">
+      <div class="pillar-num">I</div>
+      <div class="pillar-icon">🖥</div>
+      <h3>Platform</h3>
+      <p><b>Simple, Transparent &amp; Cost-Effective.</b>A technology-enabled platform built for investment professionals — managing client portfolios with clarity, efficiency and zero complexity.</p>
+    </div>
+    <div class="pillar">
+      <div class="pillar-num">II</div>
+      <div class="pillar-icon">💡</div>
+      <h3>Expertise</h3>
+      <p><b>Decades of Domain Knowledge.</b>Deep experience in wealth management — we understand the real challenges investment professionals and their clients face, and build for them.</p>
+    </div>
+    <div class="pillar">
+      <div class="pillar-num">III</div>
+      <div class="pillar-icon">🎯</div>
+      <h3>Mission</h3>
+      <p><b>Empowering Financial Distributors.</b>Cutting-edge technology, domain expertise and personalised solutions to drive partner success in their wealth journey.</p>
+    </div>
+  </div>
+
+  <!-- ===== STATS BAND ===== -->
+  <div class="stats-band">
+    <div class="stat">
+      <div class="stat-num"><span contenteditable="true">18,000+</span></div>
+      <div class="stat-lbl">Distributors</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">₹<span contenteditable="true">12,000</span> Cr+</div>
+      <div class="stat-lbl">AUM</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num"><span contenteditable="true">80+</span></div>
+      <div class="stat-lbl">Branches Across India</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num"><span contenteditable="true">650+</span></div>
+      <div class="stat-lbl">Experts</div>
+    </div>
+  </div>
+
+  <!-- ===== 4PK FRAMEWORK ===== -->
+  <div class="pk-section">
+    <div class="pk-section-head">
+      <span class="eyebrow">Our Operating Framework</span>
+      <h2>Centricity's <b>4PK</b> Framework</h2>
+      <span class="underline"></span>
+    </div>
+    <div class="pk-grid-v2">
+      <div class="pk-cell">
+        <div class="pk-roman">P · I</div>
+        <div class="pk-title">Product</div>
+        <span class="underline"></span>
+        <p>Curated solutions across financial products to meet every client's need.</p>
+      </div>
+      <div class="pk-cell">
+        <div class="pk-roman">P · II</div>
+        <div class="pk-title">Platform</div>
+        <span class="underline"></span>
+        <p>Seamless digital platform that empowers scale and amplifies execution.</p>
+      </div>
+      <div class="pk-cell">
+        <div class="pk-roman">P · III</div>
+        <div class="pk-title">People</div>
+        <span class="underline"></span>
+        <p>650+ experts including Investment Counsellors and product specialists.</p>
+      </div>
+      <div class="pk-cell">
+        <div class="pk-roman">P · IV</div>
+        <div class="pk-title">Price</div>
+        <span class="underline"></span>
+        <p>Transparent, competitive and designed to maximise partners' value.</p>
+      </div>
+      <div class="pk-cell">
+        <div class="pk-roman">K</div>
+        <div class="pk-title">Knowledge</div>
+        <span class="underline"></span>
+        <p>Research, insights and training that keep you ahead of the market.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== WHAT WE PROVIDE ===== -->
+  <div class="provide-section">
+    <div class="section-eyebrow">
+      <span class="eyebrow">Partner Enablement</span>
+      <h2>What Centricity Provides You</h2>
+      <span class="underline"></span>
+    </div>
+    <div class="provide-grid">
+      <div class="provide-item">
+        <div class="provide-icon">01</div>
+        <div class="provide-text">Daily updates of market events and corporate actions</div>
+      </div>
+      <div class="provide-item">
+        <div class="provide-icon">02</div>
+        <div class="provide-text">Monthly Market Overview and Product Reckoners</div>
+      </div>
+      <div class="provide-item">
+        <div class="provide-icon">03</div>
+        <div class="provide-text">Monthly / Quarterly Portfolio Reviews</div>
+      </div>
+      <div class="provide-item">
+        <div class="provide-icon">04</div>
+        <div class="provide-text">Regular calls with industry experts and fund managers</div>
+      </div>
+      <div class="provide-item">
+        <div class="provide-icon">05</div>
+        <div class="provide-text">Daily SIF and Mutual Fund Monitor</div>
+      </div>
+      <div class="provide-item">
+        <div class="provide-icon">06</div>
+        <div class="provide-text">Training on new launches — GIFT City Funds, SIF, Kristal AI etc.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== COMING SOON ===== -->
+  <div class="soon-section">
+    <div class="section-eyebrow">
+      <span class="eyebrow">On the Horizon</span>
+      <h2>Coming Soon</h2>
+      <span class="underline"></span>
+    </div>
+    <div class="soon-grid-v2">
+      <div class="soon-card">
+        <span class="soon-badge">Coming</span>
+        <h4>OneSure Platform</h4>
+        <p class="soon-cat">Insurance</p>
+      </div>
+      <div class="soon-card">
+        <span class="soon-badge">Coming</span>
+        <h4>Trading Platform</h4>
+        <p class="soon-cat">Execution</p>
+      </div>
+      <div class="soon-card">
+        <span class="soon-badge">Coming</span>
+        <h4>Trusted Mode</h4>
+        <p class="soon-cat">Advisory</p>
+      </div>
+      <div class="soon-card">
+        <span class="soon-badge">Coming</span>
+        <h4>NBFC</h4>
+        <p class="soon-cat">Lending</p>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<footer>
+  <img class="logo-footer" src="centricity-logo.png" alt="Centricity — Together Forward"/>
+  <div>This material is intended for informational purposes only and does not constitute investment advice or a research report as defined under the SEBI (Research Analyst) Regulations, 2014. The views expressed are not tailored to any specific investor(s). Past performance is not indicative of future results. Investment products and market outlooks are subject to risks, including potential loss of principal. Investors should independently evaluate all information and consult their financial advisor before making any investment decisions. Data and information used in this post are sourced on as is basis from publicly available information and third-party reports/sites. Centricity (including its affiliates, directors, and employees) assumes no liability for any loss arising from the use of this material.</div>
+  <div style="margin-top:8px">Centricity Advisory Services Private Limited | Registered Office: 203B, 2nd Floor, Tower B, Global Business Park, DLF QE, Gurgaon, Haryana, India, 122002<br/>CIN: U67190HR2022PTC104568 | SEBI Registered Investment Adviser No. INA000018559</div>
+</footer>
+
+<script src="dashboard-script.js"></script>
+</body>
+</html>

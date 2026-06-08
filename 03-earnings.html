@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>03 · Earnings & Sensex — Centricity</title>
+<meta name="viewport" content="width=1280"/>
+<link rel="stylesheet" href="dashboard-style.css"/>
+<link rel="stylesheet" href="pastel-theme.css"/>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+</head>
+<body class="view-mode pastel" data-page="03-earnings">
+
+<div class="topbar">
+  <div class="brand">
+    <img class="logo" src="centricity-logo.png" alt="Centricity — Together Forward"/>
+    <span class="divider"></span>
+    <span class="title">03 · EARNINGS & SENSEX</span>
+  </div>
+  <div class="actions">
+    <a class="back-btn" href="Monthly_Partner_Engagement_Dashboard.html">← Home</a>
+    <button id="editBtn" onclick="toggleEdit()">✎ Edit Mode</button>
+    <button onclick="window.print()">🖨 Print</button>
+    <button onclick="saveLocal()">💾 Save</button>
+    <button onclick="resetAll()" title="Restore defaults">↺</button>
+  </div>
+</div>
+
+<section>
+  <div class="section-head"><h2>03 · Do Earnings Drive the Sensex? — Yes. Always.</h2><span class="src">Source: Motilal Oswal · Trendlyne</span></div>
+  <p>When companies earn more, the market goes up. When they don't — markets eventually correct.</p>
+
+  <div class="grid-4">
+    <div class="card">
+      <div class="ribbon">FY19–22</div>
+      <h4>Healthy ✓</h4>
+      <div class="big-num" contenteditable="true">10–12%</div>
+      <p class="muted">EPS growth / year. Sensex rose steadily. P/E stable at 18–22x. Textbook healthy market.</p>
+    </div>
+    <div class="card">
+      <div class="ribbon">FY22–24</div>
+      <h4>Bull Run ↑</h4>
+      <div class="big-num" contenteditable="true">24%</div>
+      <p class="muted">EPS CAGR — best in a decade. Sensex: 47,000 → 85,000. Earnings led the way.</p>
+    </div>
+    <div class="card">
+      <div class="ribbon">FY24–25</div>
+      <h4>Risky !</h4>
+      <div class="big-num" contenteditable="true">2–6%</div>
+      <p class="muted">EPS growth very weak. Sensex stayed near 85,000 supported by SIP/DII flows, not fundamentals.</p>
+    </div>
+    <div class="card">
+      <div class="ribbon">FY26+</div>
+      <h4>Wait & Watch ?</h4>
+      <div class="big-num" contenteditable="true">?</div>
+      <p class="muted">Market has priced in earnings recovery. If delivered → rally continues. If not → correction likely.</p>
+    </div>
+  </div>
+
+  <div class="grid-2" style="margin-top:24px">
+    <div class="card">
+      <h3>Sensex vs Earnings (Indexed)</h3>
+      <div class="chart-wrap"><canvas id="sensexEarnings" data-chart-type="line" data-series='{"labels":["FY19","FY20","FY21","FY22","FY23","FY24","FY25","FY26E"],"datasets":[{"label":"Sensex (Indexed)","data":[100,95,135,150,160,200,250,250],"borderColor":"#BD9568","backgroundColor":"rgba(189,149,104,0.15)","tension":0.35,"fill":true,"borderWidth":2},{"label":"Earnings (Indexed)","data":[100,90,120,135,160,200,210,225],"borderColor":"#000","backgroundColor":"rgba(0,0,0,0.05)","tension":0.35,"fill":false,"borderWidth":2,"borderDash":[5,4]}]}'></canvas></div>
+      <div class="footer-src">Illustrative — over the long term, Sensex movements closely follow corporate earnings growth.</div>
+    </div>
+    <div class="card">
+      <h3>Nifty 50 vs Earnings (Indexed)</h3>
+      <div class="chart-wrap"><canvas id="niftyEarnings" data-chart-type="line" data-series='{"labels":["FY19","FY20","FY21","FY22","FY23","FY24","FY25","FY26E"],"datasets":[{"label":"Nifty 50 (Indexed)","data":[100,98,140,155,162,205,255,255],"borderColor":"#BD9568","backgroundColor":"rgba(189,149,104,0.15)","tension":0.35,"fill":true,"borderWidth":2},{"label":"Earnings (Indexed)","data":[100,92,122,138,165,205,215,230],"borderColor":"#000","tension":0.35,"fill":false,"borderWidth":2,"borderDash":[5,4]}]}'></canvas></div>
+      <div class="footer-src">Despite short-term volatility, Nifty 50 broadly follows corporate earnings.</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <img class="logo-footer" src="centricity-logo.png" alt="Centricity — Together Forward"/>
+  <div>This material is intended for informational purposes only and does not constitute investment advice or a research report as defined under the SEBI (Research Analyst) Regulations, 2014. The views expressed are not tailored to any specific investor(s). Past performance is not indicative of future results. Investment products and market outlooks are subject to risks, including potential loss of principal. Investors should independently evaluate all information and consult their financial advisor before making any investment decisions. Data and information used in this post are sourced on as is basis from publicly available information and third-party reports/sites. Centricity (including its affiliates, directors, and employees) assumes no liability for any loss arising from the use of this material.</div>
+  <div style="margin-top:8px">Centricity Advisory Services Private Limited | Registered Office: 203B, 2nd Floor, Tower B, Global Business Park, DLF QE, Gurgaon, Haryana, India, 122002<br/>CIN: U67190HR2022PTC104568 | SEBI Registered Investment Adviser No. INA000018559</div>
+</footer>
+
+<script src="dashboard-script.js"></script>
+</body>
+</html>

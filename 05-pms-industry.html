@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>05 · PMS Industry — Centricity</title>
+<meta name="viewport" content="width=1280"/>
+<link rel="stylesheet" href="dashboard-style.css"/>
+<link rel="stylesheet" href="pastel-theme.css"/>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<style>
+  /* Page 05 · PMS Industry — chart presentation */
+  body[data-page="05-pms-industry"] .chart-wrap{ height:300px; }
+  body[data-page="05-pms-industry"] .card h3{ margin-bottom:6px; }
+  @media (max-width:680px){ body[data-page="05-pms-industry"] .chart-wrap{ height:250px; } }
+</style>
+</head>
+<body class="view-mode pastel" data-page="05-pms-industry">
+
+<div class="topbar">
+  <div class="brand">
+    <img class="logo" src="centricity-logo.png" alt="Centricity — Together Forward"/>
+    <span class="divider"></span>
+    <span class="title">05 · PMS INDUSTRY</span>
+  </div>
+  <div class="actions">
+    <a class="back-btn" href="Monthly_Partner_Engagement_Dashboard.html">← Home</a>
+    <button id="editBtn" onclick="toggleEdit()">✎ Edit Mode</button>
+    <button onclick="window.print()">🖨 Print</button>
+    <button onclick="saveLocal()">💾 Save</button>
+    <button onclick="resetAll()" title="Restore defaults">↺</button>
+  </div>
+</div>
+
+<section>
+  <div class="section-head"><h2>05 · PMS Industry Update</h2><span class="src">Source: SEBI / APMI — Jan-26 latest available</span></div>
+
+  <div class="kpi-row">
+    <div class="kpi"><div class="lbl">PMS AUM</div><div class="val">₹<span contenteditable="true">38</span> L Cr</div><div class="sub">As of 31-Mar-26 (EPFO + Non-EPFO)</div></div>
+    <div class="kpi"><div class="lbl">Total PMS Clients</div><div class="val"><span contenteditable="true">2,15,712</span></div><div class="sub">As of 31-Mar-26</div></div>
+    <div class="kpi"><div class="lbl">Min Ticket</div><div class="val">₹<span contenteditable="true">50</span> L</div><div class="sub">SEBI mandated minimum</div></div>
+    <div class="kpi"><div class="lbl">Typical Holdings</div><div class="val"><span contenteditable="true">15–25</span></div><div class="sub">Concentrated portfolios</div></div>
+  </div>
+
+  <div class="grid-2">
+    <div class="card">
+      <h3>PMS AUM Trend (₹ L Cr)</h3>
+      <div class="chart-wrap"><canvas id="pmsTrend" data-chart-type="line" data-series='{"labels":["Mar-21","Mar-22","Mar-23","Mar-24","Mar-25","Mar-26"],"datasets":[{"label":"PMS AUM (₹ L Cr)","data":[20.5,24.0,28.0,32.5,35.5,38.0],"borderColor":"#BD9568","backgroundColor":"rgba(189,149,104,0.2)","fill":true,"tension":0.35,"borderWidth":2}]}'></canvas></div>
+    </div>
+    <div class="card-tan">
+      <h3>Key Observations</h3>
+      <ul class="tight">
+        <li>PMS delivers concentrated portfolios (15–25 stocks) with wide performance dispersion — manager selection is critical.</li>
+        <li>Primarily a ₹50L+ HNI / UHNI product.</li>
+        <li>Facing increasing competition from Mutual Funds and AIFs.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <img class="logo-footer" src="centricity-logo.png" alt="Centricity — Together Forward"/>
+  <div>This material is intended for informational purposes only and does not constitute investment advice or a research report as defined under the SEBI (Research Analyst) Regulations, 2014. The views expressed are not tailored to any specific investor(s). Past performance is not indicative of future results. Investment products and market outlooks are subject to risks, including potential loss of principal. Investors should independently evaluate all information and consult their financial advisor before making any investment decisions. Data and information used in this post are sourced on as is basis from publicly available information and third-party reports/sites. Centricity (including its affiliates, directors, and employees) assumes no liability for any loss arising from the use of this material.</div>
+  <div style="margin-top:8px">Centricity Advisory Services Private Limited | Registered Office: 203B, 2nd Floor, Tower B, Global Business Park, DLF QE, Gurgaon, Haryana, India, 122002<br/>CIN: U67190HR2022PTC104568 | SEBI Registered Investment Adviser No. INA000018559</div>
+</footer>
+
+<script src="dashboard-script.js"></script>
+</body>
+</html>

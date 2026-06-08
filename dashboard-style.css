@@ -1,0 +1,210 @@
+:root{
+  --black:#000000;
+  --gold:#BD9568;
+  --tan:#DBC8B2;
+  --grey:#BFBFBF;
+  --lgrey:#D9D9D9;
+  --red:#931621;
+  --white:#FFFFFF;
+}
+
+/* ========== MOTION DISABLED — instant render, no entry / page / hover animations ========== */
+
+/* Cross-document View Transitions turned off so pages paint immediately. */
+@view-transition { navigation: none; }
+
+/* Neutralise every CSS animation & transition site-wide. Durations are forced to ~0
+   (rather than animation:none) so any element that fades in from opacity:0 still
+   reaches its visible end-state instantly instead of staying hidden. */
+*, *::before, *::after{
+  animation-duration: 1ms !important;
+  animation-delay: 0s !important;
+  transition-duration: 1ms !important;
+  transition-delay: 0s !important;
+}
+
+/* Navigation no longer fades the page out. */
+body.page-leaving{ pointer-events:none; }
+
+
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:#FFFFFF;color:#000;font-family:Cambria, Georgia, 'Times New Roman', serif;}
+body{font-size:14px;line-height:1.5}
+
+/* ---------- TOP BAR ---------- */
+.topbar{position:sticky;top:0;z-index:50;background:#000;color:#fff;display:flex;align-items:center;justify-content:space-between;padding:10px 24px;border-bottom:3px solid var(--gold)}
+.topbar .brand{display:flex;align-items:center;gap:16px;font-weight:bold;letter-spacing:1px}
+.topbar .brand img.logo{height:36px;width:auto;display:block}
+.topbar .brand .divider{width:1px;height:28px;background:var(--gold);opacity:0.6}
+.topbar .brand .title{font-size:13px;letter-spacing:1.5px}
+.topbar .actions{display:flex;gap:10px;align-items:center}
+.topbar select, .topbar button, .topbar a.back-btn{font-family:inherit;padding:6px 12px;border:1px solid var(--gold);background:#000;color:#fff;cursor:pointer;border-radius:2px;text-decoration:none;font-size:12px;letter-spacing:0.4px}
+.topbar button:hover, .topbar a.back-btn:hover{background:var(--gold);color:#000}
+.topbar button.active{background:var(--gold);color:#000}
+.topbar input[type="month"]{font-family:inherit;background:#000;color:#fff;border:1px solid var(--gold);padding:5px 8px}
+.topbar a.back-btn{background:var(--gold);color:#000;font-weight:bold}
+.topbar a.back-btn:hover{background:#fff;color:#000}
+
+/* Bottom-of-page Prev / Next navigation (sits just above the footer) */
+.page-nav{display:flex;justify-content:space-between;align-items:stretch;padding:24px 32px;gap:18px;background:#FAFAFA;border-top:1px solid var(--lgrey)}
+.nav-slot{flex:1;display:flex}
+.nav-slot-left{justify-content:flex-start}
+.nav-slot-right{justify-content:flex-end}
+.page-nav-btn{display:inline-flex;align-items:center;gap:14px;background:#fff;border:1px solid var(--lgrey);padding:14px 22px;text-decoration:none;color:#000;font-family:Cambria;transition:background 0.15s, border-color 0.15s, transform 0.15s, box-shadow 0.15s;min-width:260px;border-radius:2px}
+.page-nav-btn.prev{border-left:5px solid var(--gold)}
+.page-nav-btn.next{border-right:5px solid var(--gold);text-align:right;justify-content:flex-end}
+.page-nav-btn:hover{background:var(--tan);box-shadow:0 4px 14px rgba(0,0,0,0.1)}
+.page-nav-btn.prev:hover{border-left-color:#000;transform:translateX(-3px)}
+.page-nav-btn.next:hover{border-right-color:#000;transform:translateX(3px)}
+.nav-arrow{font-size:26px;color:var(--gold);font-weight:bold;line-height:1}
+.page-nav-btn:hover .nav-arrow{color:#000}
+.nav-info{display:flex;flex-direction:column;line-height:1.2}
+.page-nav-btn.next .nav-info{align-items:flex-end}
+.nav-lbl{font-size:10px;text-transform:uppercase;letter-spacing:1.5px;color:#777;font-weight:bold}
+.nav-ttl{font-size:14px;font-weight:bold;color:#000;margin-top:3px;letter-spacing:0.3px}
+@media (max-width:640px){
+  .page-nav{flex-direction:column;gap:12px}
+  .page-nav-btn{min-width:0;width:100%}
+}
+
+/* ---------- HOME HERO + TILES ---------- */
+.home-hero{background:linear-gradient(180deg,#000 0%, #1a1a1a 100%);color:#fff;padding:18px 32px 16px;text-align:center;border-bottom:2px solid var(--gold)}
+.home-hero h1{font-size:18px;letter-spacing:2.5px;margin:0 0 4px;font-weight:normal;color:#fff}
+.home-hero h1 b{color:#fff;font-weight:bold}
+.home-hero .month-pill{display:inline-block;background:transparent;color:#fff;padding:0;font-size:11px;font-weight:normal;letter-spacing:1.2px;margin-top:4px;border-radius:0}
+
+.tile-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;padding:32px;background:#FAFAFA}
+.tile{background:#fff;border:1px solid var(--lgrey);border-top:5px solid var(--gold);padding:22px;cursor:pointer;transition:transform 0.15s, box-shadow 0.15s, background 0.15s, border-color 0.15s;text-decoration:none;color:#000;display:flex;flex-direction:column;border-radius:2px;box-shadow:0 1px 3px rgba(0,0,0,0.04);min-height:140px}
+.tile:hover{background:var(--tan);transform:translateY(-3px);box-shadow:0 6px 18px rgba(189,149,104,0.35);border-top-color:#000}
+.tile .num{font-size:11px;color:var(--gold);font-weight:bold;letter-spacing:1.5px}
+.tile .label{font-size:15px;font-weight:bold;margin:8px 0 6px;text-transform:uppercase;letter-spacing:0.6px;line-height:1.25}
+.tile .desc{font-size:11.5px;color:#555;line-height:1.45;flex:1}
+.tile .arrow{margin-top:12px;font-size:15px;color:var(--gold);font-weight:bold;align-self:flex-end}
+.tile:hover .arrow{color:#000}
+
+/* ---------- SECTION ---------- */
+section{padding:28px 32px;border-bottom:1px solid var(--lgrey)}
+.section-head{background:#000;color:#fff;padding:12px 20px;margin:-28px -32px 22px -32px;display:flex;justify-content:space-between;align-items:center;letter-spacing:1.5px;text-transform:uppercase;font-weight:bold;border-left:6px solid var(--gold);flex-wrap:wrap;gap:10px}
+.section-head .src{font-size:11px;font-weight:normal;color:var(--tan);letter-spacing:0.5px;text-transform:none}
+h2{margin:0 0 6px 0;font-size:18px}
+h3{margin:22px 0 10px 0;font-size:15px;color:#000;border-bottom:2px solid var(--gold);padding-bottom:4px;display:inline-block}
+h4{margin:14px 0 6px 0;font-size:13px;letter-spacing:0.5px;text-transform:uppercase;color:#000}
+p{margin:6px 0}
+.muted{color:#555;font-size:12px}
+.footer-src{font-size:11px;color:#555;margin-top:10px;font-style:italic}
+
+/* ---------- KPI CARDS ---------- */
+.kpi-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin:14px 0}
+.kpi{
+  position:relative;
+  background:var(--tan);
+  border-left:5px solid var(--gold);
+  padding:14px 16px;
+  border-radius:2px;
+  transition:
+    transform 0.28s cubic-bezier(0.2, 0.7, 0.2, 1),
+    box-shadow 0.28s cubic-bezier(0.2, 0.7, 0.2, 1),
+    background 0.28s ease,
+    border-left-color 0.28s ease,
+    border-left-width 0.28s ease;
+  will-change:transform;
+}
+.kpi:hover{
+  background:#D4BFA3;
+  transform:translateY(-3px);
+  box-shadow:0 10px 22px rgba(189,149,104,0.32), 0 2px 4px rgba(0,0,0,0.05);
+  border-left-color:#000;
+  border-left-width:6px;
+}
+.kpi .lbl{font-size:11px;text-transform:uppercase;letter-spacing:1px;color:#000;opacity:0.85;transition:letter-spacing 0.3s ease, opacity 0.3s ease}
+.kpi:hover .lbl{letter-spacing:1.4px;opacity:1}
+.kpi .val{font-size:22px;font-weight:bold;margin-top:4px;transition:color 0.3s ease}
+.kpi .sub{font-size:11px;color:#333;margin-top:2px}
+.kpi.dark{background:#000;color:#fff;border-left-color:var(--gold)}
+.kpi.dark .lbl, .kpi.dark .sub{color:var(--tan)}
+.kpi.dark:hover{background:#1a1a1a;border-left-color:#FFE6BD;box-shadow:0 10px 22px rgba(0,0,0,0.35), 0 2px 4px rgba(189,149,104,0.2)}
+
+/* Compact 6-column × 2-row grid for 12 KPIs */
+.kpi-row.compact-12{grid-template-columns:repeat(6,1fr);gap:10px;margin:14px 0}
+.kpi-row.compact-12 .kpi{padding:12px 12px;border-left-width:4px}
+.kpi-row.compact-12 .kpi:hover{border-left-width:5px;transform:translateY(-2px);box-shadow:0 8px 18px rgba(189,149,104,0.32), 0 2px 4px rgba(0,0,0,0.05)}
+.kpi-row.compact-12 .kpi .lbl{font-size:10.5px;letter-spacing:0.6px;line-height:1.2;min-height:24px}
+.kpi-row.compact-12 .kpi .val{font-size:19px;margin-top:3px;line-height:1.1}
+.kpi-row.compact-12 .kpi .sub{font-size:10.5px;margin-top:3px;line-height:1.25;color:#333}
+@media (max-width:1024px){
+  .kpi-row.compact-12{grid-template-columns:repeat(4,1fr)}
+}
+@media (max-width:680px){
+  .kpi-row.compact-12{grid-template-columns:repeat(2,1fr)}
+}
+
+/* ---------- TABLES ---------- */
+table{width:100%;border-collapse:collapse;font-size:12px;margin-top:10px;background:#fff}
+th{background:#000;color:#fff;padding:8px 6px;text-align:left;font-weight:bold;border:1px solid #000;font-size:11px;letter-spacing:0.5px}
+td{padding:6px;border:1px solid var(--lgrey);vertical-align:top}
+tr:nth-child(even) td{background:#FAFAFA}
+td.num{text-align:right;font-variant-numeric:tabular-nums}
+td.neg{color:var(--red);font-weight:bold}
+td.pos{color:#1c6e3a}
+.tag{display:inline-block;padding:3px 10px;border-radius:12px;font-size:10px;font-weight:bold;letter-spacing:0.5px;text-transform:uppercase}
+.tag.fair{background:#1c6e3a;color:#fff}
+.tag.watch{background:var(--gold);color:#000}
+.tag.high{background:var(--red);color:#fff}
+
+/* ---------- LAYOUT GRIDS ---------- */
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.card{background:#fff;border:1px solid var(--lgrey);border-top:4px solid var(--gold);padding:14px;border-radius:2px}
+.card-tan{background:var(--tan);border:1px solid var(--gold);padding:14px;border-radius:2px}
+.card h3{margin-top:0}
+.chart-wrap{position:relative;height:280px}
+.chart-wrap.tall{height:340px}
+
+/* ---------- VALUATION CARDS ---------- */
+.val-card{border:1px solid var(--lgrey);padding:14px;background:#fff;border-top:5px solid var(--gold)}
+.val-card .title{font-weight:bold;font-size:13px;text-transform:uppercase;letter-spacing:0.5px}
+.val-card .desc{font-size:11px;color:#555;margin-bottom:8px}
+.val-card .nums{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:8px 0}
+.val-card .nums div{background:var(--lgrey);padding:6px;text-align:center;border-radius:2px}
+.val-card .nums .n{font-size:18px;font-weight:bold}
+.val-card .nums .l{font-size:10px;text-transform:uppercase;letter-spacing:1px}
+.val-card .verdict{font-size:12px;margin-top:8px;padding:8px;background:#FAFAFA;border-left:3px solid var(--gold)}
+
+/* ---------- 4PK ---------- */
+.pk-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:14px}
+.pk{background:#fff;border:1px solid var(--lgrey);border-top:4px solid var(--gold);padding:12px;text-align:left}
+.pk .pkt{font-weight:bold;text-transform:uppercase;letter-spacing:0.5px;color:var(--gold);font-size:12px}
+
+/* ---------- EDIT MODE ---------- */
+[contenteditable="true"]{background:#FFF8E7;outline:1px dashed var(--gold);cursor:text}
+span[contenteditable="true"]{padding:1px 4px}
+[contenteditable="true"]:focus{background:#FFEFBF;outline:2px solid var(--gold);position:relative;z-index:2}
+/* In view mode, suppress edit-styling only on elements that are explicitly editable (contenteditable="true").
+   Auto-marked elements (contenteditable="false") keep their normal styling, including <th> black headers. */
+body.view-mode [contenteditable="true"]{background:transparent;outline:none;padding:0;cursor:default}
+body:not(.view-mode) td[contenteditable="true"]:hover{background:#FFEFBF}
+
+/* ---------- BULLETS ---------- */
+ul.tight{margin:6px 0 6px 18px;padding:0}
+ul.tight li{margin:3px 0}
+
+/* ---------- FOOTER ---------- */
+footer{background:#000;color:#fff;padding:18px 32px;text-align:center;font-size:11px;letter-spacing:0.5px}
+footer img.logo-footer{height:32px;width:auto;display:block;margin:0 auto 8px}
+footer .gold{color:var(--gold)}
+
+/* ---------- TONE ---------- */
+.commentary{background:#FAFAFA;border-left:4px solid var(--gold);padding:10px 14px;margin:10px 0;font-size:13px;line-height:1.6}
+.ribbon{display:inline-block;background:var(--gold);color:#000;padding:2px 10px;font-size:10px;font-weight:bold;letter-spacing:1px;text-transform:uppercase;margin-right:8px}
+.soon-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:10px}
+.soon{background:var(--tan);padding:18px;text-align:center;border:1px dashed var(--gold);border-radius:2px}
+.soon .badge{display:inline-block;background:var(--gold);color:#000;padding:1px 8px;font-size:9px;letter-spacing:1px;font-weight:bold;margin-bottom:6px}
+.big-num{font-size:32px;font-weight:bold;color:#000;line-height:1}
+
+/* ---------- PRINT ---------- */
+@media print{
+  .topbar, .no-print{display:none !important}
+  body{font-size:11px}
+  .section-head{margin:-12px -16px 10px -16px}
+}
